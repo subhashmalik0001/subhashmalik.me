@@ -17,9 +17,15 @@ const Notification = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    socket.on("getNotification", (data: NotificationType) => {
+    const handleNotification = (data: NotificationType) => {
       setNotifications((prev) => [...prev, data]);
-    });
+    };
+
+    socket.on("getNotification", handleNotification);
+
+    return () => {
+      socket.off("getNotification", handleNotification);
+    };
   }, []);
 
   const router = useRouter();

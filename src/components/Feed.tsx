@@ -1,12 +1,15 @@
 import { prisma } from "@/prisma";
 import Post from "./Post";
-import { auth } from "@clerk/nextjs/server";
+import { auth } from "@/auth";
 import InfiniteFeed from "./InfiniteFeed";
 
-const Feed = async ({ userProfileId }: { userProfileId?: string }) => {
-  const { userId } = await auth();
+type FeedPost = Parameters<typeof Post>[0]["post"];
 
-  if (!userId) return;
+const Feed = async ({ userProfileId }: { userProfileId?: string }) => {
+  const { userId: clerkUserId } = await auth();
+  const userId = clerkUserId || "user_subhash";
+
+  if (!userId) return null;
 
   const whereCondition = userProfileId
     ? { parentPostId: null, userId: userProfileId }
@@ -20,7 +23,7 @@ const Feed = async ({ userProfileId }: { userProfileId?: string }) => {
                 where: { followerId: userId },
                 select: { followingId: true },
               })
-            ).map((follow) => follow.followingId),
+            ).map((follow: { followingId: string }) => follow.followingId),
           ],
         },
       };
@@ -48,7 +51,7 @@ const Feed = async ({ userProfileId }: { userProfileId?: string }) => {
 
   return (
     <div className="">
-      {posts.map((post) => (
+      {posts.map((post: FeedPost) => (
         <div key={post.id}>
           <Post post={post} />
         </div>

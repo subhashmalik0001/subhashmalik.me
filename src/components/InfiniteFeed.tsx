@@ -5,41 +5,40 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Post from "./Post";
 
 const fetchPosts = async (pageParam: number, userProfileId?: string) => {
-  const res = await fetch(
-    "http://localhost:3000/api/posts?cursor=" +
-      pageParam +
-      "&user=" +
-      userProfileId
-  );
+  const url = userProfileId
+    ? `/api/posts?cursor=${pageParam}&user=${userProfileId}`
+    : `/api/posts?cursor=${pageParam}`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error("Failed to fetch posts");
+  }
   return res.json();
 };
 
 const InfiniteFeed = ({ userProfileId }: { userProfileId?: string }) => {
   const { data, error, status, hasNextPage, fetchNextPage } = useInfiniteQuery({
-    queryKey: ["posts"],
+    queryKey: ["posts", userProfileId],
     queryFn: ({ pageParam = 2 }) => fetchPosts(pageParam, userProfileId),
     initialPageParam: 2,
     getNextPageParam: (lastPage, pages) =>
-      lastPage.hasMore ? pages.length + 2 : undefined,
+      lastPage?.hasMore ? pages.length + 2 : undefined,
   });
 
-  if (error) return "Something went wrong!";
-  if (status === "pending") return "Loading...";
+  if (error) return <div className="p-4 text-center text-textGray">Something went wrong!</div>;
+  if (status === "pending") return <div className="p-4 text-center text-textGray">Loading...</div>;
 
-  console.log(data);
-
-  const allPosts = data?.pages?.flatMap((page) => page.posts) || [];
+  const allPosts = data?.pages?.flatMap((page) => page?.posts || []) || [];
 
   return (
     <InfiniteScroll
       dataLength={allPosts.length}
       next={fetchNextPage}
       hasMore={!!hasNextPage}
-      loader={<h1>Posts are loading...</h1>}
-      endMessage={<h1>All posts loaded!</h1>}
+      loader={<h1 className="p-4 text-center text-textGray">Posts are loading...</h1>}
+      endMessage={<h1 className="p-4 text-center text-textGray">All posts loaded!</h1>}
     >
       {allPosts.map((post) => (
-        <Post key={post.id} post={post}/>
+        <Post key={post.id} post={post} />
       ))}
     </InfiniteScroll>
   );

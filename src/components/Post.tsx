@@ -1,4 +1,3 @@
-import { imagekit } from "@/utils";
 import Image from "./Image";
 import PostInfo from "./PostInfo";
 import PostInteractions from "./PostInteractions";
@@ -149,9 +148,9 @@ const Post = ({
             username={originalPost.user.username}
             postId={originalPost.id}
             count={originalPost._count}
-            isLiked={!!originalPost.likes.length}
-            isRePosted={!!originalPost.rePosts.length}
-            isSaved={!!originalPost.saves.length}
+            isLiked={!!originalPost.likes?.length}
+            isRePosted={!!originalPost.rePosts?.length}
+            isSaved={!!originalPost.saves?.length}
           />
         </div>
       </div>

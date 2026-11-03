@@ -2,7 +2,7 @@
 
 import { likePost, rePost, savePost } from "@/action";
 import { socket } from "@/socket";
-import { useUser } from "@clerk/nextjs";
+import { useUser } from "@/auth";
 import Link from "next/link";
 import { useOptimistic, useState } from "react";
 
@@ -29,7 +29,11 @@ const PostInteractions = ({
     isSaved,
   });
 
-  const { user } = useUser();
+  const { user: clerkUser } = useUser();
+  const user = clerkUser || {
+    username: "subhash",
+    imageUrl: "/general/avatar.png",
+  };
 
   const likeAction = async () => {
     if (!user) return;

@@ -1,68 +1,40 @@
 import Link from "next/link";
-import Image from "./Image";
+
+const trendingTopics = [
+  { category: "Technology · Trending", title: "#BuildInPublic", posts: "12.4K posts" },
+  { category: "Trending in India", title: "Hackathon", posts: "8,241 posts" },
+  { category: "Technology · Trending", title: "Next.js", posts: "5,890 posts" },
+  { category: "Technology · Trending", title: "React 19", posts: "3,421 posts" },
+];
 
 const PopularTags = () => {
   return (
-    <div className="p-4 rounded-2xl border-[1px] border-borderGray flex flex-col gap-4">
-      <h1 className="text-xl font-bold text-textGrayLight">
-        {"What's"} Happening
-      </h1>
-      {/* TREND EVENT */}
-      <div className="flex gap-4">
-        <div className="relative w-20 h-20 rounded-xl overflow-hidden">
-          <Image
-            path="general/event.png"
-            alt="event"
-            w={120}
-            h={120}
-            tr={true}
-          />
+    <div className="rounded-2xl border border-borderGray bg-black">
+      <h2 className="px-4 pt-3 pb-2 text-[20px] font-extrabold leading-6 text-textGrayLight">
+        {"What's"} happening
+      </h2>
+      {trendingTopics.map((topic, i) => (
+        <div
+          key={i}
+          className="px-4 py-3 hover:bg-surfaceHover transition-colors cursor-pointer"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-[13px] text-textGray leading-4">{topic.category}</span>
+            <svg viewBox="0 0 24 24" className="w-[18.75px] h-[18.75px] fill-textGray">
+              <path d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
+            </svg>
+          </div>
+          <h3 className="text-[15px] font-bold text-textGrayLight leading-5 mt-0.5">
+            {topic.title}
+          </h3>
+          <span className="text-[13px] text-textGray leading-4">{topic.posts}</span>
         </div>
-        <div className="flex-1">
-          <h2 className="font-bold text-textGrayLight">
-            Nadal v Federer Grand Slam
-          </h2>
-          <span className="text-sm text-textGray">Last Night</span>
-        </div>
-      </div>
-      {/* TOPICS */}
-      <div className="">
-        <div className="flex items-center justify-between">
-          <span className="text-textGray text-sm">Technology • Trending</span>
-          <Image path="icons/infoMore.svg" alt="info" w={16} h={16} />
-        </div>
-        <h2 className="text-textGrayLight font-bold">OpenAI</h2>
-        <span className="text-textGray text-sm">20K posts</span>
-      </div>
-      {/* TOPICS */}
-      <div className="">
-        <div className="flex items-center justify-between">
-          <span className="text-textGray text-sm">Technology • Trending</span>
-          <Image path="icons/infoMore.svg" alt="info" w={16} h={16} />
-        </div>
-        <h2 className="text-textGrayLight font-bold">OpenAI</h2>
-        <span className="text-textGray text-sm">20K posts</span>
-      </div>
-      {/* TOPICS */}
-      <div className="">
-        <div className="flex items-center justify-between">
-          <span className="text-textGray text-sm">Technology • Trending</span>
-          <Image path="icons/infoMore.svg" alt="info" w={16} h={16} />
-        </div>
-        <h2 className="text-textGrayLight font-bold">OpenAI</h2>
-        <span className="text-textGray text-sm">20K posts</span>
-      </div>
-      {/* TOPICS */}
-      <div className="">
-        <div className="flex items-center justify-between">
-          <span className="text-textGray text-sm">Technology • Trending</span>
-          <Image path="icons/infoMore.svg" alt="info" w={16} h={16} />
-        </div>
-        <h2 className="text-textGrayLight font-bold">OpenAI</h2>
-        <span className="text-textGray text-sm">20K posts</span>
-      </div>
-      <Link href="/" className="text-iconBlue">
-        Show More
+      ))}
+      <Link
+        href="/"
+        className="block px-4 py-3 text-[15px] text-[#1d9bf0] hover:bg-surfaceHover rounded-b-2xl transition-colors"
+      >
+        Show more
       </Link>
     </div>
   );

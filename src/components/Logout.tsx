@@ -1,9 +1,8 @@
 "use client";
 
-import { useClerk } from "@clerk/nextjs";
+import { useClerk } from "@/auth";
 import Link from "next/link";
 import { useState } from "react";
-import Image from "./Image";
 
 const Logout = () => {
   const [open, setOpen] = useState(false);
@@ -44,7 +43,7 @@ const Logout = () => {
           <hr />
           <button
             className="bg-black rounded-md px-2 py-1 "
-            onClick={() => signOut()}
+            onClick={() => (signOut ? signOut() : setOpen(false))}
           >
             Logout
           </button>

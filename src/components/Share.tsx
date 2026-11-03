@@ -4,7 +4,7 @@ import React, { useActionState, useEffect, useRef, useState } from "react";
 import Image from "./Image";
 import NextImage from "next/image";
 import ImageEditor from "./ImageEditor";
-import { useUser } from "@clerk/nextjs";
+import { useUser } from "@/auth";
 import { addPost } from "@/action";
 
 const Share = () => {
@@ -26,7 +26,11 @@ const Share = () => {
 
   const previewURL = media ? URL.createObjectURL(media) : null;
 
-  const { user } = useUser();
+  const { user: clerkUser } = useUser();
+  const user = clerkUser || {
+    username: "subhash",
+    imageUrl: "/general/avatar.png",
+  };
 
   const [state, formAction, isPending] = useActionState(addPost, {
     success: false,

@@ -9,16 +9,21 @@ export default function BoardLayout({
   modal: React.ReactNode;
 }>) {
   return (
-    <div className="max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl xxl:max-w-screen-xxl mx-auto flex justify-between">
-      <div className="px-2 xsm:px-4 xxl:px-8 ">
-        <LeftBar />
-      </div>
-      <div className="flex-1 lg:min-w-[600px] border-x-[1px] border-borderGray ">
-        {children}
-        {modal}
-      </div>
-      <div className="hidden lg:flex ml-4 md:ml-8 flex-1 ">
-        <RightBar />
+    <div className="min-h-screen bg-black text-[#E7E9EA]">
+      <div className="max-w-[1280px] mx-auto flex">
+        {/* LEFT SIDEBAR */}
+        <div className="hidden sm:flex flex-col items-end xl:items-start px-2 xxl:px-8 flex-shrink-0 w-[72px] xxl:w-[275px]">
+          <LeftBar />
+        </div>
+        {/* CENTER CONTENT */}
+        <div className="flex-1 max-w-[600px] min-w-0 border-x border-borderGray">
+          {children}
+          {modal}
+        </div>
+        {/* RIGHT SIDEBAR */}
+        <div className="hidden lg:flex ml-6 flex-shrink-0">
+          <RightBar />
+        </div>
       </div>
     </div>
   );

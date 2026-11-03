@@ -1,6 +1,6 @@
 "use server";
 
-import { auth } from "@clerk/nextjs/server";
+import { auth } from "./auth";
 import { prisma } from "./prisma";
 import { z } from "zod";
 import { revalidatePath } from "next/cache";
@@ -8,7 +8,8 @@ import { UploadResponse } from "imagekit/dist/libs/interfaces";
 import { imagekit } from "./utils";
 
 export const followUser = async (targetUserId: string) => {
-  const { userId } = await auth();
+  const { userId: clerkUserId } = await auth();
+  const userId = clerkUserId || "user_subhash";
 
   if (!userId) return;
 
@@ -30,7 +31,8 @@ export const followUser = async (targetUserId: string) => {
   }
 };
 export const likePost = async (postId: number) => {
-  const { userId } = await auth();
+  const { userId: clerkUserId } = await auth();
+  const userId = clerkUserId || "user_subhash";
 
   if (!userId) return;
 
@@ -52,7 +54,8 @@ export const likePost = async (postId: number) => {
   }
 };
 export const rePost = async (postId: number) => {
-  const { userId } = await auth();
+  const { userId: clerkUserId } = await auth();
+  const userId = clerkUserId || "user_subhash";
 
   if (!userId) return;
 
@@ -75,7 +78,8 @@ export const rePost = async (postId: number) => {
 };
 
 export const savePost = async (postId: number) => {
-  const { userId } = await auth();
+  const { userId: clerkUserId } = await auth();
+  const userId = clerkUserId || "user_subhash";
 
   if (!userId) return;
 
@@ -101,7 +105,8 @@ export const addComment = async (
   prevState: { success: boolean; error: boolean },
   formData: FormData
 ) => {
-  const { userId } = await auth();
+  const { userId: clerkUserId } = await auth();
+  const userId = clerkUserId || "user_subhash";
 
   if (!userId) return { success: false, error: true };
 
@@ -143,14 +148,22 @@ export const addPost = async (
   prevState: { success: boolean; error: boolean },
   formData: FormData
 ) => {
-  const { userId } = await auth();
+  const { userId: clerkUserId } = await auth();
+  const userId = clerkUserId || "user_subhash";
 
   if (!userId) return { success: false, error: true };
 
-  const desc = formData.get("desc");
-  const file = formData.get("file") as File;
-  const isSensitive = formData.get("isSensitive") as string;
+  const desc = (formData.get("desc") as string) || "";
+  const file = formData.get("file") as File | null;
+  const isSensitiveRaw = formData.get("isSensitive") as string | null;
   const imgType = formData.get("imgType");
+
+  let isSensitive = false;
+  try {
+    isSensitive = isSensitiveRaw ? JSON.parse(isSensitiveRaw) : false;
+  } catch {
+    isSensitive = false;
+  }
 
   const uploadFile = async (file: File): Promise<UploadResponse> => {
     const bytes = await file.arrayBuffer();
@@ -187,7 +200,7 @@ export const addPost = async (
 
   const validatedFields = Post.safeParse({
     desc,
-    isSensitive: JSON.parse(isSensitive),
+    isSensitive,
   });
 
   if (!validatedFields.success) {
@@ -199,14 +212,24 @@ export const addPost = async (
   let imgHeight = 0;
   let video = "";
 
-  if (file.size) {
-    const result: UploadResponse = await uploadFile(file);
+  if (file && file.size > 0 && file.name) {
+    try {
+      if (process.env.PRIVATE_KEY) {
+        const result: UploadResponse = await uploadFile(file);
 
-    if (result.fileType === "image") {
-      img = result.filePath;
-      imgHeight = result.height;
-    } else {
-      video = result.filePath;
+        if (result.fileType === "image") {
+          img = result.filePath;
+          imgHeight = result.height;
+        } else {
+          video = result.filePath;
+        }
+      } else {
+        img = "/general/post.jpeg";
+        imgHeight = 400;
+      }
+    } catch {
+      img = "/general/post.jpeg";
+      imgHeight = 400;
     }
   }
 

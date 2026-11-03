@@ -2,9 +2,7 @@ import type { Config } from "tailwindcss";
 
 export default {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -17,13 +15,26 @@ export default {
         xxl: "1265px",
       },
       colors: {
-        textGray: "#71767b",
-        textGrayLight: "#e7e9ea",
-        borderGray: "#2f3336",
+        textGray: "#71767B",
+        textGrayLight: "#E7E9EA",
+        borderGray: "#2F3336",
         inputGray: "#202327",
+        surfaceHover: "#16181C",
         iconBlue: "#1d9bf0",
         iconGreen: "#00ba7c",
         iconPink: "#f91880",
+      },
+      fontFamily: {
+        chirp: [
+          "TwitterChirp",
+          "-apple-system",
+          "system-ui",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica",
+          "Arial",
+          "sans-serif",
+        ],
       },
     },
   },

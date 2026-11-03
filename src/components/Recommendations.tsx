@@ -1,59 +1,58 @@
+"use client";
+
 import Link from "next/link";
-import Image from "./Image";
-import { prisma } from "@/prisma";
-import { auth } from "@clerk/nextjs/server";
+import { MOCK_RECOMMENDATIONS } from "@/mockData";
+import { useState } from "react";
 
-const Recommendations = async () => {
-  const { userId } = await auth();
+const Recommendations = () => {
+  return (
+    <div className="rounded-2xl border border-borderGray bg-black">
+      <h2 className="px-4 pt-3 pb-2 text-[20px] font-extrabold leading-6 text-textGrayLight">
+        You might like
+      </h2>
+      {MOCK_RECOMMENDATIONS.map((person) => (
+        <RecommendationCard key={person.id} person={person} />
+      ))}
+      <Link
+        href="/"
+        className="block px-4 py-3 text-[15px] text-[#1d9bf0] hover:bg-surfaceHover rounded-b-2xl transition-colors"
+      >
+        Show more
+      </Link>
+    </div>
+  );
+};
 
-  if (!userId) return;
-
-  const followingIds = await prisma.follow.findMany({
-    where: { followerId: userId },
-    select: { followingId: true },
-  });
-
-  const followedUserIds = followingIds.map((f) => f.followingId);
-
-  const friendRecommendations = await prisma.user.findMany({
-    where: {
-      id: { not: userId, notIn: followedUserIds },
-      followings: { some: { followerId: { in: followedUserIds } } },
-    },
-    take: 3,
-    select: { id: true, displayName: true, username: true, img: true },
-  });
+const RecommendationCard = ({ person }: { person: { id: string; displayName: string; username: string; img: string | null } }) => {
+  const [isFollowing, setIsFollowing] = useState(false);
 
   return (
-    <div className="p-4 rounded-2xl border-[1px] border-borderGray flex flex-col gap-4">
-      {friendRecommendations.map((person) => (
-        <div className="flex items-center justify-between" key={person.id}>
-          {/* IMAGE AND USER INFO */}
-          <div className="flex items-center gap-2">
-            <div className="relative rounded-full overflow-hidden w-10 h-10">
-              <Image
-                path={person.img || "general/noAvatar.png"}
-                alt={person.username}
-                w={100}
-                h={100}
-                tr={true}
-              />
-            </div>
-            <div className="">
-              <h1 className="text-md font-bold">{person.displayName || person.username}</h1>
-              <span className="text-textGray text-sm">@{person.username}</span>
-            </div>
-          </div>
-          {/* BUTTON */}
-          <button className="py-1 px-4 font-semibold bg-white text-black rounded-full">
-            Follow
-          </button>
+    <div className="px-4 py-3 flex items-center justify-between hover:bg-surfaceHover transition-colors cursor-pointer">
+      <div className="flex items-center gap-3 min-w-0 flex-1">
+        <img
+          src={person.img || "/general/noAvatar.png"}
+          alt=""
+          className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+        />
+        <div className="min-w-0">
+          <h3 className="text-[15px] font-bold text-textGrayLight truncate leading-5">
+            {person.displayName}
+          </h3>
+          <span className="text-[13px] text-textGray leading-4">
+            @{person.username}
+          </span>
         </div>
-      ))}
-
-      <Link href="/" className="text-iconBlue">
-        Show More
-      </Link>
+      </div>
+      <button
+        onClick={() => setIsFollowing(!isFollowing)}
+        className={`ml-3 px-4 py-[6px] rounded-full text-sm font-bold transition-colors flex-shrink-0 ${
+          isFollowing
+            ? "bg-transparent border border-borderGray text-textGrayLight hover:border-red-500 hover:text-red-500"
+            : "bg-textGrayLight text-black hover:bg-[#D7DBDC]"
+        }`}
+      >
+        {isFollowing ? "Following" : "Follow"}
+      </button>
     </div>
   );
 };

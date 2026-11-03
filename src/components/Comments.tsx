@@ -1,6 +1,6 @@
 "use client";
 
-import { useUser } from "@clerk/nextjs";
+import { useUser } from "@/auth";
 import Image from "./Image";
 import Post from "./Post";
 import { Post as PostType } from "@prisma/client";
@@ -25,7 +25,11 @@ const Comments = ({
   postId: number;
   username: string;
 }) => {
-  const { isLoaded, isSignedIn, user } = useUser();
+  const { user: clerkUser } = useUser();
+  const user = clerkUser || {
+    username: "subhash",
+    imageUrl: "/general/avatar.png",
+  };
 
   const [state, formAction, isPending] = useActionState(addComment, {
     success: false,

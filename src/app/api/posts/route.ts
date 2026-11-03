@@ -1,21 +1,27 @@
 import { prisma } from "@/prisma";
-import { auth } from "@clerk/nextjs/server";
+import { auth } from "@/auth";
 import { NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
 
   const userProfileId = searchParams.get("user");
-  const page = searchParams.get("cursor");
+  const page = searchParams.get("cursor") || "1";
   const LIMIT = 3;
 
-  const { userId } = await auth();
+  const { userId: clerkUserId } = await auth();
+  const userId = clerkUserId || "user_subhash";
 
-  if (!userId) return;
+  if (!userId) {
+    return new Response(JSON.stringify({ error: "Unauthorized" }), {
+      status: 401,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
   const whereCondition =
-    userProfileId !== "undefined"
-      ? { parentPostId: null, userId: userProfileId as string }
+    userProfileId && userProfileId !== "undefined"
+      ? { parentPostId: null, userId: userProfileId }
       : {
           parentPostId: null,
           userId: {
@@ -26,7 +32,7 @@ export async function GET(request: NextRequest) {
                   where: { followerId: userId },
                   select: { followingId: true },
                 })
-              ).map((follow) => follow.followingId),
+              ).map((follow: { followingId: string }) => follow.followingId),
             ],
           },
         };
@@ -48,15 +54,13 @@ export async function GET(request: NextRequest) {
       ...postIncludeQuery,
     },
     take: LIMIT,
-    skip: (Number(page) - 1) * LIMIT,
-    orderBy: { createdAt: "desc" }
+    skip: (Math.max(1, Number(page)) - 1) * LIMIT,
+    orderBy: { createdAt: "desc" },
   });
 
   const totalPosts = await prisma.post.count({ where: whereCondition });
 
   const hasMore = Number(page) * LIMIT < totalPosts;
-
-  // await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return Response.json({ posts, hasMore });
 }
