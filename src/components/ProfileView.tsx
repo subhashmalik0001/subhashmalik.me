@@ -1,3 +1,4 @@
+import ProfileContent from "@/components/ProfileContent";
 import Feed from "@/components/Feed";
 import Image from "@/components/Image";
 import ProfileTabs from "@/components/ProfileTabs";
@@ -195,13 +196,8 @@ export default async function ProfileView({
         </div>
       </div>
 
-      {/* PROFILE TABS */}
-      <ProfileTabs />
-
-      {/* FEED (Projects, Achievements, Experience, Posts) */}
-      <div id="projects">
-        <Feed userProfileId={user.id} />
-      </div>
+      {/* PROFILE TABS & CONTENT */}
+      <ProfileContent feedSlot={<Feed userProfileId={user.id} />} />
     </div>
   );
 }

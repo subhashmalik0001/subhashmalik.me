@@ -18,7 +18,7 @@ const navItems = [
   { label: "Home", href: "/", icon: Home, active: true },
   { label: "About Me", href: "/#about", icon: User, active: false },
   { label: "Experience", href: "/#experience", icon: Briefcase, active: false },
-  { label: "Projects", href: "/#projects", icon: Code2, active: false },
+  { label: "Projects", href: "/projects", icon: Code2, active: false },
   { label: "Achievements", href: "/#achievements", icon: Trophy, active: false },
   { label: "Community", href: "/#community", icon: Users, active: false },
   { label: "Tech Stack", href: "/#tech-stack", icon: Layers, active: false },

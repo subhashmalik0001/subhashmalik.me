@@ -490,3 +490,158 @@ export const MOCK_RECOMMENDATIONS = [
     img: "/general/noAvatar.png",
   },
 ];
+
+export interface ProjectItem {
+  id: string;
+  title: string;
+  tagline: string;
+  handle: string;
+  logo: string;
+  category: string;
+  about: string;
+  highlights?: string[];
+  techStack: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  images: string[];
+  stats: {
+    likes: number;
+    reposts: number;
+    comments: number;
+    views: string;
+  };
+  featured?: boolean;
+  date: string;
+}
+
+export const MOCK_PROJECTS: ProjectItem[] = [
+  {
+    id: "accessi-ai",
+    title: "AccessiAI — Intelligent Accessibility Engine",
+    tagline: "AI-powered multimodal accessibility system converting complex technical docs into plain speech and interactive plain-text summaries in real time.",
+    handle: "accessiai",
+    logo: "/general/logo.png",
+    category: "🏆 1st Prize Winner @ IBM Hack Challenge",
+    about: "Built in 48 hours for the IBM Hack Challenge. AccessiAI empowers users with visual and cognitive impairments to understand dense developer documentation, API references, and schemas with intelligent chunking, generative audio synthesis, and assistive querying.",
+    highlights: [
+      "Real-time text-to-speech with contextual prosody adjustment",
+      "Interactive simplified code explanation sandbox",
+      "Processed 10,000+ technical documents with sub-second retrieval latency"
+    ],
+    techStack: ["Next.js 15", "React 19", "IBM Watson AI", "TypeScript", "Tailwind CSS", "Web Audio API"],
+    liveUrl: "https://accessiai.subhashmalik.me",
+    githubUrl: "https://github.com/subhashmalik0001/accessi-ai",
+    images: ["/general/post.jpeg"],
+    stats: {
+      likes: 148,
+      reposts: 39,
+      comments: 24,
+      views: "18.2K",
+    },
+    featured: true,
+    date: "Dec 2024",
+  },
+  {
+    id: "collab-canvas",
+    title: "CollabCanvas — Real-time AI Collaborative Design Tool",
+    tagline: "High-performance multiplayer design canvas with live presence, generative layout generation, and 1-click React component compilation.",
+    handle: "collabcanvas",
+    logo: "/general/logo.png",
+    category: "🥈 1st Runner-Up @ Google & iQOO Hackathon",
+    about: "Developed during the Google x iQOO National Hackathon. CollabCanvas combines ultra-smooth infinite canvas rendering with collaborative WebSocket synchronization and Gemini Multimodal AI to instantly transform rough whiteboard wireframes into production-ready JSX code.",
+    highlights: [
+      "Sub-20ms multi-cursor synchronization with operational transform",
+      "Sketch-to-React AI pipeline powered by Google Gemini",
+      "Interactive component preview sandbox with live code editing"
+    ],
+    techStack: ["React 19", "Next.js", "Socket.IO", "Google Gemini API", "HTML5 Canvas", "Tailwind CSS"],
+    liveUrl: "https://collabcanvas.subhashmalik.me",
+    githubUrl: "https://github.com/subhashmalik0001/collab-canvas",
+    images: ["/general/event.png"],
+    stats: {
+      likes: 245,
+      reposts: 64,
+      comments: 38,
+      views: "29.4K",
+    },
+    featured: true,
+    date: "Nov 2024",
+  },
+  {
+    id: "cred-trust",
+    title: "CredTrust — Decentralized Credential Verification",
+    tagline: "Cryptographically verifiable credential protocol eliminating fraudulent degrees, certifications, and hackathon awards.",
+    handle: "credtrust",
+    logo: "/general/logo.png",
+    category: "🥇 1st Place @ NIT Hack 5.0",
+    about: "Winner of NIT Hack 5.0 out of 200+ teams. CredTrust allows academic institutions and hackathon organizers to issue soulbound cryptographic proof of achievement directly to recipient wallets, with verifiable zero-knowledge proofs for recruiters.",
+    highlights: [
+      "Zero-knowledge proof verification preventing credential leakage",
+      "Instant 1-click verification widget for employer integration",
+      "Minted 500+ pilot credentials during live event demo"
+    ],
+    techStack: ["Solidity", "Ethereum", "Next.js 15", "Prisma", "Wagmi", "Ethers.js"],
+    liveUrl: "https://credtrust.subhashmalik.me",
+    githubUrl: "https://github.com/subhashmalik0001/credtrust",
+    images: ["/general/cover.jpg"],
+    stats: {
+      likes: 194,
+      reposts: 42,
+      comments: 19,
+      views: "14.1K",
+    },
+    featured: true,
+    date: "Oct 2024",
+  },
+  {
+    id: "subhashmalik-portfolio",
+    title: "X (Twitter) Desktop Recreation & Portfolio",
+    tagline: "Pixel-perfect recreation of X desktop with strict black & white tokens, Chirp typography, and modular mock architecture.",
+    handle: "subhashmalik_me",
+    logo: "/general/logo.png",
+    category: "💻 Full Stack Architecture",
+    about: "An authentic, high-fidelity monochromatic desktop clone of X (Twitter). Engineered with strict adherence to Twitter's design system tokens (#000000 background, #E7E9EA primary text, #2F3336 borders), zero npm vulnerabilities, custom server architecture, and responsive 3-column layout.",
+    highlights: [
+      "Strict black-and-white color system with authentic TwitterChirp font stack",
+      "Independent frontend-only mock layer with full server-side rendering",
+      "Sub-100ms navigation and zero CSS layout shift across page reloads"
+    ],
+    techStack: ["Next.js 15.5", "React 19", "TypeScript", "Tailwind CSS", "Socket.IO", "Prisma"],
+    liveUrl: "https://subhashmalik.me",
+    githubUrl: "https://github.com/subhashmalik0001/subhashmalik.me",
+    images: ["/general/cover.jpg"],
+    stats: {
+      likes: 312,
+      reposts: 78,
+      comments: 52,
+      views: "36.8K",
+    },
+    featured: true,
+    date: "Current",
+  },
+  {
+    id: "payscale-monitor",
+    title: "PayScale — High-Throughput Telemetry Monitor",
+    tagline: "Real-time latency diagnostics and distributed microservice transaction visualizer built during internship at Paytm.",
+    handle: "payscale",
+    logo: "/general/logo.png",
+    category: "⚡ Ex-Intern @ Paytm",
+    about: "Developed during engineering internship at Paytm. Built to visualize live transaction throughput, sub-second latency anomalies, and automated circuit breaker status across distributed payment clusters handling millions of requests daily.",
+    highlights: [
+      "Sub-second event stream streaming with WebSocket and Redis Pub/Sub",
+      "Configurable SLA threshold alerting with instant webhook dispatch",
+      "Optimized dashboard render performance to handle 5,000+ data points/sec"
+    ],
+    techStack: ["React", "TypeScript", "Node.js", "Redis", "Kafka", "Tailwind CSS"],
+    githubUrl: "https://github.com/subhashmalik0001/payscale-monitor",
+    images: ["/general/post.jpeg"],
+    stats: {
+      likes: 188,
+      reposts: 46,
+      comments: 21,
+      views: "21.6K",
+    },
+    featured: false,
+    date: "Summer 2024",
+  },
+];

@@ -2,19 +2,22 @@
 
 import { useState } from "react";
 
-const tabs = ["Posts", "Replies", "Highlights", "Media"] as const;
+const tabs = ["Posts", "Projects", "Highlights", "Media"] as const;
 
-type TabType = (typeof tabs)[number];
+export type ProfileTabType = (typeof tabs)[number];
 
 const ProfileTabs = ({
+  activeTab: controlledActiveTab,
   onTabChange,
 }: {
-  onTabChange?: (tab: TabType) => void;
+  activeTab?: ProfileTabType;
+  onTabChange?: (tab: ProfileTabType) => void;
 }) => {
-  const [activeTab, setActiveTab] = useState<TabType>("Posts");
+  const [internalTab, setInternalTab] = useState<ProfileTabType>("Posts");
+  const activeTab = controlledActiveTab || internalTab;
 
-  const handleTabClick = (tab: TabType) => {
-    setActiveTab(tab);
+  const handleTabClick = (tab: ProfileTabType) => {
+    setInternalTab(tab);
     onTabChange?.(tab);
   };
 
@@ -45,4 +48,3 @@ const ProfileTabs = ({
 };
 
 export default ProfileTabs;
-
