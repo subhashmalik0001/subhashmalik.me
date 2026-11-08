@@ -517,7 +517,7 @@ export interface ProjectItem {
 export const MOCK_PROJECTS: ProjectItem[] = [
   {
     id: "accessi-ai",
-    title: "AccessiAI",
+    title: "AccessiAI — Intelligent Accessibility Engine",
     tagline: "AI-powered multimodal accessibility system converting complex technical docs into plain speech and interactive plain-text summaries in real time.",
     handle: "accessiai",
     logo: "/general/logo.png",
@@ -543,7 +543,7 @@ export const MOCK_PROJECTS: ProjectItem[] = [
   },
   {
     id: "collab-canvas",
-    title: "CollabCanvas",
+    title: "CollabCanvas — Real-time AI Collaborative Design Tool",
     tagline: "High-performance multiplayer design canvas with live presence, generative layout generation, and 1-click React component compilation.",
     handle: "collabcanvas",
     logo: "/general/logo.png",
@@ -569,7 +569,7 @@ export const MOCK_PROJECTS: ProjectItem[] = [
   },
   {
     id: "cred-trust",
-    title: "CredTrust",
+    title: "CredTrust — Decentralized Credential Verification",
     tagline: "Cryptographically verifiable credential protocol eliminating fraudulent degrees, certifications, and hackathon awards.",
     handle: "credtrust",
     logo: "/general/logo.png",
@@ -595,7 +595,7 @@ export const MOCK_PROJECTS: ProjectItem[] = [
   },
   {
     id: "subhashmalik-portfolio",
-    title: "X Portfolio",
+    title: "X (Twitter) Desktop Recreation & Portfolio",
     tagline: "Pixel-perfect recreation of X desktop with strict black & white tokens, Chirp typography, and modular mock architecture.",
     handle: "subhashmalik_me",
     logo: "/general/logo.png",
@@ -621,7 +621,7 @@ export const MOCK_PROJECTS: ProjectItem[] = [
   },
   {
     id: "payscale-monitor",
-    title: "PayScale Monitor",
+    title: "PayScale — High-Throughput Telemetry Monitor",
     tagline: "Real-time latency diagnostics and distributed microservice transaction visualizer built during internship at Paytm.",
     handle: "payscale",
     logo: "/general/logo.png",
@@ -633,7 +633,6 @@ export const MOCK_PROJECTS: ProjectItem[] = [
       "Optimized dashboard render performance to handle 5,000+ data points/sec"
     ],
     techStack: ["React", "TypeScript", "Node.js", "Redis", "Kafka", "Tailwind CSS"],
-    liveUrl: "https://payscale.subhashmalik.me",
     githubUrl: "https://github.com/subhashmalik0001/payscale-monitor",
     images: ["/general/post.jpeg"],
     stats: {

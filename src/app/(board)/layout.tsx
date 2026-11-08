@@ -16,12 +16,12 @@ export default function BoardLayout({
           <LeftBar />
         </div>
         {/* CENTER CONTENT */}
-        <div className="flex-1 max-w-[600px] min-w-0 border-x border-borderGray">
+        <div className="board-center flex-1 max-w-[600px] min-w-0 border-x border-borderGray">
           {children}
           {modal}
         </div>
         {/* RIGHT SIDEBAR */}
-        <div className="hidden lg:flex ml-6 flex-shrink-0">
+        <div className="board-right hidden lg:flex ml-6 flex-shrink-0">
           <RightBar />
         </div>
       </div>

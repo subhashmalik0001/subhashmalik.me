@@ -1,30 +1,7 @@
 import Link from "next/link";
 import { currentUser } from "@/auth";
-import {
-  Home,
-  User,
-  Briefcase,
-  Code2,
-  Trophy,
-  Users,
-  Layers,
-  FileText,
-  Mail,
-  Feather,
-  MoreHorizontal,
-} from "lucide-react";
-
-const navItems = [
-  { label: "Home", href: "/", icon: Home, active: true },
-  { label: "About Me", href: "/#about", icon: User, active: false },
-  { label: "Experience", href: "/#experience", icon: Briefcase, active: false },
-  { label: "Projects", href: "/projects", icon: Code2, active: false },
-  { label: "Achievements", href: "/#achievements", icon: Trophy, active: false },
-  { label: "Community", href: "/#community", icon: Users, active: false },
-  { label: "Tech Stack", href: "/#tech-stack", icon: Layers, active: false },
-  { label: "Resume", href: "/#resume", icon: FileText, active: false },
-  { label: "Contact", href: "/#contact", icon: Mail, active: false },
-];
+import { Feather, MoreHorizontal } from "lucide-react";
+import LeftBarNav from "./LeftBarNav";
 
 const LeftBar = async () => {
   const user = await currentUser();
@@ -45,26 +22,7 @@ const LeftBar = async () => {
         </Link>
 
         {/* Nav Items */}
-        <nav className="flex flex-col gap-0.5 w-full">
-          {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="flex items-center gap-5 p-3 rounded-full hover:bg-[#16181C] transition-colors w-fit"
-            >
-              {item.icon ? (
-                <item.icon size={26} strokeWidth={item.active ? 2.5 : 2} />
-              ) : null}
-              <span
-                className={`hidden xxl:inline text-[20px] leading-6 ${
-                  item.active ? "font-bold" : "font-normal"
-                }`}
-              >
-                {item.label}
-              </span>
-            </Link>
-          ))}
-        </nav>
+        <LeftBarNav />
 
         {/* Post Button */}
         <Link

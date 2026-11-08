@@ -76,7 +76,7 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
 
         {/* Main Content */}
         <div className="flex-1 min-w-0">
-          {/* Header Row */}
+          {/* Header */}
           <div className="flex items-start justify-between gap-2">
             <div className="flex items-baseline gap-1.5 flex-wrap min-w-0">
               <h3 className="font-bold text-[15px] leading-5 text-textGrayLight hover:underline cursor-pointer truncate">
@@ -105,43 +105,45 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
             </div>
           )}
 
-          {/* Title / Main Tagline */}
-          <h4 className="text-[15px] sm:text-[16px] leading-[22px] font-semibold text-textGrayLight mt-2">
+          {/* Tagline */}
+          <p className="text-[15px] leading-5 text-textGrayLight mt-2 font-medium">
             {project.tagline}
-          </h4>
+          </p>
 
-          {/* Description Section with 1-2 Line Clamp & Show More Toggle */}
-          <div className="mt-2 text-[14px] leading-5 text-textGray">
-            <p className={isExpanded ? "whitespace-pre-line text-[#C5C9CD]" : "line-clamp-2"}>
-              {project.about}
-            </p>
+          {/* About the Project */}
+          <p
+            className={`text-[14px] leading-5 text-textGray mt-2 whitespace-pre-line ${
+              isExpanded ? "" : "line-clamp-2"
+            }`}
+          >
+            {project.about}
+          </p>
 
-            {/* Expandable Key Highlights */}
-            {isExpanded && project.highlights && project.highlights.length > 0 && (
-              <ul className="mt-3 space-y-1.5 pl-1 border-l-2 border-borderGray ml-1">
-                {project.highlights.map((h, i) => (
-                  <li
-                    key={i}
-                    className="text-[13px] text-[#A0A4A8] flex items-start gap-2 pl-2"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-textGrayLight flex-shrink-0 mt-1.5" />
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
+          {/* Key Highlights */}
+          {isExpanded && project.highlights && project.highlights.length > 0 && (
+            <ul className="mt-2.5 space-y-1">
+              {project.highlights.map((h, i) => (
+                <li
+                  key={i}
+                  className="text-[13px] text-[#A0A4A8] flex items-center gap-2"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-textGrayLight flex-shrink-0" />
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          )}
 
-            {/* Show more / Show less Button */}
-            <button
-              type="button"
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="text-[14px] font-semibold text-[#1d9bf0] hover:underline cursor-pointer mt-1 inline-block"
-            >
-              {isExpanded ? "Show less" : "Show more"}
-            </button>
-          </div>
+          {/* Show more / Show less */}
+          <button
+            type="button"
+            onClick={() => setIsExpanded((v) => !v)}
+            className="text-[14px] text-iconBlue hover:underline mt-1"
+          >
+            {isExpanded ? "Show less" : "Show more"}
+          </button>
 
-          {/* Tech Stack Pills (Always Visible) */}
+          {/* Tech Stack Pills */}
           <div className="flex flex-wrap gap-1.5 mt-3">
             {project.techStack.map((tech) => (
               <span
@@ -153,7 +155,7 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
             ))}
           </div>
 
-          {/* Action Links Row (Live Demo + GitHub - Always Visible) */}
+          {/* Links Row (Live Demo + GitHub) */}
           <div className="flex flex-wrap items-center gap-2.5 mt-3.5">
             {project.liveUrl && (
               <a
@@ -179,7 +181,7 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
             )}
           </div>
 
-          {/* Project Screenshot / Link Preview Card */}
+          {/* Project Screenshot / Image Card */}
           {project.images && project.images.length > 0 && (
             <div className="mt-3.5 rounded-2xl border border-borderGray overflow-hidden bg-[#16181C] group">
               <a
@@ -218,7 +220,7 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
             </div>
           )}
 
-          {/* Authentic X Engagement Row */}
+          {/* Engagement Row */}
           <div className="flex items-center justify-between mt-3 text-textGray max-w-[420px]">
             {/* Comment */}
             <button className="flex items-center gap-2 group cursor-pointer">
