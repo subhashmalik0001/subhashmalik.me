@@ -1,4 +1,5 @@
 import type { Technology } from "@/data/technologies";
+import { frame } from "@/components/design-system/CornerFrame";
 
 const initials = (name: string) => {
   const words = name
@@ -28,7 +29,12 @@ export default function TechIcon({
   return (
     <li className="xp-marquee-item list-none">
       <div
-        className="xp-tile"
+        className={`xp-tile ${frame({
+          variant: "corners",
+          size: "sm",
+          reveal: true,
+          interactive: true,
+        })}`}
         tabIndex={duplicate ? -1 : 0}
         role={duplicate ? undefined : "img"}
         aria-label={duplicate ? undefined : `${tech.name} (${categoryLabel})`}

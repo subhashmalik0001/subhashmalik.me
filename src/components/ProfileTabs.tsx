@@ -12,6 +12,7 @@ const ProfileTabs = ({
   onTabChange,
 }: {
   activeTab?: ProfileTabType;
+  // eslint-disable-next-line no-unused-vars
   onTabChange?: (tab: ProfileTabType) => void;
 }) => {
   const [internalTab, setInternalTab] = useState<ProfileTabType>("Posts");

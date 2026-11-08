@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Image from "./Image";
+import CornerFrame from "./design-system/CornerFrame";
+import { framedButton } from "./design-system/FramedButton";
 import { ProjectItem } from "@/mockData";
 import {
   ExternalLink,
@@ -30,7 +32,13 @@ const GithubIcon = ({ size = 14 }: { size?: number }) => (
   </svg>
 );
 
-export default function ProjectCard({ project }: { project: ProjectItem }) {
+export default function ProjectCard({
+  project,
+  index = 1,
+}: {
+  project: ProjectItem;
+  index?: number;
+}) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [likes, setLikes] = useState(project.stats.likes);
   const [isLiked, setIsLiked] = useState(false);
@@ -56,22 +64,30 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const indexLabel = String(index).padStart(2, "0");
+
   return (
-    <article className="p-4 border-b border-borderGray hover:bg-[#080808] transition-colors">
-      <div className="flex gap-3">
-        {/* Project Logo / Avatar */}
-        <div className="flex-shrink-0">
-          <div className="w-10 h-10 rounded-full border border-borderGray bg-[#16181C] overflow-hidden flex items-center justify-center">
+    <article className="p-4 sm:p-5 hover:bg-[#070707] transition-colors">
+      <div className="flex gap-3.5">
+        {/* Sharp Framed Project Logo */}
+        <div className="flex-shrink-0 flex flex-col items-center gap-2">
+          <CornerFrame
+            variant="full"
+            size="sm"
+            className="w-10 h-10 bg-[#0D0D0D] flex items-center justify-center"
+          >
             {project.logo ? (
+              // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={project.logo}
                 alt={project.title}
-                className="w-8 h-8 object-contain"
+                className="w-7 h-7 object-contain"
               />
             ) : (
-              <Sparkles size={20} className="text-textGrayLight" />
+              <Sparkles size={18} className="text-textGrayLight" />
             )}
-          </div>
+          </CornerFrame>
+          <span className="frame-label !text-[10px]">[ {indexLabel} ]</span>
         </div>
 
         {/* Main Content */}
@@ -79,18 +95,18 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
           {/* Header */}
           <div className="flex items-start justify-between gap-2">
             <div className="flex items-baseline gap-1.5 flex-wrap min-w-0">
-              <h3 className="font-bold text-[15px] leading-5 text-textGrayLight hover:underline cursor-pointer truncate">
+              <h3 className="font-bold text-[15px] leading-5 text-white hover:underline cursor-pointer truncate">
                 {project.title}
               </h3>
-              <span className="text-[14px] text-textGray">@{project.handle}</span>
-              <span className="text-[14px] text-textGray">·</span>
-              <span className="text-[13px] text-textGray font-medium">
+              <span className="text-[13px] text-textGray">@{project.handle}</span>
+              <span className="text-[13px] text-textGray">·</span>
+              <span className="text-[12px] text-textGray font-medium">
                 {project.date}
               </span>
             </div>
             {/* Category / Award Badge */}
             {project.category && (
-              <span className="hidden sm:inline-block text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#16181C] border border-borderGray text-textGrayLight flex-shrink-0">
+              <span className="hidden sm:inline-block text-[11px] font-bold px-2.5 py-0.5 bg-[#0E0E0E] border border-[var(--border-secondary)] text-textGrayLight flex-shrink-0">
                 {project.category}
               </span>
             )}
@@ -98,8 +114,8 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
 
           {/* Mobile Badge if screen small */}
           {project.category && (
-            <div className="sm:hidden mt-1">
-              <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-[#16181C] border border-borderGray text-textGrayLight inline-block">
+            <div className="sm:hidden mt-1.5">
+              <span className="text-[11px] font-bold px-2.5 py-0.5 bg-[#0E0E0E] border border-[var(--border-secondary)] text-textGrayLight inline-block">
                 {project.category}
               </span>
             </div>
@@ -127,7 +143,7 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
                   key={i}
                   className="text-[13px] text-[#A0A4A8] flex items-center gap-2"
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-textGrayLight flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 bg-white flex-shrink-0" />
                   <span>{h}</span>
                 </li>
               ))}
@@ -138,34 +154,34 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
           <button
             type="button"
             onClick={() => setIsExpanded((v) => !v)}
-            className="text-[14px] text-iconBlue hover:underline mt-1"
+            className="text-[13px] font-medium text-[#E7E9EA] underline decoration-[var(--border-primary)] underline-offset-4 hover:decoration-white mt-1.5 cursor-pointer"
           >
             {isExpanded ? "Show less" : "Show more"}
           </button>
 
-          {/* Tech Stack Pills */}
+          {/* Tech Stack Tags (sharp architectural rectangles) */}
           <div className="flex flex-wrap gap-1.5 mt-3">
             {project.techStack.map((tech) => (
               <span
                 key={tech}
-                className="text-[12px] font-medium px-2.5 py-0.5 rounded-full bg-[#16181C] border border-borderGray text-textGrayLight"
+                className="text-[12px] font-medium px-2.5 py-0.5 bg-[#0D0D0D] border border-[var(--border-subtle)] text-[#D0D4D8]"
               >
                 {tech}
               </span>
             ))}
           </div>
 
-          {/* Links Row (Live Demo + GitHub) */}
-          <div className="flex flex-wrap items-center gap-2.5 mt-3.5">
+          {/* Links Row (Framed Live Demo + GitHub) */}
+          <div className="flex flex-wrap items-center gap-3.5 mt-4 pl-1">
             {project.liveUrl && (
               <a
                 href={project.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-textGrayLight text-black text-[13px] font-bold px-4 py-1.5 rounded-full hover:bg-[#D7DBDC] transition-colors"
+                className={framedButton({ variant: "primary", size: "sm" })}
               >
                 <span>Live Demo</span>
-                <ExternalLink size={14} strokeWidth={2.5} />
+                <ExternalLink size={13} strokeWidth={2.5} />
               </a>
             )}
             {project.githubUrl && (
@@ -173,7 +189,7 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
                 href={project.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 bg-transparent border border-borderGray text-textGrayLight text-[13px] font-bold px-4 py-1.5 rounded-full hover:bg-surfaceHover transition-colors"
+                className={framedButton({ variant: "secondary", size: "sm" })}
               >
                 <GithubIcon size={14} />
                 <span>GitHub</span>
@@ -181,28 +197,35 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
             )}
           </div>
 
-          {/* Project Screenshot / Image Card */}
+          {/* Katanex Framed Project Screenshot / Preview Card */}
           {project.images && project.images.length > 0 && (
-            <div className="mt-3.5 rounded-2xl border border-borderGray overflow-hidden bg-[#16181C] group">
+            <CornerFrame
+              variant="full"
+              tone="secondary"
+              interactive
+              className="mt-4 bg-[#0A0A0A] group"
+            >
               <a
                 href={project.liveUrl || project.githubUrl || "#"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
               >
-                <div className="w-full max-h-[340px] overflow-hidden bg-black flex items-center justify-center">
-                  <Image
-                    path={project.images[0]}
-                    alt={project.title}
-                    w={600}
-                    h={340}
-                    className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-200"
-                  />
+                <div className="p-[5px] bg-black">
+                  <div className="w-full max-h-[330px] overflow-hidden bg-black flex items-center justify-center">
+                    <Image
+                      path={project.images[0]}
+                      alt={project.title}
+                      w={600}
+                      h={340}
+                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                    />
+                  </div>
                 </div>
                 {/* Link Preview Sub-bar */}
-                <div className="p-3 border-t border-borderGray flex items-center justify-between">
+                <div className="px-3.5 py-2.5 border-t border-[var(--border-subtle)] flex items-center justify-between bg-[#080808]">
                   <div className="min-w-0 flex-1">
-                    <p className="text-[12px] text-textGray leading-4 truncate">
+                    <p className="font-mono text-[11px] uppercase tracking-wider text-textGray leading-4 truncate">
                       {project.liveUrl
                         ? new URL(project.liveUrl).hostname
                         : "github.com"}
@@ -212,79 +235,85 @@ export default function ProjectCard({ project }: { project: ProjectItem }) {
                     </p>
                   </div>
                   <ExternalLink
-                    size={16}
-                    className="text-textGray group-hover:text-textGrayLight flex-shrink-0 ml-2"
+                    size={15}
+                    className="text-textGray group-hover:text-white transition-colors flex-shrink-0 ml-2"
                   />
                 </div>
               </a>
-            </div>
+            </CornerFrame>
           )}
 
           {/* Engagement Row */}
-          <div className="flex items-center justify-between mt-3 text-textGray max-w-[420px]">
+          <div className="flex items-center justify-between mt-3.5 pt-2.5 border-t border-[var(--border-subtle)] text-textGray max-w-[420px]">
             {/* Comment */}
-            <button className="flex items-center gap-2 group cursor-pointer">
-              <div className="p-1.5 rounded-full group-hover:bg-[#1d9bf0]/10 group-hover:text-[#1d9bf0] transition-colors">
-                <MessageCircle size={18} />
+            <button type="button" className="flex items-center gap-1.5 group cursor-pointer">
+              <div className="p-1.5 group-hover:bg-white/[0.06] group-hover:text-white transition-colors">
+                <MessageCircle size={16} />
               </div>
-              <span className="text-[13px] group-hover:text-[#1d9bf0]">
+              <span className="text-[12px] group-hover:text-white">
                 {project.stats.comments}
               </span>
             </button>
 
             {/* Repost */}
             <button
+              type="button"
               onClick={handleRepost}
-              className={`flex items-center gap-2 group cursor-pointer ${
+              className={`flex items-center gap-1.5 group cursor-pointer ${
                 isReposted ? "text-[#00ba7c]" : ""
               }`}
             >
-              <div className="p-1.5 rounded-full group-hover:bg-[#00ba7c]/10 group-hover:text-[#00ba7c] transition-colors">
-                <Repeat2 size={18} />
+              <div className="p-1.5 group-hover:bg-[#00ba7c]/10 group-hover:text-[#00ba7c] transition-colors">
+                <Repeat2 size={16} />
               </div>
-              <span className="text-[13px] group-hover:text-[#00ba7c]">
+              <span className="text-[12px] group-hover:text-[#00ba7c]">
                 {reposts}
               </span>
             </button>
 
             {/* Like */}
             <button
+              type="button"
               onClick={handleLike}
-              className={`flex items-center gap-2 group cursor-pointer ${
+              className={`flex items-center gap-1.5 group cursor-pointer ${
                 isLiked ? "text-[#f91880]" : ""
               }`}
             >
-              <div className="p-1.5 rounded-full group-hover:bg-[#f91880]/10 group-hover:text-[#f91880] transition-colors">
+              <div className="p-1.5 group-hover:bg-[#f91880]/10 group-hover:text-[#f91880] transition-colors">
                 <Heart
-                  size={18}
+                  size={16}
                   fill={isLiked ? "currentColor" : "none"}
                 />
               </div>
-              <span className="text-[13px] group-hover:text-[#f91880]">
+              <span className="text-[12px] group-hover:text-[#f91880]">
                 {likes}
               </span>
             </button>
 
             {/* Bookmark */}
             <button
+              type="button"
               onClick={() => setIsSaved(!isSaved)}
-              className={`p-1.5 rounded-full hover:bg-[#1d9bf0]/10 hover:text-[#1d9bf0] transition-colors cursor-pointer ${
-                isSaved ? "text-[#1d9bf0]" : ""
+              aria-label="Bookmark project"
+              className={`p-1.5 hover:bg-white/[0.06] hover:text-white transition-colors cursor-pointer ${
+                isSaved ? "text-white" : ""
               }`}
             >
-              <Bookmark size={18} fill={isSaved ? "currentColor" : "none"} />
+              <Bookmark size={16} fill={isSaved ? "currentColor" : "none"} />
             </button>
 
             {/* Share */}
             <button
+              type="button"
               onClick={handleShare}
-              className="p-1.5 rounded-full hover:bg-[#1d9bf0]/10 hover:text-[#1d9bf0] transition-colors cursor-pointer relative"
+              aria-label="Copy project link"
+              className="p-1.5 hover:bg-white/[0.06] hover:text-white transition-colors cursor-pointer relative"
               title="Copy project link"
             >
               {copied ? (
-                <Check size={18} className="text-[#00ba7c]" />
+                <Check size={16} className="text-[#36D98A]" />
               ) : (
-                <Share size={18} />
+                <Share size={16} />
               )}
             </button>
           </div>

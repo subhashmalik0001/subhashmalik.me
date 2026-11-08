@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import type { Experience } from "@/data/experiences";
+import { framedButton } from "@/components/design-system/FramedButton";
 import { d } from "../revealDelay";
 
 export default function ExperienceDescription({ exp }: { exp: Experience }) {
@@ -16,16 +17,16 @@ export default function ExperienceDescription({ exp }: { exp: Experience }) {
         <div>
           <p className="xp-desc">{exp.description}</p>
           {exp.links && exp.links.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-4">
+            <div className="flex flex-wrap gap-3 mt-4">
               {exp.links.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="xp-link"
+                  className={framedButton({ variant: "secondary", size: "sm" })}
                 >
-                  {l.label}
+                  <span>{l.label}</span>
                   <ArrowUpRight size={14} strokeWidth={2.25} />
                 </a>
               ))}

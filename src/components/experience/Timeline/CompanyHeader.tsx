@@ -1,4 +1,5 @@
 import type { Experience } from "@/data/experiences";
+import { frame } from "@/components/design-system/CornerFrame";
 import { d } from "../revealDelay";
 
 export default function CompanyHeader({ exp }: { exp: Experience }) {
@@ -8,7 +9,11 @@ export default function CompanyHeader({ exp }: { exp: Experience }) {
 
   return (
     <div className="xp-company-header">
-      <div className="xp-logo" data-reveal style={d(0)}>
+      <div
+        className={`xp-logo ${frame({ variant: "full", size: "sm", tone: "secondary" })}`}
+        data-reveal
+        style={d(0)}
+      >
         {exp.logo ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img

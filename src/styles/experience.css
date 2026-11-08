@@ -15,10 +15,11 @@
   }
 }
 
-:root {
+.xp,
+.xp-tooltip {
   --bg-primary: #080808;
   --bg-secondary: #121212;
-  --bg-card: #141414;
+  --bg-card: #0e0e0e;
   --bg-icon: #242424;
 
   --text-primary: #f2f2f2;
@@ -28,7 +29,7 @@
   --accent: #ff5a00;
   --accent-soft: #ff8052;
 
-  --border: #242424;
+  --border: rgba(255, 255, 255, 0.16);
   --timeline-track: #252525;
   --success: #36d98a;
 
@@ -154,26 +155,13 @@
   max-width: 100%;
   min-width: 0;
   background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  overflow: hidden;
-}
-
-@container (min-width: 640px) {
-  .xp-card {
-    border-radius: 32px;
-  }
-}
-
-@container (min-width: 860px) {
-  .xp-card {
-    border-radius: 36px;
-  }
+  border-radius: 0;
+  overflow: visible;
 }
 
 .xp-divider {
   height: 1px;
-  background: var(--border);
+  background: var(--border-secondary);
 }
 
 /* ---------- Contribution graph ---------- */
@@ -342,15 +330,15 @@
   z-index: 60;
   pointer-events: none;
   transform: translate(-50%, calc(-100% - 10px));
-  background: #101010;
-  border: 1px solid #2e2e2e;
-  border-radius: 10px;
-  padding: 8px 14px;
+  background: #0a0a0a;
+  border: 1px solid var(--border-secondary);
+  border-radius: 0;
+  padding: 7px 13px;
   font-size: 13px;
   line-height: 18px;
   color: var(--text-secondary);
   white-space: nowrap;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.72);
 }
 .xp-tooltip strong {
   color: var(--text-primary);
@@ -403,7 +391,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 6px 0;
+  padding: 8px 0;
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -477,9 +465,9 @@
   width: var(--tile-size);
   height: var(--tile-size);
   flex-shrink: 0;
-  border-radius: var(--tile-radius);
-  background: #222222;
-  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 0;
+  background: #161616;
+  border: 1px solid var(--border-subtle);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -510,9 +498,9 @@
 
 .xp-tile:hover,
 .xp-tile:focus-visible {
-  transform: translateY(-2px) scale(1.06);
-  border-color: rgba(255, 255, 255, 0.24);
-  background: #282828;
+  transform: translateY(-2px);
+  border-color: var(--border-primary);
+  background: #1d1d1d;
 }
 .xp-tile:hover img,
 .xp-tile:focus-visible img {
@@ -651,29 +639,33 @@
   }
 }
 
+.xp-entry:not(:last-child) .xp-entry-body {
+  padding-bottom: 52px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+@container (min-width: 860px) {
+  .xp-entry:not(:last-child) .xp-entry-body {
+    padding-bottom: 72px;
+  }
+}
+
 .xp-logo {
   width: var(--logo);
   height: var(--logo);
   flex-shrink: 0;
-  border-radius: 16px;
-  background: #151515;
-  border: 1px solid var(--border);
+  border-radius: 0;
+  background: #111111;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
-@container (min-width: 860px) {
-  .xp-logo {
-    border-radius: 20px;
-  }
-}
-
 .xp-logo:hover {
-  transform: scale(1.04);
-  border-color: rgba(255, 90, 0, 0.55);
+  transform: translateY(-1px);
+  border-color: var(--border-primary);
 }
 .xp-logo img {
   width: 68%;
@@ -796,25 +788,25 @@
   align-items: center;
   font-size: 13px;
   line-height: 18px;
-  padding: 5px 13px;
-  border-radius: 999px;
-  background: #1e1e1e;
-  border: 1px solid #2a2a2a;
-  color: #b8b8b8;
+  padding: 5px 12px;
+  border-radius: 0;
+  background: #111111;
+  border: 1px solid var(--border-subtle);
+  color: #c0c0c0;
   transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 @container (min-width: 860px) {
   .xp-pill {
-    font-size: 14px;
-    line-height: 20px;
-    padding: 6px 15px;
+    font-size: 13.5px;
+    line-height: 19px;
+    padding: 5px 14px;
   }
 }
 
 .xp-pill:hover {
-  background: #282828;
-  border-color: #3a3a3a;
+  background: #1a1a1a;
+  border-color: var(--border-secondary);
   color: var(--text-primary);
 }
 

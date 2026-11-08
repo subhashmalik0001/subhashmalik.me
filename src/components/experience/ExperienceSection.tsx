@@ -1,5 +1,6 @@
 import "@/styles/experience.css";
 
+import CornerFrame from "@/components/design-system/CornerFrame";
 import SectionHeader from "./SectionHeader";
 import ContributionGraph from "./ContributionGraph/ContributionGraph";
 import TechStackGrid from "./TechStack/TechStackGrid";
@@ -12,13 +13,19 @@ export default function ExperienceSection() {
       <div className="xp-inner">
         <SectionHeader />
 
-        {/* Contribution calendar + tech logos share one outer container, matching Reference 1 */}
+        {/* Contribution calendar + 2-row tech marquee framed in one Katanex CornerFrame */}
         <Reveal className="xp-card-wrap" amount={0.08}>
-          <div className="xp-card" data-reveal>
+          <CornerFrame
+            variant="full"
+            size="lg"
+            tone="secondary"
+            className="xp-card"
+            data-reveal=""
+          >
             <ContributionGraph />
             <div className="xp-divider" />
             <TechStackGrid />
-          </div>
+          </CornerFrame>
         </Reveal>
 
         <ExperienceTimeline />

@@ -74,7 +74,7 @@ export default function FramedButton(props: AsButton | AsLink) {
     );
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   const { variant: _v, size: _s, corners: _c, className: _cn, children: _ch, ...buttonProps } =
     props as AsButton;
   return (
