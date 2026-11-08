@@ -17,9 +17,9 @@ export default {
       colors: {
         textGray: "#71767B",
         textGrayLight: "#E7E9EA",
-        borderGray: "#2F3336",
-        inputGray: "#202327",
-        surfaceHover: "#16181C",
+        borderGray: "rgba(255, 255, 255, 0.14)",
+        inputGray: "#141414",
+        surfaceHover: "#141414",
         iconBlue: "#1d9bf0",
         iconGreen: "#00ba7c",
         iconPink: "#f91880",

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ProfileTabs, { ProfileTabType } from "./ProfileTabs";
 import ProjectsFeed from "./ProjectsFeed";
+import { HighlightsPanel, MediaGallery } from "./PortfolioSections";
 
 export default function ProfileContent({
   feedSlot,
@@ -14,9 +15,13 @@ export default function ProfileContent({
   return (
     <div>
       <ProfileTabs activeTab={activeTab} onTabChange={setActiveTab} />
-      <div id="projects">
+      <div id="projects" className="scroll-mt-[56px]">
         {activeTab === "Projects" ? (
           <ProjectsFeed />
+        ) : activeTab === "Highlights" ? (
+          <HighlightsPanel />
+        ) : activeTab === "Media" ? (
+          <MediaGallery />
         ) : (
           feedSlot
         )}
@@ -24,4 +29,3 @@ export default function ProfileContent({
     </div>
   );
 }
-

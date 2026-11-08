@@ -4,6 +4,8 @@ import React, { useActionState, useEffect, useRef, useState } from "react";
 import Image from "./Image";
 import NextImage from "next/image";
 import ImageEditor from "./ImageEditor";
+import FramedImage from "./design-system/FramedImage";
+import { framedButton } from "./design-system/FramedButton";
 import { useUser } from "@/auth";
 import { addPost } from "@/action";
 
@@ -50,13 +52,12 @@ const Share = () => {
   return (
     <form
       ref={formRef}
-      className="p-4 flex gap-4"
-      // action={(formData) => shareAction(formData, settings)}
+      className="p-4 flex gap-3.5 border-b border-[var(--border-subtle)]"
       action={formAction}
     >
       {/* AVATAR */}
-      <div className="relative w-10 h-10 rounded-full overflow-hidden">
-        <Image src={user?.imageUrl} alt="" w={100} h={100} tr={true} />
+      <div className="relative w-10 h-10 border border-[var(--border-secondary)] p-[2px] bg-black flex-shrink-0">
+        <Image src={user?.imageUrl} alt="" w={100} h={100} tr={true} className="w-full h-full object-cover" />
       </div>
       {/* OTHERS */}
       <div className="flex-1 flex flex-col gap-4">
@@ -82,7 +83,7 @@ const Share = () => {
         />
         {/* PREVIEW IMAGE */}
         {media?.type.includes("image") && previewURL && (
-          <div className="relative rounded-xl overflow-hidden">
+          <FramedImage size="md" tone="secondary" className="relative bg-[#0A0A0A]">
             <NextImage
               src={previewURL}
               alt=""
@@ -96,30 +97,35 @@ const Share = () => {
                   : "aspect-video object-cover"
               }`}
             />
-            <div
-              className="absolute top-2 left-2 bg-black bg-opacity-50 text-white py-1 px-4 rounded-full font-bold text-sm cursor-pointer"
+            <button
+              type="button"
+              className={`${framedButton({ variant: "secondary", size: "sm" })} absolute top-3 left-3 !bg-black/80`}
               onClick={() => setIsEditorOpen(true)}
             >
               Edit
-            </div>
-            <div
-              className="absolute top-2 right-2 bg-black bg-opacity-50 text-white h-8 w-8 flex items-center justify-center rounded-full cursor-pointer font-bold text-sm"
+            </button>
+            <button
+              type="button"
+              aria-label="Remove media"
+              className={`${framedButton({ variant: "icon", size: "sm" })} absolute top-3 right-3 !bg-black/80`}
               onClick={() => setMedia(null)}
             >
-              X
-            </div>
-          </div>
+              ✕
+            </button>
+          </FramedImage>
         )}
         {media?.type.includes("video") && previewURL && (
-          <div className="relative">
+          <FramedImage size="md" tone="secondary" className="relative bg-[#0A0A0A]">
             <video src={previewURL} controls />
-            <div
-              className="absolute top-2 right-2 bg-black bg-opacity-50 text-white h-8 w-8 flex items-center justify-center rounded-full cursor-pointer font-bold text-sm"
+            <button
+              type="button"
+              aria-label="Remove video"
+              className={`${framedButton({ variant: "icon", size: "sm" })} absolute top-3 right-3 !bg-black/80`}
               onClick={() => setMedia(null)}
             >
-              X
-            </div>
-          </div>
+              ✕
+            </button>
+          </FramedImage>
         )}
         {isEditorOpen && previewURL && (
           <ImageEditor
@@ -129,7 +135,7 @@ const Share = () => {
             setSettings={setSettings}
           />
         )}
-        <div className="flex items-center justify-between gap-4 flex-wrap">
+        <div className="flex items-center justify-between gap-4 flex-wrap pt-2 border-t border-[var(--border-subtle)]">
           <div className="flex gap-4 flex-wrap">
             <input
               type="file"
@@ -185,7 +191,7 @@ const Share = () => {
             />
           </div>
           <button
-            className="bg-white text-black font-bold rounded-full py-2 px-4 disabled:cursor-not-allowed"
+            className={`${framedButton({ variant: "primary", size: "sm" })} mr-1`}
             disabled={isPending}
           >
             {isPending ? "Posting" : "Post"}

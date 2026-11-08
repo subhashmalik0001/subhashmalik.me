@@ -4,15 +4,25 @@
 
 :root {
   --background: #000000;
-  --surface: #000000;
-  --surface-hover: #16181C;
+  --surface: #0a0a0a;
+  --surface-hover: #141414;
   --text-primary: #E7E9EA;
-  --text-secondary: #71767B;
-  --border: #2F3336;
+  --text-secondary: #8A8F94;
+  --border: rgba(255, 255, 255, 0.14);
   --button-background: #E7E9EA;
   --button-text: #000000;
   --icon-color: #E7E9EA;
   --muted: #536471;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 html,
@@ -97,7 +107,7 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 56px;
-  height: 4px;
-  background: #E7E9EA;
-  border-radius: 9999px;
+  height: 2px;
+  background: #FFFFFF;
+  border-radius: 0;
 }

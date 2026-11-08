@@ -4,6 +4,7 @@ import { followUser } from "@/action";
 import { socket } from "@/socket";
 import { useUser } from "@/auth";
 import { useOptimistic, useState } from "react";
+import { framedButton } from "./design-system/FramedButton";
 
 const FollowButton = ({
   userId,
@@ -33,7 +34,6 @@ const FollowButton = ({
     switchOptimisticFollow("");
     await followUser(userId);
     setState((prev) => !prev);
-    // SEND NOTIFICATION
     socket.emit("sendNotification", {
       receiverUsername: username,
       data: {
@@ -46,7 +46,12 @@ const FollowButton = ({
 
   return (
     <form action={followAction}>
-      <button className="py-2 px-4 bg-white text-black font-bold rounded-full">
+      <button
+        className={framedButton({
+          variant: optimisticFollow ? "secondary" : "primary",
+          size: "sm",
+        })}
+      >
         {optimisticFollow ? "Unfollow" : "Follow"}
       </button>
     </form>

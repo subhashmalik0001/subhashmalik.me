@@ -2,6 +2,7 @@ import Image from "./Image";
 import PostInfo from "./PostInfo";
 import PostInteractions from "./PostInteractions";
 import Video from "./Video";
+import FramedImage from "./design-system/FramedImage";
 import Link from "next/link";
 import { Post as PostType } from "@prisma/client";
 import { format } from "timeago.js";
@@ -35,14 +36,14 @@ const Post = ({
   const originalPost = post.rePost || post;
 
   return (
-    <div className="p-4 border-y-[1px] border-borderGray">
+    <article className="p-4 border-b border-[var(--border-subtle)] hover:bg-[#070707] transition-colors">
       {/* POST TYPE */}
       {post.rePostId && (
-        <div className="flex items-center gap-2 text-sm text-textGray mb-2 from-bold">
+        <div className="flex items-center gap-2 text-sm text-textGray mb-2.5">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
+            width="16"
+            height="16"
             viewBox="0 0 24 24"
           >
             <path
@@ -54,13 +55,12 @@ const Post = ({
         </div>
       )}
       {/* POST CONTENT */}
-      <div className={`flex gap-4 ${type === "status" && "flex-col"}`}>
+      <div className={`flex gap-3.5 ${type === "status" ? "flex-col" : ""}`}>
         {/* AVATAR */}
-
         <div
           className={`${
-            type === "status" && "hidden"
-          } relative w-10 h-10 rounded-full overflow-hidden -z-10`}
+            type === "status" ? "hidden" : ""
+          } relative w-10 h-10 border border-[var(--border-secondary)] p-[2px] bg-black flex-shrink-0`}
         >
           <Image
             path={originalPost.user.img || "general/noAvatar.png"}
@@ -68,21 +68,22 @@ const Post = ({
             w={100}
             h={100}
             tr={true}
+            className="w-full h-full object-cover"
           />
         </div>
 
         {/* CONTENT */}
-        <div className="flex-1 flex flex-col gap-2">
+        <div className="flex-1 min-w-0 flex flex-col gap-2">
           {/* TOP */}
-          <div className="w-full flex justify-between">
+          <div className="w-full flex justify-between items-start gap-2">
             <Link
               href={`/${originalPost.user.username}`}
-              className="flex gap-4"
+              className="flex gap-3 min-w-0"
             >
               <div
                 className={`${
-                  type !== "status" && "hidden"
-                } relative w-10 h-10 rounded-full overflow-hidden`}
+                  type !== "status" ? "hidden" : ""
+                } relative w-10 h-10 border border-[var(--border-secondary)] p-[2px] bg-black flex-shrink-0`}
               >
                 <Image
                   path={originalPost.user.img || "general/noAvatar.png"}
@@ -90,25 +91,31 @@ const Post = ({
                   w={100}
                   h={100}
                   tr={true}
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div
-                className={`flex items-center gap-2 flex-wrap ${
-                  type === "status" && "flex-col gap-0 !items-start"
+                className={`flex items-baseline gap-1.5 flex-wrap min-w-0 ${
+                  type === "status" ? "flex-col gap-0 !items-start" : ""
                 }`}
               >
-                <h1 className="text-md font-bold">
+                <h3 className="text-[15px] font-bold text-textGrayLight truncate">
                   {originalPost.user.displayName}
-                </h1>
+                </h3>
                 <span
-                  className={`text-textGray ${type === "status" && "text-sm"}`}
+                  className={`text-textGray text-[14px] ${
+                    type === "status" ? "text-sm" : ""
+                  }`}
                 >
                   @{originalPost.user.username}
                 </span>
                 {type !== "status" && (
-                  <span className="text-textGray">
-                    {format(originalPost.createdAt)}
-                  </span>
+                  <>
+                    <span className="text-textGray text-[13px]">·</span>
+                    <span className="text-textGray text-[13px]">
+                      {format(originalPost.createdAt)}
+                    </span>
+                  </>
                 )}
               </div>
             </Link>
@@ -118,31 +125,37 @@ const Post = ({
           <Link
             href={`/${originalPost.user.username}/status/${originalPost.id}`}
           >
-            <p className={`${type === "status" && "text-lg"}`}>
+            <p
+              className={`text-[15px] leading-[21px] text-textGrayLight ${
+                type === "status" ? "text-lg leading-7" : ""
+              }`}
+            >
               {originalPost.desc}
             </p>
           </Link>
           {originalPost.img && (
-            <div className="overflow-hidden">
+            <FramedImage size="md" tone="secondary" className="mt-1 bg-[#0A0A0A]">
               <Image
                 path={originalPost.img}
                 alt=""
                 w={600}
                 h={originalPost.imgHeight || 600}
-                className={originalPost.isSensitive ? "blur-3xl" : ""}
+                className={`w-full h-auto ${originalPost.isSensitive ? "blur-3xl" : ""}`}
               />
-            </div>
+            </FramedImage>
           )}
           {originalPost.video && (
-            <div className="rounded-lg overflow-hidden">
+            <FramedImage size="md" tone="secondary" className="mt-1 bg-[#0A0A0A]">
               <Video
                 path={originalPost.video}
                 className={originalPost.isSensitive ? "blur-3xl" : ""}
               />
-            </div>
+            </FramedImage>
           )}
           {type === "status" && (
-            <span className="text-textGray">8:41 PM · Dec 5, 2024</span>
+            <span className="text-textGray text-[13px] pt-1 border-t border-[var(--border-subtle)]">
+              8:41 PM · Dec 5, 2024
+            </span>
           )}
           <PostInteractions
             username={originalPost.user.username}
@@ -154,7 +167,7 @@ const Post = ({
           />
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 

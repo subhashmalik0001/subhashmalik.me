@@ -1,11 +1,13 @@
 import "./globals.css";
+import "@/styles/frame.css";
 
 import type { Metadata } from "next";
 import QueryProvider from "@/providers/QueryProvider";
 
 export const metadata: Metadata = {
-  title: "Lama Dev X Clone",
-  description: "Next.js social media application project",
+  title: "Subhash Malik — Portfolio",
+  description:
+    "Full-Stack Engineer, Hackathon Winner & Community Builder — Portfolio of Subhash Malik.",
 };
 
 export default function AppLayout({

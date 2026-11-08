@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "@/components/Image";
+import CornerFrame from "@/components/design-system/CornerFrame";
+import FramedButton from "@/components/design-system/FramedButton";
 import { useRouter } from "next/navigation";
 
 const PostModal = () => {
@@ -11,34 +13,40 @@ const PostModal = () => {
   };
 
   return (
-    <div className="absolute w-screen h-screen top-0 left-0 z-20 bg-[#293139a6] flex justify-center">
-      <div className="py-4 px-8 rounded-xl bg-black w-[600px] h-max mt-12">
+    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex justify-center px-4">
+      <CornerFrame
+        variant="full"
+        tone="primary"
+        size="lg"
+        className="py-5 px-6 bg-[#080808] w-full max-w-[580px] h-max mt-14"
+      >
         {/* TOP */}
-        <div className="flex items-center justify-between">
-          <div className="cursor-pointer" onClick={closeModal}>
-            X
-          </div>
-          <div className="text-iconBlue font-bold">Drafts</div>
+        <div className="flex items-center justify-between pb-3 border-b border-[var(--border-subtle)]">
+          <FramedButton variant="icon" size="sm" onClick={closeModal} aria-label="Close modal">
+            ✕
+          </FramedButton>
+          <span className="frame-label">[ COMPOSE // DRAFTS ]</span>
         </div>
         {/* CENTER */}
-        <div className="py-8 flex gap-4">
-          <div className="relative w-10 h-10 rounded-full overflow-hidden">
+        <div className="py-6 flex gap-3.5">
+          <div className="relative w-10 h-10 border border-[var(--border-secondary)] p-[2px] bg-black flex-shrink-0">
             <Image
               path="general/avatar.png"
-              alt="Lama Dev"
+              alt="Subhash Malik"
               w={100}
               h={100}
               tr={true}
+              className="w-full h-full object-cover"
             />
           </div>
           <input
-            className="flex-1 bg-transparent outline-none text-lg"
+            className="flex-1 bg-transparent outline-none text-lg text-white placeholder:text-textGray"
             type="text"
             placeholder="What is happening?!"
           />
         </div>
         {/* BOTTOM */}
-        <div className=" flex items-center justify-between gap-4 flex-wrap border-t border-borderGray pt-4">
+        <div className="flex items-center justify-between gap-4 flex-wrap border-t border-[var(--border-subtle)] pt-4">
           <div className="flex gap-4 flex-wrap">
             <Image
               path="icons/image.svg"
@@ -83,9 +91,11 @@ const PostModal = () => {
               className="cursor-pointer"
             />
           </div>
-          <button className="py-2 px-5 text-black bg-white rounded-full font-bold">Post</button>
+          <FramedButton variant="primary" size="sm" onClick={closeModal} className="mr-1">
+            Post
+          </FramedButton>
         </div>
-      </div>
+      </CornerFrame>
     </div>
   );
 };

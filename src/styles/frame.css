@@ -1,0 +1,369 @@
+/* ==========================================================================
+   Architectural Frame System
+   Katanex-inspired thin borders + white L-shaped corner brackets.
+
+   ONE shared implementation: every bracket on the site is drawn by the
+   `.cf::after` pseudo-element below (8 gradient strokes = 4 L-corners).
+   - Adds no DOM, never changes element dimensions, never blocks pointer
+     events, and works on any element (div, button, a, li, section…).
+   - Variants:   .cf--full     thin rectangular border + corners
+                 .cf--corners  corners only
+                 .cf--divider  structural top/bottom lines, no corners
+   - Modifiers:  .cf--sm / .cf--lg        corner length
+                 .cf--primary / .cf--subtle border tone
+                 .cf--outset / .cf--inset  bracket offset from the edge
+                 .cf--interactive          hover/focus brightening
+                 .cf--reveal               brackets appear on hover only
+                 .cf--no-tl/-tr/-bl/-br    disable individual corners
+   ========================================================================== */
+
+@property --cf-len {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 14px;
+}
+
+:root {
+  /* Background */
+  --page-bg: #000000;
+  --surface-bg: #0a0a0a;
+  --surface-elevated: #111111;
+
+  /* Borders */
+  --border-primary: rgba(255, 255, 255, 0.3);
+  --border-secondary: rgba(255, 255, 255, 0.16);
+  --border-subtle: rgba(255, 255, 255, 0.09);
+
+  /* Corner accents */
+  --corner-color: #ffffff;
+  --corner-size: 14px;
+  --corner-thickness: 1.5px;
+
+  /* Spacing */
+  --frame-gap: 12px;
+  --frame-gap-sm: 5px;
+  --section-spacing: 80px;
+
+  /* Layout grid (shared by PageGrid + board layout) */
+  --grid-max: 1280px;
+}
+
+/* Tablet */
+@media (max-width: 987px) {
+  :root {
+    --corner-size: 11px;
+    --frame-gap: 10px;
+    --section-spacing: 64px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 599px) {
+  :root {
+    --corner-size: 9px;
+    --corner-thickness: 1px;
+    --frame-gap: 8px;
+    --frame-gap-sm: 4px;
+    --section-spacing: 48px;
+  }
+}
+
+/* ---------- Core ---------- */
+
+/* :where() keeps specificity at 0 so Tailwind's absolute/sticky/fixed win */
+:where(.cf) {
+  position: relative;
+}
+
+.cf {
+  --cf-color: var(--corner-color);
+  --cf-size: var(--corner-size);
+  --cf-w: var(--corner-thickness);
+  --cf-offset: -1px;
+  --cf-border: var(--border-secondary);
+  --cf-opacity: 0.82;
+  --cf-tl: var(--cf-color);
+  --cf-tr: var(--cf-color);
+  --cf-bl: var(--cf-color);
+  --cf-br: var(--cf-color);
+  border-radius: 0;
+}
+
+.cf::after {
+  content: "";
+  position: absolute;
+  inset: var(--cf-offset);
+  z-index: 3;
+  pointer-events: none;
+  --cf-len: var(--cf-size);
+  background:
+    linear-gradient(var(--cf-tl), var(--cf-tl)) left top / var(--cf-len) var(--cf-w) no-repeat,
+    linear-gradient(var(--cf-tl), var(--cf-tl)) left top / var(--cf-w) var(--cf-len) no-repeat,
+    linear-gradient(var(--cf-tr), var(--cf-tr)) right top / var(--cf-len) var(--cf-w) no-repeat,
+    linear-gradient(var(--cf-tr), var(--cf-tr)) right top / var(--cf-w) var(--cf-len) no-repeat,
+    linear-gradient(var(--cf-bl), var(--cf-bl)) left bottom / var(--cf-len) var(--cf-w) no-repeat,
+    linear-gradient(var(--cf-bl), var(--cf-bl)) left bottom / var(--cf-w) var(--cf-len) no-repeat,
+    linear-gradient(var(--cf-br), var(--cf-br)) right bottom / var(--cf-len) var(--cf-w) no-repeat,
+    linear-gradient(var(--cf-br), var(--cf-br)) right bottom / var(--cf-w) var(--cf-len) no-repeat;
+  opacity: var(--cf-opacity);
+  transition:
+    --cf-len 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+    opacity 0.25s ease;
+}
+
+/* ---------- Variants ---------- */
+
+.cf--full {
+  border: 1px solid var(--cf-border);
+}
+
+.cf--corners {
+  border: 0;
+}
+
+.cf--divider {
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.cf--divider::after {
+  display: none;
+}
+
+/* ---------- Modifiers ---------- */
+
+.cf--sm { --cf-size: calc(var(--corner-size) * 0.72); }
+.cf--lg { --cf-size: calc(var(--corner-size) * 1.3); }
+
+.cf--primary { --cf-border: var(--border-primary); }
+.cf--subtle  { --cf-border: var(--border-subtle); }
+
+/* brackets float slightly outside the box (used on filled buttons / photos) */
+.cf--outset { --cf-offset: -5px; }
+/* brackets sit inside the box, bracketing the content */
+.cf--inset  { --cf-offset: 6px; }
+
+.cf--no-tl { --cf-tl: transparent; }
+.cf--no-tr { --cf-tr: transparent; }
+.cf--no-bl { --cf-bl: transparent; }
+.cf--no-br { --cf-br: transparent; }
+
+.cf--interactive {
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+.cf--interactive:hover,
+.cf--interactive:focus-visible,
+.cf--interactive:focus-within {
+  --cf-border: var(--border-primary);
+}
+.cf--interactive:hover::after,
+.cf--interactive:focus-visible::after,
+.cf--interactive:focus-within::after {
+  opacity: 1;
+  --cf-len: calc(var(--cf-size) + 4px);
+}
+
+.cf--reveal::after {
+  opacity: 0;
+}
+.cf--reveal:hover::after,
+.cf--reveal:focus-visible::after {
+  opacity: 1;
+}
+
+/* Inner content layer for CornerFrame */
+.cf__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Structural dividers ---------- */
+
+.frame-divider {
+  flex-shrink: 0;
+  background: var(--border-subtle);
+}
+.frame-divider--h { height: 1px; width: 100%; }
+.frame-divider--v { width: 1px; align-self: stretch; }
+.frame-divider--secondary { background: var(--border-secondary); }
+
+/* ---------- Mono index labels: "[ 01 / 03 ]" ---------- */
+
+.frame-label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10.5px;
+  line-height: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+  white-space: nowrap;
+}
+
+.index-bar {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  height: 34px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.index-bar__cell {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+.index-bar__cell--start { border-right: 1px solid var(--border-subtle); }
+.index-bar__cell--end   { border-left: 1px solid var(--border-subtle); }
+
+/* ---------- Image / media frame ---------- */
+
+.frame-media {
+  padding: var(--frame-gap-sm);
+  background: var(--page-bg);
+}
+.frame-media__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.frame-media__inner > img,
+.frame-media__inner > video {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.frame-media--cover   .frame-media__inner > img { object-fit: cover; }
+.frame-media--contain .frame-media__inner > img { object-fit: contain; }
+
+/* ---------- Buttons ---------- */
+
+.fbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 0;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 7px 16px;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+.fbtn:focus-visible {
+  outline: 1px solid #ffffff;
+  outline-offset: 6px;
+}
+.fbtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+/* Primary — keeps the site's existing light fill, brackets float outside */
+.fbtn--primary {
+  background: #e7e9ea;
+  color: #000000;
+  border: 1px solid #e7e9ea;
+  --cf-offset: -4px;
+}
+.fbtn--primary:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+/* Secondary — translucent fill, thin border, white brackets */
+.fbtn--secondary {
+  background: rgba(255, 255, 255, 0.045);
+  color: #e7e9ea;
+  border: 1px solid var(--border-secondary);
+}
+.fbtn--secondary:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--border-primary);
+}
+
+/* Outline — no fill, subtle border */
+.fbtn--outline {
+  background: transparent;
+  color: #e7e9ea;
+  border: 1px solid var(--border-subtle);
+}
+.fbtn--outline:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--border-secondary);
+}
+
+/* Icon */
+.fbtn--icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  color: #e7e9ea;
+  border: 1px solid var(--border-secondary);
+}
+.fbtn--icon:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--border-primary);
+}
+
+/* Navigation */
+.fbtn--nav {
+  background: transparent;
+  color: #e7e9ea;
+  border: 1px solid transparent;
+  font-weight: 400;
+}
+.fbtn--nav:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.fbtn--sm {
+  font-size: 13px;
+  line-height: 16px;
+  padding: 6px 12px;
+}
+.fbtn--icon.fbtn--sm {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+}
+
+/* ---------- Page grid guides ---------- */
+
+.page-grid {
+  position: fixed;
+  inset-block: 0;
+  left: 50%;
+  width: min(var(--grid-max), 100%);
+  transform: translateX(-50%);
+  border-left: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  pointer-events: none;
+  z-index: 0;
+}
+@media (max-width: 987px) {
+  .page-grid {
+    display: none;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .cf::after {
+    transition: none;
+  }
+  .cf--interactive,
+  .fbtn {
+    transition: none;
+  }
+}
+

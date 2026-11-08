@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { frame } from "./design-system/CornerFrame";
 
 const tabs = ["Posts", "Projects", "Highlights", "Media"] as const;
 
@@ -22,27 +23,41 @@ const ProfileTabs = ({
   };
 
   return (
-    <div className="flex border-b border-borderGray">
-      {tabs.map((tab) => (
-        <button
-          key={tab}
-          onClick={() => handleTabClick(tab)}
-          className="flex-1 relative flex items-center justify-center py-4 hover:bg-surfaceHover transition-colors cursor-pointer"
-        >
-          <span
-            className={`text-[15px] leading-5 ${
-              activeTab === tab
-                ? "font-bold text-textGrayLight"
-                : "font-medium text-textGray"
+    <div
+      role="tablist"
+      aria-label="Profile sections"
+      className="flex border-y border-[var(--border-secondary)] divide-x divide-[var(--border-subtle)] bg-[#050505]"
+    >
+      {tabs.map((tab) => {
+        const isActive = activeTab === tab;
+        return (
+          <button
+            key={tab}
+            type="button"
+            role="tab"
+            aria-selected={isActive}
+            onClick={() => handleTabClick(tab)}
+            className={`flex-1 relative flex items-center justify-center py-3.5 transition-colors cursor-pointer ${
+              isActive
+                ? `${frame({ variant: "corners", size: "sm", offset: "inset" })} bg-white/[0.05]`
+                : "hover:bg-white/[0.03]"
             }`}
           >
-            {tab}
-          </span>
-          {activeTab === tab && (
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-1 w-14 bg-textGrayLight rounded-full" />
-          )}
-        </button>
-      ))}
+            <span
+              className={`text-[14px] leading-5 tracking-wide ${
+                isActive
+                  ? "font-bold text-white"
+                  : "font-medium text-textGray hover:text-textGrayLight"
+              }`}
+            >
+              {tab}
+            </span>
+            {isActive && (
+              <div className="absolute bottom-0 inset-x-0 h-[2px] bg-white" />
+            )}
+          </button>
+        );
+      })}
     </div>
   );
 };
