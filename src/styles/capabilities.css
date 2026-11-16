@@ -111,15 +111,15 @@
   max-width: 380px;
 }
 
-/* Visual Canvas Area - compact & docked to bottom-right */
+/* Visual Canvas Area - docked to bottom-right of the card */
 .cap-card__visual {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 85px;
-  margin-top: 8px;
+  height: 100%;
   overflow: hidden;
   pointer-events: none;
-  z-index: 2;
+  z-index: 1;
 }
 
 /* Keyframe animations */

@@ -5,8 +5,8 @@ import { Plus } from "lucide-react";
 export default function EventManagementVisual() {
   return (
     <div className="absolute right-0 bottom-0 w-full h-full flex items-end justify-end overflow-hidden pointer-events-none">
-      {/* Two Tilted Keyframe Cards (Exact Homage to Reference Card 5) */}
-      <div className="relative w-[150px] h-[90px] mr-2 -mb-2 flex items-end justify-end">
+      {/* Two Tilted Keyframe Cards — shifted lower */}
+      <div className="relative w-[150px] h-[90px] mr-2 -mb-4 sm:-mb-5 flex items-end justify-end">
         {/* Left Card (Tilted -6deg) */}
         <div
           className="absolute right-14 bottom-0 w-[64px] h-[82px] bg-[#181818] border border-white/15 rounded-2xl p-2.5 shadow-2xl flex flex-col justify-between transition-transform duration-300 group-hover:-rotate-9"

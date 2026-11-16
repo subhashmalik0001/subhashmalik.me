@@ -15,9 +15,7 @@ export default function CapabilitiesHeader() {
 
       {/* Supporting Text */}
       <p className="text-[13px] sm:text-[14px] leading-relaxed text-[#8E8E93] max-w-[620px] mt-1.5">
-        I combine software engineering, developer advocacy and ecosystem
-        building to turn ideas into products, communities and meaningful
-        collaborations.
+        Turning ideas into products, communities, and meaningful collaborations.
       </p>
     </div>
   );

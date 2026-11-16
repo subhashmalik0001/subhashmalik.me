@@ -14,7 +14,7 @@ export const CAPABILITIES: CapabilityItem[] = [
     id: "software-developer",
     index: "01",
     title: "Software Developer",
-    description: "Crafting scalable web apps, AI tools, and production software.",
+    description: "Building scalable web and AI products.",
     keywords: ["Next.js", "React", "TypeScript", "AI Products"],
     href: "/projects",
     gridSpan: 1,
@@ -24,8 +24,7 @@ export const CAPABILITIES: CapabilityItem[] = [
     id: "developer-advocate",
     index: "02",
     title: "Developer Advocate",
-    description:
-      "Connecting platforms and engineers through tech talks, content, and code.",
+    description: "Empowering developers through talks, content, and code.",
     keywords: ["DevRel", "Tech Advocacy", "Workshops", "Ecosystems"],
     href: "/experience",
     gridSpan: 2,
@@ -35,8 +34,7 @@ export const CAPABILITIES: CapabilityItem[] = [
     id: "community-builder",
     index: "03",
     title: "Community Builder",
-    description:
-      "Empowering builder communities to learn, ship, and grow together.",
+    description: "Helping builder communities learn and ship together.",
     keywords: ["Community", "Hackathons", "HackBriven", "Mentorship"],
     href: "/#community",
     gridSpan: 1,
@@ -46,8 +44,7 @@ export const CAPABILITIES: CapabilityItem[] = [
     id: "collaborations-partnerships",
     index: "04",
     title: "Collaborations & Partnerships",
-    description:
-      "Uniting tech companies and startups for high-impact initiatives.",
+    description: "Building strategic alliances across tech ecosystems.",
     keywords: ["Strategic Partnerships", "Sponsorships", "Industry Relations"],
     href: "/#contact",
     gridSpan: 1,
@@ -57,8 +54,7 @@ export const CAPABILITIES: CapabilityItem[] = [
     id: "event-ecosystem",
     index: "05",
     title: "Event & Ecosystem Management",
-    description:
-      "Orchestrating hackathons, demo days, and developer conferences.",
+    description: "Organizing hackathons, demo days, and tech events.",
     keywords: ["Hackathon Ops", "Event Strategy", "Logistics"],
     href: "/achievements",
     gridSpan: 1,
