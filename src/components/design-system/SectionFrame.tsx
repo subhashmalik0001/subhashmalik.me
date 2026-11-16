@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
-/** Total number of top-level portfolio sections (Profile, Experience, Projects). */
-export const SECTION_TOTAL = 3;
+/** Total number of top-level portfolio sections (Profile, Projects, Experience, Achievements). */
+export const SECTION_TOTAL = 4;
 
 /**
  * Katanex-style index strip: "[ 01 / 03 ] ………… [ PROFILE ]"

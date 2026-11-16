@@ -45,7 +45,7 @@
   --section-spacing: 80px;
 
   /* Layout grid (shared by PageGrid + board layout) */
-  --grid-max: 1280px;
+  --grid-max: 1560px;
 }
 
 /* Tablet */
@@ -364,6 +364,59 @@
   .cf--interactive,
   .fbtn {
     transition: none;
+  }
+  .work-marquee-ltr {
+    animation: none !important;
+  }
+  .work-marquee-row {
+    overflow-x: auto;
+  }
+}
+
+/* ---------- Work Logos Infinite Marquee (Left-to-Right) ---------- */
+
+.work-marquee-row {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000000 6%,
+    #000000 94%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000000 6%,
+    #000000 94%,
+    transparent 100%
+  );
+}
+
+.work-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Continuous smooth Left-to-Right animation (calm, readable drift) */
+.work-marquee-ltr {
+  animation: work-scroll-ltr 56s linear infinite;
+}
+
+.work-marquee-row:hover .work-marquee-track,
+.work-marquee-row:focus-within .work-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes work-scroll-ltr {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
   }
 }
 

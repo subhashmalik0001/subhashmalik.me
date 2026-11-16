@@ -16,7 +16,7 @@ const RightBar = () => {
         <Link href="/experience" className="hover:text-textGrayLight transition-colors">
           Experience
         </Link>
-        <Link href="/#achievements" className="hover:text-textGrayLight transition-colors">
+        <Link href="/achievements" className="hover:text-textGrayLight transition-colors">
           Achievements
         </Link>
         <Link href="/#contact" className="hover:text-textGrayLight transition-colors">

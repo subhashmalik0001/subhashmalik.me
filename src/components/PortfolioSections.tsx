@@ -17,25 +17,25 @@ const ACHIEVEMENTS = [
     project: "AccessiAI",
     summary:
       "Built an AI multimodal accessibility engine in 48h converting dense developer docs into contextual speech & summaries.",
-    href: "https://accessiai.subhashmalik.me",
+    href: "/achievements/ibm-hackathon",
   },
   {
     index: "02",
-    badge: "1ST PLACE WINNER",
-    event: "NIT Hack 5.0",
+    badge: "NATIONAL WINNER",
+    event: "NIT Hamirpur (NIT Hack 5.0)",
     project: "CredTrust",
     summary:
       "Placed 1st out of 200+ teams with a zero-knowledge verifiable credential protocol on Ethereum.",
-    href: "https://credtrust.subhashmalik.me",
+    href: "/achievements/nit-hamirpur",
   },
   {
     index: "03",
-    badge: "1ST RUNNER-UP",
-    event: "Google & iQOO Hackathon",
+    badge: "RUNNER-UP · ₹40,000",
+    event: "Google CodeClash & iQOO Hackathon",
     project: "CollabCanvas",
     summary:
       "Engineered a sub-20ms multiplayer whiteboard with Gemini sketch-to-React JSX compilation.",
-    href: "https://collabcanvas.subhashmalik.me",
+    href: "/achievements/iqoo-monster-inside",
   },
 ];
 
@@ -67,10 +67,10 @@ export function HighlightsPanel() {
           [ VERIFIED PODIUM WINS // 15+ HACKATHONS ]
         </span>
         <Link
-          href="/projects"
+          href="/achievements"
           className="frame-label hover:text-white transition-colors"
         >
-          ALL PROJECTS ↗
+          FULL ACHIEVEMENTS ARCHIVE (07 SECTIONS) ↗
         </Link>
       </div>
 
@@ -92,24 +92,31 @@ export function HighlightsPanel() {
                 </span>
                 <span className="text-[13px] text-textGray">· {item.event}</span>
               </div>
-              <a
+              <Link
                 href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Open ${item.project}`}
+                aria-label={`Open ${item.project} case study`}
                 className="text-textGray hover:text-white transition-colors flex-shrink-0"
               >
                 <ArrowUpRight size={16} />
-              </a>
+              </Link>
             </div>
-            <h3 className="text-[15px] font-bold text-textGrayLight mt-2">
-              {item.project}
-            </h3>
-            <p className="text-[13px] leading-5 text-textGray mt-1">
-              {item.summary}
-            </p>
+            <Link href={item.href} className="block mt-2 group">
+              <h3 className="text-[15px] font-bold text-textGrayLight group-hover:underline">
+                {item.project}
+              </h3>
+              <p className="text-[13px] leading-5 text-textGray mt-1">
+                {item.summary}
+              </p>
+            </Link>
           </CornerFrame>
         ))}
+      </div>
+
+      <div className="pt-1 flex justify-end">
+        <FramedButton href="/achievements" variant="secondary" size="sm">
+          <span>Explore All 7 Achievement Categories</span>
+          <ArrowUpRight size={14} />
+        </FramedButton>
       </div>
     </div>
   );

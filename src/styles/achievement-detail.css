@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Achievement Case-Study Detail Page (/achievements/[slug]) & Lightbox
+   ========================================================================== */
+
+.ach-detail-hero {
+  padding: 32px 0 40px;
+  border-bottom: 1px solid var(--achievement-border);
+}
+
+@container (min-width: 780px) {
+  .ach-detail-hero {
+    padding: 44px 0 56px;
+  }
+}
+
+.ach-detail-title {
+  font-size: clamp(32px, 5.8cqi, 60px);
+  line-height: 1.06;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin-top: 12px;
+}
+
+.ach-detail-subtitle {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--achievement-secondary);
+  margin-top: 10px;
+  max-width: 64ch;
+}
+
+@container (min-width: 780px) {
+  .ach-detail-subtitle {
+    font-size: 19px;
+  }
+}
+
+/* Metadata grid on detail page */
+.ach-meta-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--achievement-border);
+  background: var(--achievement-border-soft);
+  margin-top: 28px;
+}
+
+@container (min-width: 680px) {
+  .ach-meta-strip {
+    grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
+  }
+}
+
+.ach-meta-item {
+  padding: 14px 16px;
+  background: #0a0a0a;
+}
+
+.ach-meta-key {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--achievement-muted);
+}
+
+.ach-meta-val {
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 600;
+  color: #f2f2f2;
+  margin-top: 4px;
+}
+
+/* Case-study narrative blocks */
+.ach-narrative-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--achievement-border-soft);
+}
+
+@container (min-width: 720px) {
+  .ach-narrative-row {
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 32px;
+    padding: 36px 0;
+  }
+}
+
+/* Lightbox modal */
+.ach-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+@media (min-width: 640px) {
+  .ach-lightbox {
+    padding: 28px 40px;
+  }
+}
+
+.ach-lightbox-stage {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0;
+}
+
+.ach-lightbox-frame {
+  max-width: min(1040px, 94vw);
+  max-height: 74vh;
+  padding: 8px;
+  background: #050505;
+}
+
+.ach-lightbox-frame img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(74vh - 16px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}

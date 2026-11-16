@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" fill="none">
+  <rect width="1280" height="720" fill="#090909"/>
+  <defs>
+    <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.045)" stroke-width="1"/>
+    </pattern>
+    <radialGradient id="glow" cx="75%" cy="22%" r="65%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.09)"/>
+      <stop offset="100%" stop-color="rgba(0,0,0,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#g)"/>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+  <rect x="44" y="44" width="1192" height="632" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+  
+  <path d="M44 70V44H70" stroke="#FFFFFF" stroke-width="2.5"/>
+  <path d="M1210 44H1236V70" stroke="#FFFFFF" stroke-width="2.5"/>
+  <path d="M44 650V676H70" stroke="#FFFFFF" stroke-width="2.5"/>
+  <path d="M1210 676H1236V650" stroke="#FFFFFF" stroke-width="2.5"/>
+  <line x1="44" y1="120" x2="1236" y2="120" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="76" y="90" fill="#9E9E9E" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="17" letter-spacing="3">[ 02 // NATIONAL HACKATHON ]</text>
+  <text x="1204" y="90" text-anchor="end" fill="#FFFFFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="700" font-size="16" letter-spacing="2.5">NATIONAL WINNER</text>
+  <text x="86" y="324" fill="rgba(255,255,255,0.05)" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-weight="800" font-size="150" letter-spacing="-4">NITH</text>
+  <text x="86" y="389" fill="#F5F5F5" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-weight="700" font-size="54" letter-spacing="-1.2">NIT Hamirpur Hackathon</text>
+  <text x="86" y="435" fill="#A6A6A6" font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-weight="400" font-size="24">CredTrust — Zero-Knowledge Verifiable Credential Protocol</text>
+  <line x1="44" y1="598" x2="1236" y2="598" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+  <text x="76" y="644" fill="#8A8A8A" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="2">NIT HACK 5.0 · 1ST PLACE AMONG 200+ TEAMS</text>
+  <text x="1204" y="644" text-anchor="end" fill="#CFCFCF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2">SUBHASH MALIK // ARCHIVE</text>
+</svg>

@@ -1,0 +1,183 @@
+/* ==========================================================================
+   Capabilities Bento Grid System
+   Wide 3-column asymmetric layout with expanded center container:
+   Row 1: Card 1 (1 col), Card 2 (2 col)
+   Row 2: Card 3 (1 col), Card 4 (1 col), Card 5 (1 col)
+   Consistent, well-balanced height: 225px
+   ========================================================================== */
+
+:root {
+  --cap-bg: #000000;
+  --cap-card-bg: #0e0e0e;
+  --cap-card-bg-elevated: #131313;
+  --cap-card-border: rgba(255, 255, 255, 0.08);
+  --cap-card-border-hover: rgba(255, 255, 255, 0.22);
+  --cap-text: #f3f3f3;
+  --cap-description: #8e8e93;
+  --cap-card-radius: 28px;
+  --cap-grid-gap: 14px;
+}
+
+.capabilities-container {
+  width: 100%;
+}
+
+/* 3-Column Asymmetric Bento Grid */
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--cap-grid-gap);
+  width: 100%;
+}
+
+.cap-card--span-1 {
+  grid-column: span 1;
+}
+
+.cap-card--span-2 {
+  grid-column: span 2;
+}
+
+/* Card Container */
+.cap-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--cap-card-radius);
+  background-color: var(--cap-card-bg);
+  border: 1px solid var(--cap-card-border);
+  padding: 22px 24px;
+  height: 225px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  text-decoration: none;
+}
+
+.cap-card:hover {
+  border-color: var(--cap-card-border-hover);
+  background-color: var(--cap-card-bg-elevated);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.7);
+}
+
+/* Ambient Radial Glow on hover */
+.cap-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 85% 85%,
+    rgba(255, 255, 255, 0.04) 0%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cap-card:hover::before {
+  opacity: 1;
+}
+
+/* Card Content Area */
+.cap-card__header {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.cap-card__title {
+  font-size: 16.5px;
+  line-height: 22px;
+  font-weight: 600;
+  color: var(--cap-text);
+  letter-spacing: -0.015em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cap-card__description {
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--cap-description);
+  max-width: 380px;
+}
+
+/* Visual Canvas Area - compact & docked to bottom-right */
+.cap-card__visual {
+  position: relative;
+  width: 100%;
+  height: 85px;
+  margin-top: 8px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Keyframe animations */
+@keyframes cap-float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes cap-pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+.animate-cap-float {
+  animation: cap-float-slow 4s ease-in-out infinite;
+}
+
+.animate-cap-pulse {
+  animation: cap-pulse-glow 3s ease-in-out infinite;
+}
+
+/* Phone fallback: stack on small screens <= 640px */
+@media (max-width: 640px) {
+  .capabilities-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .cap-card--span-1,
+  .cap-card--span-2 {
+    grid-column: span 1;
+  }
+  .cap-card {
+    height: auto;
+    min-height: 180px;
+    padding: 18px 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cap-card {
+    transition: none !important;
+    transform: none !important;
+  }
+  .cap-card:hover {
+    transform: none !important;
+  }
+  .animate-cap-float,
+  .animate-cap-pulse {
+    animation: none !important;
+  }
+}

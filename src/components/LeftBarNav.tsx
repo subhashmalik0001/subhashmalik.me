@@ -34,7 +34,13 @@ const navItems = [
     match: "/projects",
     count: String(MOCK_PROJECTS.length).padStart(2, "0"),
   },
-  { label: "Achievements", href: "/#achievements", icon: Trophy, count: "03" },
+  {
+    label: "Achievements",
+    href: "/achievements",
+    icon: Trophy,
+    match: "/achievements",
+    count: "07",
+  },
   { label: "Community", href: "/#community", icon: Users },
   { label: "Tech Stack", href: "/experience#tech-stack", icon: Layers },
   { label: "Resume", href: "/#resume", icon: FileText },
@@ -47,7 +53,11 @@ export default function LeftBarNav() {
   return (
     <nav aria-label="Primary navigation" className="flex flex-col gap-1 w-full">
       {navItems.map((item) => {
-        const active = item.match ? pathname === item.match : false;
+        const active = item.match
+          ? item.match === "/"
+            ? pathname === "/"
+            : pathname.startsWith(item.match)
+          : false;
         const Icon = item.icon;
         const frameClasses = active
           ? `${frame({ variant: "full", size: "sm", tone: "secondary" })} bg-white/[0.06]`

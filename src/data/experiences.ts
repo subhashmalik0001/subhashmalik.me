@@ -90,13 +90,13 @@ export const EXPERIENCES: Experience[] = [
     organization: "Chandigarh University Technology Business Incubator",
     subtitle: "Startup & Innovation Incubator · Chandigarh University",
     shortName: "TBI",
-    // designation: "", // Set your exact verified CU-TBI role/designation here
-    // logo: "/logos/cu-tbi.svg",
+    designation: "Community & Collaboration Lead",
+    logo: "/logos/cutbi-official.png",
     approxDuration: "~11 months",
-    tags: ["Startup ecosystem", "Product development", "Entrepreneurship", "Innovation"],
-    headline: "Collaborated across early-stage product building and entrepreneurship at CU-TBI",
+    tags: ["Community leadership", "Startup ecosystem", "Partnerships", "Innovation"],
+    headline: "Led community engagement, founder partnerships, and ecosystem collaborations at CU-TBI",
     description:
-      "Involved for nearly 11 months with the Chandigarh University Technology Business Incubator (CU-TBI), working closely within the university's startup and innovation ecosystem on product development exposure, founder collaboration, and entrepreneurship.",
+      "Served as Community & Collaboration Lead for nearly 11 months at the Chandigarh University Technology Business Incubator (CU-TBI). Spearheaded founder community initiatives, organized entrepreneurship workshops, fostered cross-startup collaborations, and connected early-stage student builders with university incubation resources.",
   },
 ];
 

@@ -9,7 +9,7 @@ const mobileItems = [
   { label: "Home", href: "/", icon: Home, match: "/" },
   { label: "Experience", href: "/experience", icon: Briefcase, match: "/experience" },
   { label: "Projects", href: "/projects", icon: Code2, match: "/projects" },
-  { label: "Wins", href: "/#achievements", icon: Trophy },
+  { label: "Wins", href: "/achievements", icon: Trophy, match: "/achievements" },
   { label: "Contact", href: "/#contact", icon: Mail },
 ];
 

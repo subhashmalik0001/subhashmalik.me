@@ -1,6 +1,6 @@
-import ProfileContent from "@/components/ProfileContent";
 import PortfolioSections from "@/components/PortfolioSections";
-import Feed from "@/components/Feed";
+import WorkLogosMarquee from "@/components/WorkLogosMarquee";
+import CapabilitiesSection from "@/components/capabilities/CapabilitiesSection";
 import Image from "@/components/Image";
 import FramedButton from "@/components/design-system/FramedButton";
 import FramedImage from "@/components/design-system/FramedImage";
@@ -49,7 +49,9 @@ export default async function ProfileView({
             <h2 className="text-[17px] font-extrabold leading-[22px] text-textGrayLight truncate">
               {user.displayName}
             </h2>
-            <span className="text-[12px] leading-4 text-textGray">11 posts</span>
+            <span className="text-[12px] leading-4 text-textGray">
+              Full-Stack &amp; Product Engineer
+            </span>
           </div>
         </div>
         <span className="hidden xsm:inline frame-label">[ @SUBHASHMALIK01 ]</span>
@@ -226,8 +228,11 @@ export default async function ProfileView({
         </div>
       </div>
 
-      {/* PROFILE TABS & CONTENT */}
-      <ProfileContent feedSlot={<Feed userProfileId={user.id} />} />
+      {/* 01: WORKED WITH LOGOS MARQUEE (LEFT-TO-RIGHT) */}
+      <WorkLogosMarquee />
+
+      {/* 02: WHAT I DO / MY CAPABILITIES BENTO GRID */}
+      <CapabilitiesSection />
 
       {/* PORTFOLIO ARCHITECTURAL SECTIONS (Achievements, Community, Resume & Contact) */}
       {user.username === "SubhashMalik01" && <PortfolioSections />}

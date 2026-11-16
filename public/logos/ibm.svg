@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 48" fill="none">
+  <g fill="#F2F2F2" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-weight="800" font-size="30" letter-spacing="3">
+    <text x="14" y="35">IBM</text>
+  </g>
+  <line x1="10" y1="14" x2="110" y2="14" stroke="#0A0A0A" stroke-width="2.2"/>
+  <line x1="10" y1="20" x2="110" y2="20" stroke="#0A0A0A" stroke-width="2.2"/>
+  <line x1="10" y1="26" x2="110" y2="26" stroke="#0A0A0A" stroke-width="2.2"/>
+  <line x1="10" y1="32" x2="110" y2="32" stroke="#0A0A0A" stroke-width="2.2"/>
+</svg>
+

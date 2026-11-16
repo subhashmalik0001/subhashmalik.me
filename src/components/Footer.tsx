@@ -73,11 +73,11 @@ export default function Footer() {
           <span className="frame-label">03</span>
         </Link>
         <Link
-          href="/#contact"
+          href="/achievements"
           className="px-4 py-2.5 text-textGray hover:text-textGrayLight hover:bg-white/[0.03] transition-colors flex items-center justify-between"
         >
-          <span>Contact</span>
-          <span className="frame-label">↗</span>
+          <span>Achievements</span>
+          <span className="frame-label">04</span>
         </Link>
       </div>
     </footer>
