@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import HalftoneReveal from "./HalftoneReveal";
 import "@/styles/about-bento.css";
 
 interface ToolItem {
@@ -57,16 +58,26 @@ export default function AboutBentoSection() {
           onMouseLeave={() => setIsZHovered(false)}
         >
           <div className="about-bento-intro-inner">
-            {/* Profile Avatar */}
-            <div className="about-bento-avatar-wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+            {/* Interactive WebGL Halftone Reveal Profile Portrait */}
+            <div className="about-bento-avatar-wrap" title="Hover or click to reveal">
+              <HalftoneReveal
                 src="/general/avatar.png"
-                alt="Subhash Malik"
-                loading="eager"
-                decoding="async"
-                draggable={false}
-                className="about-bento-avatar"
+                fit="cover"
+                mode="color"
+                shape="dot"
+                cellSize={4}
+                dotScale={1.05}
+                revealRadius={120}
+                softness={0.65}
+                linger={1.5}
+                paperColor="#0e0e0e"
+                inkColor="#ffffff"
+                accentColor="#f28b45"
+                wander={true}
+                clickBurst={true}
+                intro={true}
+                positionY={0.25}
+                className="w-full h-full"
               />
             </div>
 
