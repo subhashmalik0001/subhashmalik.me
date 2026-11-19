@@ -61,7 +61,7 @@ export default function AboutBentoSection() {
             {/* Interactive WebGL Halftone Reveal Profile Portrait */}
             <div className="about-bento-avatar-wrap" title="Hover or click to reveal color">
               <HalftoneReveal
-                src="/general/avatar.png"
+                src="/general/about-me.jpg"
                 fit="cover"
                 mode="mono"
                 shape="dot"
@@ -78,7 +78,7 @@ export default function AboutBentoSection() {
                 wander={false}
                 clickBurst={true}
                 intro={true}
-                positionY={0.25}
+                positionY={0.5}
                 className="w-full h-full"
               />
             </div>
