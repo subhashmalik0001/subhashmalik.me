@@ -4,7 +4,7 @@ export default function CommunityVisual() {
   return (
     <div className="absolute right-0 bottom-0 w-full h-full flex items-end justify-end overflow-hidden pointer-events-none">
       {/* Community Japanese Garden & Torii Artwork — transparent, anchored to bottom-right */}
-      <div className="relative z-10 w-[210px] sm:w-[235px] max-w-[85%] h-auto -mr-1 -mb-2 sm:-mb-3 flex items-end justify-end">
+      <div className="relative z-10 w-[140px] sm:w-[160px] max-w-[70%] h-auto -mr-1 -mb-1 sm:-mb-2 flex items-end justify-end">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/capabilities/community.png"

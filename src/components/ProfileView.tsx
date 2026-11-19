@@ -1,6 +1,8 @@
 import PortfolioSections from "@/components/PortfolioSections";
 import WorkLogosMarquee from "@/components/WorkLogosMarquee";
+import AboutBentoSection from "@/components/about/AboutBentoSection";
 import CapabilitiesSection from "@/components/capabilities/CapabilitiesSection";
+import IdentityBanner from "@/components/identity/IdentityBanner";
 import Image from "@/components/Image";
 import FramedButton from "@/components/design-system/FramedButton";
 import FramedImage from "@/components/design-system/FramedImage";
@@ -231,8 +233,14 @@ export default async function ProfileView({
       {/* 01: WORKED WITH LOGOS MARQUEE (LEFT-TO-RIGHT) */}
       <WorkLogosMarquee />
 
-      {/* 02: WHAT I DO / MY CAPABILITIES BENTO GRID */}
+      {/* 02: ABOUT ME BENTO SECTION */}
+      <AboutBentoSection />
+
+      {/* 03: WHAT I DO / MY CAPABILITIES BENTO GRID */}
       <CapabilitiesSection />
+
+      {/* 04: IDENTITY BANNER — Professional roles + dual marquee */}
+      <IdentityBanner />
 
       {/* PORTFOLIO ARCHITECTURAL SECTIONS (Achievements, Community, Resume & Contact) */}
       {user.username === "SubhashMalik01" && <PortfolioSections />}

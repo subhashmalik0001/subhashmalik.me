@@ -1,0 +1,650 @@
+/* ==========================================================================
+   About Bento Grid Section — Unified Z-Frame Bento Grid
+   - Shared design tokens with Capabilities Bento Grid:
+     Background: #0e0e0e | Elevated / Hover: #131313
+     Border: rgba(255, 255, 255, 0.08) | Border Hover: rgba(255, 255, 255, 0.22)
+     Radius: 28px
+   - Unified Z-Frame: Intro/Bio (Card A) and Skill Stack (Card D) merged
+     into one seamless continuous container.
+   - Social Card (Card B): Expansive 2x2 rounded squares filling the card,
+     neatly aligned with a 13px inset to the frame border.
+   - Tool Stack (Card C): Animated infinite marquee moving left-to-right.
+   - Skill Stack (Card D): Animated infinite marquee with pause-on-hover.
+   ========================================================================== */
+
+:root {
+  --about-z-bg: #0e0e0e;
+  --about-z-bg-hover: #131313;
+  --about-z-border: rgba(255, 255, 255, 0.08);
+  --about-z-border-hover: rgba(255, 255, 255, 0.22);
+  --about-z-radius: 28px;
+  --about-z-gap: 16px;
+}
+
+.about-bento-section {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  background-color: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 34px 16px 28px;
+}
+
+@media (min-width: 640px) {
+  .about-bento-section {
+    padding: 40px 22px 32px;
+  }
+}
+
+/* ── Section Header ── */
+.about-bento-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 13px;
+  border-radius: 9999px;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #c4c7cc;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+  user-select: none;
+}
+
+.about-bento-heading {
+  font-size: clamp(24px, 4vw, 38px);
+  line-height: 1.18;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  color: #f5f5f7;
+  margin: 0 0 24px 0;
+}
+
+/* ── Mobile Default: Single Column Stack (< 680px) ── */
+.about-bento-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  position: relative;
+}
+
+.about-bento-z-connector,
+.about-bento-fillet {
+  display: none;
+}
+
+/* ── Base Card Styling ── */
+.about-bento-card {
+  position: relative;
+  background-color: var(--about-z-bg);
+  border: 1px solid var(--about-z-border);
+  border-radius: var(--about-z-radius);
+  padding: 22px 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.about-bento-card:hover {
+  border-color: var(--about-z-border-hover);
+  background-color: var(--about-z-bg-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.7);
+}
+
+/* Ambient Radial Glow on hover (matches Capabilities Bento) */
+.about-bento-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 85% 85%,
+    rgba(255, 255, 255, 0.04) 0%,
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.about-bento-card:hover::after {
+  opacity: 1;
+}
+
+/* ── Desktop & Tablet Grid: Merged Z-Frame (>= 680px) ── */
+@media (min-width: 680px) {
+  .about-bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto auto;
+    gap: var(--about-z-gap);
+    position: relative;
+  }
+
+  /* ── 1. The Z-Top: Intro & Bio (Cols 1 to 8, Row 1) ── */
+  .about-bento-z-top {
+    grid-column: 1 / 9;
+    grid-row: 1;
+    min-height: 240px;
+    border-top: 1px solid var(--about-z-border);
+    border-left: 1px solid var(--about-z-border);
+    border-right: 1px solid var(--about-z-border);
+    border-bottom: none; /* Merged open bottom into Cols 5-8 */
+    border-top-left-radius: var(--about-z-radius);
+    border-top-right-radius: var(--about-z-radius);
+    border-bottom-left-radius: var(--about-z-radius);
+    border-bottom-right-radius: 0;
+    overflow: visible; /* Allows seamless fillet extension */
+    position: relative;
+    z-index: 2;
+    background-color: var(--about-z-bg);
+    transform: none !important; /* Kept flush in the grid */
+  }
+
+  /* Bottom border only on left half of Z-Top (Cols 1 to 4, facing Card C) */
+  .about-bento-z-top::before {
+    content: "";
+    position: absolute;
+    left: var(--about-z-radius);
+    bottom: 0;
+    width: calc((100% - var(--about-z-gap)) / 2 - var(--about-z-radius));
+    height: 1px;
+    background-color: var(--about-z-border);
+    z-index: 5;
+    transition: background-color 0.28s ease;
+  }
+
+  /* ── 2. The Z-Bottom: Skill Stack (Cols 5 to 12, Row 2) ── */
+  .about-bento-z-bottom {
+    grid-column: 5 / 13;
+    grid-row: 2;
+    min-height: 120px;
+    border-bottom: 1px solid var(--about-z-border);
+    border-left: 1px solid var(--about-z-border);
+    border-right: 1px solid var(--about-z-border);
+    border-top: none; /* Merged open top from Cols 5-8 */
+    border-bottom-left-radius: var(--about-z-radius);
+    border-bottom-right-radius: var(--about-z-radius);
+    border-top-right-radius: var(--about-z-radius);
+    border-top-left-radius: 0;
+    overflow: visible;
+    position: relative;
+    z-index: 2;
+    background-color: var(--about-z-bg);
+    transform: none !important; /* Kept flush in the grid */
+  }
+
+  /* Top border only on right half of Z-Bottom (Cols 9 to 12, facing Card B) */
+  .about-bento-z-bottom::before {
+    content: "";
+    position: absolute;
+    right: var(--about-z-radius);
+    top: 0;
+    width: calc((100% - var(--about-z-gap)) / 2 - var(--about-z-radius));
+    height: 1px;
+    background-color: var(--about-z-border);
+    z-index: 5;
+    transition: background-color 0.28s ease;
+  }
+
+  /* ── 3. Standalone Card B: Social 2x2 (Cols 9 to 12, Row 1) ── */
+  .about-bento-card--social {
+    grid-column: 9 / 13;
+    grid-row: 1;
+    min-height: 240px; /* Preserve card height as requested */
+    border: 1px solid var(--about-z-border);
+    border-radius: var(--about-z-radius);
+    background-color: var(--about-z-bg);
+    display: flex;
+    flex-direction: column;
+    padding: 13px; /* Clean 13px inset to outer frame border */
+    z-index: 2;
+  }
+
+  /* ── 4. Standalone Card C: Tool Stack (Cols 1 to 4, Row 2) ── */
+  .about-bento-card--tools {
+    grid-column: 1 / 5;
+    grid-row: 2;
+    min-height: 120px;
+    border: 1px solid var(--about-z-border);
+    border-radius: var(--about-z-radius);
+    background-color: var(--about-z-bg);
+    z-index: 2;
+    padding: 18px 20px;
+  }
+
+  /* ── 5. Connector: Bridges the 16px Row Gap across Cols 5 to 8 ── */
+  .about-bento-z-connector {
+    display: block;
+    grid-column: 5 / 9;
+    grid-row: 1 / 3;
+    background-color: var(--about-z-bg);
+    z-index: 1;
+    pointer-events: none;
+    transition: background-color 0.28s ease;
+  }
+
+  /* ── Inverted Fillet Corners on Merged Z-Frame ── */
+  .about-bento-fillet {
+    display: block;
+    position: absolute;
+    width: calc(var(--about-z-gap) + 1px);
+    height: calc(var(--about-z-gap) + 1px);
+    pointer-events: none;
+    z-index: 6;
+  }
+
+  .about-bento-fillet svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Left Fillet: curves Card A bottom into Card D left (above Card C) */
+  .about-bento-fillet--left {
+    left: calc(-1 * var(--about-z-gap) - 0.5px);
+    top: calc(-1 * var(--about-z-gap) - 0.5px);
+  }
+
+  /* Right Fillet: curves Card A right into Card D top (below Card B) */
+  .about-bento-fillet--right {
+    left: calc(100% - 0.5px);
+    top: calc(100% - 0.5px);
+  }
+
+  .about-bento-fillet-bg {
+    fill: var(--about-z-bg);
+    transition: fill 0.28s ease;
+  }
+
+  .about-bento-fillet-stroke {
+    stroke: var(--about-z-border);
+    transition: stroke 0.28s ease;
+  }
+
+  /* ── Unified Hover State: Both Halves & Bridge Glow Together ── */
+  .z-is-hovered .about-bento-z-top,
+  .z-is-hovered .about-bento-z-bottom,
+  .about-bento-grid:has(.about-bento-z-top:hover) .about-bento-z-top,
+  .about-bento-grid:has(.about-bento-z-top:hover) .about-bento-z-bottom,
+  .about-bento-grid:has(.about-bento-z-bottom:hover) .about-bento-z-top,
+  .about-bento-grid:has(.about-bento-z-bottom:hover) .about-bento-z-bottom {
+    border-color: var(--about-z-border-hover);
+    background-color: var(--about-z-bg-hover);
+    box-shadow: 0 14px 32px -8px rgba(0, 0, 0, 0.7);
+  }
+
+  .z-is-hovered .about-bento-z-top::before,
+  .z-is-hovered .about-bento-z-bottom::before,
+  .about-bento-grid:has(.about-bento-z-top:hover) .about-bento-z-top::before,
+  .about-bento-grid:has(.about-bento-z-bottom:hover) .about-bento-z-top::before,
+  .about-bento-grid:has(.about-bento-z-top:hover) .about-bento-z-bottom::before,
+  .about-bento-grid:has(.about-bento-z-bottom:hover) .about-bento-z-bottom::before {
+    background-color: var(--about-z-border-hover);
+  }
+
+  .z-is-hovered .about-bento-z-connector,
+  .about-bento-grid:has(.about-bento-z-top:hover) .about-bento-z-connector,
+  .about-bento-grid:has(.about-bento-z-bottom:hover) .about-bento-z-connector {
+    background-color: var(--about-z-bg-hover);
+  }
+
+  .z-is-hovered .about-bento-fillet-bg,
+  .about-bento-grid:has(.about-bento-z-top:hover) .about-bento-fillet-bg,
+  .about-bento-grid:has(.about-bento-z-bottom:hover) .about-bento-fillet-bg {
+    fill: var(--about-z-bg-hover);
+  }
+
+  .z-is-hovered .about-bento-fillet-stroke,
+  .about-bento-grid:has(.about-bento-z-top:hover) .about-bento-fillet-stroke,
+  .about-bento-grid:has(.about-bento-z-bottom:hover) .about-bento-fillet-stroke {
+    stroke: var(--about-z-border-hover);
+  }
+}
+
+/* ── Card Titles ── */
+.about-bento-card-title {
+  font-size: 16px;
+  line-height: 1.25;
+  font-weight: 500;
+  color: #f3f3f3;
+  letter-spacing: -0.015em;
+  margin: 0 0 12px 0;
+  position: relative;
+  z-index: 5;
+}
+
+/* ── Card A: Intro Content ── */
+.about-bento-z-top {
+  padding: 12px 24px 18px; /* Tightly stacked with top frame border */
+}
+
+.about-bento-intro-inner {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Stacked right near top border */
+  gap: 22px;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.about-bento-avatar-wrap {
+  flex-shrink: 0;
+  width: 170px;
+  height: 190px;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #141414;
+}
+
+@media (min-width: 800px) {
+  .about-bento-avatar-wrap {
+    width: 185px;
+    height: 202px;
+  }
+}
+
+.about-bento-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+}
+
+.about-bento-intro-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-top: 0; /* Directly flush with top */
+  margin-top: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.about-bento-intro-text p {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #8e8e93;
+  margin: 0;
+  font-weight: 400;
+  max-width: 420px;
+}
+
+@media (min-width: 800px) {
+  .about-bento-intro-text p {
+    font-size: 13.5px;
+    line-height: 1.58;
+  }
+}
+
+/* ── Card B: Social Tiles (Large, Border-Touching 2x2 Squares) ── */
+.about-bento-social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+.about-bento-social-tile {
+  width: 100%;
+  height: 100%;
+  min-height: 94px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 8px;
+  border-radius: 18px;
+  background-color: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+  color: #8e8e93;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.about-bento-social-tile:hover {
+  background-color: #1c1c1c;
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.6);
+}
+
+.about-bento-social-tile:focus-visible {
+  border-color: #ffffff;
+  outline: 2px solid rgba(255, 255, 255, 0.3);
+  outline-offset: 2px;
+}
+
+.about-bento-social-icon {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c4c7cc;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.about-bento-social-tile:hover .about-bento-social-icon {
+  color: #ffffff;
+  transform: scale(1.08);
+}
+
+.about-bento-social-label {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: inherit;
+}
+
+/* ── Card C: Tool Stack (Animated Left-to-Right Marquee) ── */
+.about-bento-tools-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+
+.about-bento-tools-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: bento-tools-marquee-ltr 18s linear infinite;
+}
+
+.about-bento-tools-track:hover {
+  animation-play-state: paused;
+}
+
+.about-bento-tools-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-right: 20px;
+  flex-shrink: 0;
+}
+
+@keyframes bento-tools-marquee-ltr {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Tool badges: Pure floating logos without background circle wrapper */
+.about-bento-tool-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  cursor: default;
+}
+
+.about-bento-tool-badge:hover {
+  transform: translateY(-2px) scale(1.14);
+}
+
+.about-bento-tool-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: brightness(0.92) drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.about-bento-tool-badge:hover .about-bento-tool-img {
+  filter: brightness(1.18) drop-shadow(0 4px 12px rgba(255, 255, 255, 0.12));
+}
+
+/* ── Card D: Skill Stack (Animated Marquee) ── */
+.about-bento-z-bottom {
+  padding: 18px 22px;
+}
+
+.about-bento-skills-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 5;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.about-bento-skills-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: bento-skills-marquee-rtl 28s linear infinite;
+}
+
+.about-bento-skills-track:hover {
+  animation-play-state: paused;
+}
+
+.about-bento-skills-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 10px;
+  flex-shrink: 0;
+}
+
+@keyframes bento-skills-marquee-rtl {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Skill chips: subtle rounded rectangle (8px) instead of full circle pill */
+.about-bento-skill-chip {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 6px 13px;
+  border-radius: 8px;
+  background-color: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 12px;
+  font-weight: 450;
+  line-height: 1.2;
+  color: #b0b4bc;
+  letter-spacing: -0.01em;
+  transition: all 0.2s ease;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.about-bento-skill-chip:hover {
+  background-color: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* ── Mobile Layout (<= 680px): Stack Rows Cleanly ── */
+@media (max-width: 679px) {
+  .about-bento-intro-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .about-bento-avatar-wrap {
+    width: 135px;
+    height: 150px;
+  }
+
+  .about-bento-intro-text {
+    padding-top: 0;
+  }
+
+  .about-bento-card {
+    border-radius: 20px;
+    padding: 18px 20px;
+  }
+
+  .about-bento-card--social {
+    padding: 12px;
+    min-height: auto;
+  }
+
+  .about-bento-social-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .about-bento-social-tile {
+    min-height: 80px;
+  }
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .about-bento-tools-track,
+  .about-bento-skills-track {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .about-bento-card,
+  .about-bento-social-tile,
+  .about-bento-tool-badge,
+  .about-bento-skill-chip {
+    transition: none !important;
+    transform: none !important;
+  }
+}

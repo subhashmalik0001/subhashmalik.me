@@ -4,7 +4,7 @@ export default function AdvocateVisual() {
   return (
     <div className="absolute right-0 bottom-0 w-full h-full flex items-end justify-end overflow-hidden pointer-events-none">
       {/* "Build. Grow. Serve." Official Artwork — clean, no extra bg color, shifted lower */}
-      <div className="relative z-10 w-[270px] sm:w-[320px] md:w-[360px] max-w-[70%] h-auto mr-1 -mb-3 sm:mr-3 sm:-mb-4 flex items-end justify-end">
+      <div className="relative z-10 w-[230px] sm:w-[270px] md:w-[300px] max-w-[70%] h-auto mr-1 -mb-2 sm:mr-3 sm:-mb-3 flex items-end justify-end">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/capabilities/developer-advocate.png"

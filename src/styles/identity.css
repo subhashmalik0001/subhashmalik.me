@@ -1,0 +1,257 @@
+/* ==========================================================================
+   Identity Banner — Wide dark card, left text + right dual-row pill marquee
+   Reference: horizontal dark container, ~38% left / ~62% right split,
+   two counter-scrolling rows of role pills, blue gradient CTA.
+   ========================================================================== */
+
+/* ── Container ── */
+.identity-container {
+  display: flex;
+  align-items: stretch;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 84px;
+  width: 100%;
+}
+
+/* ── Left Panel — Text + CTA ── */
+.identity-left {
+  flex: 0 0 38%;
+  max-width: 38%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 14px 28px;
+  gap: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.identity-copy {
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 400;
+  color: #c8cdd2;
+  margin: 0;
+}
+
+.identity-sub {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #6b7280;
+  margin: 0;
+}
+
+.identity-accent {
+  color: #e8944a;
+}
+
+/* ── CTA Button — Vibrant blue gradient ── */
+.identity-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  padding: 8px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #2563eb 0%, #38bdf8 50%, #6366f1 100%);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  text-decoration: none;
+  transition: background-position 0.5s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 20px -4px rgba(37, 99, 235, 0.35);
+  max-width: fit-content;
+}
+
+.identity-cta:hover {
+  background-position: 100% 50%;
+  box-shadow: 0 6px 28px -4px rgba(56, 189, 248, 0.45);
+  transform: translateY(-1px);
+}
+
+.identity-cta:active {
+  transform: translateY(0);
+}
+
+/* ── Right Panel — Dual Marquee ── */
+.identity-right {
+  flex: 1 1 62%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Subtle ambient glow behind pills */
+.identity-right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 70% 90% at 40% 50%,
+    rgba(59, 130, 246, 0.06) 0%,
+    rgba(99, 102, 241, 0.03) 40%,
+    transparent 80%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Marquee Row ── */
+.identity-marquee-row {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 5%,
+    #000 95%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 5%,
+    #000 95%,
+    transparent 100%
+  );
+}
+
+.identity-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+/* Row 1: right to left */
+.identity-marquee-ltr {
+  animation: identity-scroll-ltr 45s linear infinite;
+}
+
+/* Row 2: left to right */
+.identity-marquee-rtl {
+  animation: identity-scroll-rtl 50s linear infinite;
+}
+
+@keyframes identity-scroll-ltr {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes identity-scroll-rtl {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Pause on hover */
+.identity-marquee-row:hover .identity-marquee-track {
+  animation-play-state: paused;
+}
+
+/* ── Individual Pill ── */
+.identity-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1;
+  color: #b0b8c4;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.identity-pill:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #d4d9e0;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* ── Responsive ── */
+
+/* Tablet: keep 2-col but tighten */
+@media (max-width: 860px) {
+  .identity-left {
+    flex: 0 0 42%;
+    max-width: 42%;
+    padding: 14px 20px;
+  }
+
+  .identity-right {
+    gap: 7px;
+    padding: 10px 0;
+  }
+
+  .identity-pill {
+    padding: 6px 13px;
+    font-size: 11.5px;
+  }
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 640px) {
+  .identity-container {
+    flex-direction: column;
+    border-radius: 18px;
+    min-height: auto;
+  }
+
+  .identity-left {
+    flex: none;
+    max-width: 100%;
+    padding: 16px 18px 12px;
+    gap: 8px;
+  }
+
+  .identity-cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .identity-right {
+    flex: none;
+    padding: 8px 0 14px;
+    gap: 7px;
+  }
+
+  .identity-pill {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+}
+
+/* ── Reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .identity-marquee-ltr,
+  .identity-marquee-rtl {
+    animation: none !important;
+  }
+
+  .identity-marquee-row {
+    overflow-x: auto;
+  }
+
+  .identity-cta {
+    transition: none;
+  }
+}
+

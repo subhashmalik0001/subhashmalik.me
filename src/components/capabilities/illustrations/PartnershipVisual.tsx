@@ -12,7 +12,7 @@ export default function PartnershipVisual() {
           loading="eager"
           decoding="async"
           draggable={false}
-          className="h-[95px] sm:h-[106px] w-auto max-w-[95px] object-contain object-bottom-right drop-shadow-[0_10px_20px_rgba(0,0,0,0.55)] transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-translate-y-1"
+          className="h-[82px] sm:h-[92px] w-auto max-w-[85px] object-contain object-bottom-right drop-shadow-[0_10px_20px_rgba(0,0,0,0.55)] transition-transform duration-500 ease-out group-hover:scale-105 group-hover:-translate-y-1"
         />
       </div>
     </div>

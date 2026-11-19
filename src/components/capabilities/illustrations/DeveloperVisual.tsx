@@ -4,7 +4,7 @@ export default function DeveloperVisual() {
   return (
     <div className="absolute right-0 bottom-0 w-full h-full flex items-end justify-end overflow-hidden pointer-events-none">
       {/* Pure Monochrome Dithered Hand & Glowing Orb Artwork — shifted lower down */}
-      <div className="relative z-10 w-[175px] sm:w-[200px] max-w-[75%] h-auto -mr-1 -mb-3 sm:-mb-4 flex items-end justify-end">
+      <div className="relative z-10 w-[150px] sm:w-[170px] max-w-[75%] h-auto -mr-1 -mb-2 sm:-mb-3 flex items-end justify-end">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/capabilities/software-developer.png"
