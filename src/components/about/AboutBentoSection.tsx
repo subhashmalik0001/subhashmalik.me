@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -64,17 +65,17 @@ export default function AboutBentoSection() {
                 src="/general/about-me.jpg"
                 fit="cover"
                 mode="mono"
-                shape="dot"
-                cellSize={3.8}
-                dotScale={0.95}
+                shape="diamond"
+                cellSize={5.2}
+                dotScale={1.1}
                 revealRadius={120}
                 softness={0.6}
                 linger={0.85}
-                paperColor="#000000"
-                inkColor="#606066"
+                paperColor="#0a0a0c"
+                inkColor="#ffffff"
                 accentColor="#f28b45"
-                contrast={1.25}
-                brightness={-0.02}
+                contrast={1.18}
+                brightness={0.06}
                 wander={false}
                 clickBurst={true}
                 intro={true}
