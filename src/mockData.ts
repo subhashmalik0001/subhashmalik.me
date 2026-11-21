@@ -538,7 +538,7 @@ export const MOCK_PROJECTS: ProjectItem[] = [
     techStack: ["Rust", "Tauri", "TypeScript", "WebAssembly", "FFmpeg", "GPL-3.0"],
     liveUrl: "https://www.docyo.app/",
     githubUrl: "https://github.com/subhashmalik0001/docyo",
-    images: ["/achievements/docyo.svg"],
+    images: ["/projects/docyo/docyo-1.jpg", "/projects/docyo/docyo-2.jpg"],
     stats: {
       likes: 482,
       reposts: 124,
@@ -565,7 +565,7 @@ export const MOCK_PROJECTS: ProjectItem[] = [
     techStack: ["Next.js 15", "React Native", "TypeScript", "OCR Vision", "CRM APIs", "Supabase"],
     liveUrl: "https://nebula.subhashmalik.me",
     githubUrl: "https://github.com/subhashmalik0001/nebula",
-    images: ["/achievements/nebula.svg"],
+    images: ["/projects/nebula/nebula-1.jpg", "/projects/nebula/nebula-2.jpg"],
     stats: {
       likes: 367,
       reposts: 89,
@@ -592,7 +592,7 @@ export const MOCK_PROJECTS: ProjectItem[] = [
     techStack: ["Next.js 15", "React", "Node.js", "PostgreSQL", "UPI Integration", "Tailwind CSS"],
     liveUrl: "https://edvanta.subhashmalik.me",
     githubUrl: "https://github.com/subhashmalik0001/edvanta",
-    images: ["/achievements/edvanta.svg"],
+    images: ["/projects/edvanta/edvanta-1.jpg"],
     stats: {
       likes: 295,
       reposts: 71,
@@ -619,7 +619,7 @@ export const MOCK_PROJECTS: ProjectItem[] = [
     techStack: ["Flutter", "Dart", "Firebase", "Node.js", "Google Maps API", "Cloud Functions"],
     liveUrl: "https://play.google.com/store/apps/details?id=com.will.app",
     githubUrl: "https://github.com/subhashmalik0001/will",
-    images: ["/achievements/will.svg"],
+    images: ["/projects/will/will-1.jpg"],
     stats: {
       likes: 418,
       reposts: 110,
@@ -646,7 +646,7 @@ export const MOCK_PROJECTS: ProjectItem[] = [
     techStack: ["Next.js 14", "TypeScript", "Web Serial API", "Supabase", "tRPC", "Drizzle ORM", "LLM Models", "Tailwind CSS"],
     liveUrl: "https://synora.subhashmalik.me",
     githubUrl: "https://github.com/subhashmalik0001/synora",
-    images: ["/achievements/synora.svg"],
+    images: ["/achievements/media/ibm-winner-1.jpg", "/achievements/media/ibm-winner-2.jpg"],
     stats: {
       likes: 520,
       reposts: 148,
@@ -673,7 +673,7 @@ export const MOCK_PROJECTS: ProjectItem[] = [
     techStack: ["Next.js 15", "Python", "FastAPI", "Computer Vision", "IoT Sensors", "PostgreSQL", "Tailwind CSS"],
     liveUrl: "https://cityscope.subhashmalik.me",
     githubUrl: "https://github.com/subhashmalik0001/cityscope",
-    images: ["/achievements/cityscope.svg"],
+    images: ["/achievements/media/india-innovates-1.jpg"],
     stats: {
       likes: 462,
       reposts: 132,
@@ -700,7 +700,7 @@ export const MOCK_PROJECTS: ProjectItem[] = [
     techStack: ["Next.js 15", "TypeScript", "Telegram Bot API", "UPI Gateway", "Prisma", "Tailwind CSS"],
     liveUrl: "https://www.fluxar.live/",
     githubUrl: "https://github.com/subhashmalik0001/fluxar",
-    images: ["/achievements/fluxar.svg"],
+    images: ["/projects/fluxar/fluxar-1.jpg", "/projects/fluxar/fluxar-2.jpg"],
     stats: {
       likes: 318,
       reposts: 76,

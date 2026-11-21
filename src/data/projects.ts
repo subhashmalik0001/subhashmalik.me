@@ -31,14 +31,32 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
       "Architected the radial menu interaction system, Tauri/Rust local pipeline, file format matrix with 176 routes, and 25 media manipulation tools.",
     outcome:
       "Shipped open-source (GPL-3.0) for macOS (5.4 MB bundle), Windows, and Linux. Live at docyo.app.",
-    coverImage: "/achievements/docyo.svg",
+    coverImage: "/projects/docyo/docyo-1.jpg",
     coverRatio: "16:9",
-    gallery: ["/achievements/docyo.svg"],
+    gallery: [
+      "/projects/docyo/docyo-1.jpg",
+      "/projects/docyo/docyo-2.jpg",
+      "/achievements/docyo.svg",
+    ],
     galleryItems: [
       {
-        src: "/achievements/docyo.svg",
+        src: "/projects/docyo/docyo-1.jpg",
         alt: "Docyo — Local-First Swiss Army Knife for Files",
-        caption: "Docyo — System Architecture & Radial Interaction Model",
+        caption: "Docyo — Radial Wheel & Local File Conversion Pipeline (176 Routes)",
+        ratio: "16:9",
+        kind: "product",
+      },
+      {
+        src: "/projects/docyo/docyo-2.jpg",
+        alt: "Docyo — Built-in Conversion and PDF Tools",
+        caption: "Docyo — Built-in PDF Tools, OCR, Video Trimming & Image Redaction",
+        ratio: "16:9",
+        kind: "product",
+      },
+      {
+        src: "/achievements/docyo.svg",
+        alt: "Docyo — Architecture Blueprint",
+        caption: "Docyo — Architecture & Katanex System Spec",
         ratio: "16:9",
         kind: "product",
       },
@@ -79,14 +97,32 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
       "Engineered the camera OCR pipeline, full-text fuzzy contact indexing, dynamic QR generation, and CRM export integrations.",
     outcome:
       "Shipped and deployed at nebula.subhashmalik.me, helping professionals manage conference networking without manual entry.",
-    coverImage: "/achievements/nebula.svg",
+    coverImage: "/projects/nebula/nebula-1.jpg",
     coverRatio: "16:9",
-    gallery: ["/achievements/nebula.svg"],
+    gallery: [
+      "/projects/nebula/nebula-1.jpg",
+      "/projects/nebula/nebula-2.jpg",
+      "/achievements/nebula.svg",
+    ],
     galleryItems: [
       {
-        src: "/achievements/nebula.svg",
+        src: "/projects/nebula/nebula-1.jpg",
         alt: "Nebula — AI Business Card Scanner",
-        caption: "Nebula — Neural OCR Pipeline & CRM Sync",
+        caption: "Nebula — Sub-2-Second OCR Extraction & Contact Management Hub",
+        ratio: "16:9",
+        kind: "product",
+      },
+      {
+        src: "/projects/nebula/nebula-2.jpg",
+        alt: "Nebula — CRM Sync & Contact Detail View",
+        caption: "Nebula — Contact Hub with HubSpot & Salesforce 1-Click Sync",
+        ratio: "16:9",
+        kind: "product",
+      },
+      {
+        src: "/achievements/nebula.svg",
+        alt: "Nebula Architecture Blueprint",
+        caption: "Nebula — Neural OCR Pipeline & Architecture Spec",
         ratio: "16:9",
         kind: "product",
       },
@@ -126,14 +162,21 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
       "Architected the backend payment ledger, real-time analytics aggregation pipelines, role-based access control, and intuitive parent portal.",
     outcome:
       "Processed over ₹5 Lakh in fee transactions, 1.2 Lakh+ automated attendance logs, and saved 5,000+ admin hours monthly across partner institutions.",
-    coverImage: "/achievements/edvanta.svg",
+    coverImage: "/projects/edvanta/edvanta-1.jpg",
     coverRatio: "16:9",
-    gallery: ["/achievements/edvanta.svg"],
+    gallery: ["/projects/edvanta/edvanta-1.jpg", "/achievements/edvanta.svg"],
     galleryItems: [
       {
+        src: "/projects/edvanta/edvanta-1.jpg",
+        alt: "Edvanta — Operating System for Schools Dashboard",
+        caption: "Edvanta — Executive Fee Management & Live Analytics Dashboard",
+        ratio: "16:9",
+        kind: "product",
+      },
+      {
         src: "/achievements/edvanta.svg",
-        alt: "Edvanta — Operating System for Schools",
-        caption: "Edvanta — Institutional Architecture & Analytics Dashboard",
+        alt: "Edvanta — Institutional Architecture Blueprint",
+        caption: "Edvanta — Institutional Architecture & Analytics Spec",
         ratio: "16:9",
         kind: "product",
       },
@@ -173,14 +216,21 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
       "Co-developed the Flutter client application, Firebase real-time geolocation matching, user verification flows, and multilingual UI.",
     outcome:
       "Launched on the Google Play Store after 2 years of continuous engineering and community validation.",
-    coverImage: "/achievements/will.svg",
+    coverImage: "/projects/will/will-1.jpg",
     coverRatio: "16:9",
-    gallery: ["/achievements/will.svg", "/general/cover.jpg"],
+    gallery: ["/projects/will/will-1.jpg", "/achievements/will.svg"],
     galleryItems: [
       {
+        src: "/projects/will/will-1.jpg",
+        alt: "WILL — On-Demand Labor Market Platform on Play Store",
+        caption: "WILL — Live Application Interface on Google Play Store",
+        ratio: "16:9",
+        kind: "product",
+      },
+      {
         src: "/achievements/will.svg",
-        alt: "WILL — On-Demand Labor Market Platform",
-        caption: "WILL — Mobile Marketplace Architecture",
+        alt: "WILL — Mobile Marketplace Architecture",
+        caption: "WILL — Marketplace Architecture Spec",
         ratio: "16:9",
         kind: "product",
       },
@@ -220,14 +270,32 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
       "Engineered the webhook reconciliation pipeline, Telegram Bot lifecycle daemon, and real-time MRR analytics dashboard.",
     outcome:
       "Live at fluxar.live, managing paid member access and subscription lifecycles for Indian creators.",
-    coverImage: "/achievements/fluxar.svg",
+    coverImage: "/projects/fluxar/fluxar-1.jpg",
     coverRatio: "16:9",
-    gallery: ["/achievements/fluxar.svg"],
+    gallery: [
+      "/projects/fluxar/fluxar-1.jpg",
+      "/projects/fluxar/fluxar-2.jpg",
+      "/achievements/fluxar.svg",
+    ],
     galleryItems: [
       {
-        src: "/achievements/fluxar.svg",
+        src: "/projects/fluxar/fluxar-1.jpg",
         alt: "Fluxar — Automated Community Paywall",
-        caption: "Fluxar — Automated Subscription Lifecycle & Ledger",
+        caption: "Fluxar — Telegram & WhatsApp Automated UPI Paywall & Bot Interface",
+        ratio: "16:9",
+        kind: "product",
+      },
+      {
+        src: "/projects/fluxar/fluxar-2.jpg",
+        alt: "Fluxar — Creator Control Center & Analytics",
+        caption: "Fluxar — Creator Control Center, Verified Ledger & Real-Time MRR",
+        ratio: "16:9",
+        kind: "product",
+      },
+      {
+        src: "/achievements/fluxar.svg",
+        alt: "Fluxar Blueprint",
+        caption: "Fluxar — Automated Subscription Lifecycle & Ledger Spec",
         ratio: "16:9",
         kind: "product",
       },
@@ -267,13 +335,31 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
       "Engineered the Web Serial API pipeline, full-stack Next.js 14 architecture, Supabase offline cache, and live sensor telemetry charts.",
     outcome:
       "Awarded 1st Prize Grand Prize at IBM's Code Crafter 3.0 competing against 500+ teams from IITs and NITs.",
-    coverImage: "/achievements/synora.svg",
+    coverImage: "/achievements/media/ibm-winner-1.jpg",
     coverRatio: "16:9",
-    gallery: ["/achievements/synora.svg"],
+    gallery: [
+      "/achievements/media/ibm-winner-1.jpg",
+      "/achievements/media/ibm-winner-2.jpg",
+      "/achievements/synora.svg",
+    ],
     galleryItems: [
       {
+        src: "/achievements/media/ibm-winner-1.jpg",
+        alt: "Synora Team winning Grand Prize at IBM Code Crafter 3.0",
+        caption: "1st Prize Grand Prize Winners at IBM National Hackathon Code Crafter 3.0 (₹1.8 Lakh Prize Haul)",
+        ratio: "16:9",
+        kind: "photo",
+      },
+      {
+        src: "/achievements/media/ibm-winner-2.jpg",
+        alt: "Synora Stage Award Ceremony",
+        caption: "Stage presentation & live EMG hardware demonstration before IBM judges",
+        ratio: "3:4",
+        kind: "stage",
+      },
+      {
         src: "/achievements/synora.svg",
-        alt: "Synora — Clinical Management & EMG Monitoring",
+        alt: "Synora Architecture Spec",
         caption: "Synora — Real-Time EMG Web Serial Stream & Clinical Dashboard",
         ratio: "16:9",
         kind: "product",
@@ -314,10 +400,20 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
       "Built the full-stack web dashboard, complaint triage automation pipeline, and IoT spatial anomaly mapping.",
     outcome:
       "Won Digital Democracy Domain and selected for Finale out of 30,000+ teams at Bharat Mandapam, New Delhi; pitched directly to Delhi Cabinet Ministers.",
-    coverImage: "/achievements/cityscope.svg",
+    coverImage: "/achievements/media/india-innovates-1.jpg",
     coverRatio: "16:9",
-    gallery: ["/achievements/cityscope.svg"],
+    gallery: [
+      "/achievements/media/india-innovates-1.jpg",
+      "/achievements/cityscope.svg",
+    ],
     galleryItems: [
+      {
+        src: "/achievements/media/india-innovates-1.jpg",
+        alt: "India Innovates 2026 Winner Ceremony at Bharat Mandapam",
+        caption: "India Innovates 2026 Grand Finale at Bharat Mandapam, New Delhi (Top 1% of 30,000+ Teams)",
+        ratio: "3:4",
+        kind: "stage",
+      },
       {
         src: "/achievements/cityscope.svg",
         alt: "CityScope — Civic Intelligence Platform",

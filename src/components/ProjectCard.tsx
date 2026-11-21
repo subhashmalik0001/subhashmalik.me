@@ -222,15 +222,31 @@ export default function ProjectCard({
                 className="block"
               >
                 <div className="p-[5px] bg-black">
-                  <div className="w-full max-h-[330px] overflow-hidden bg-black flex items-center justify-center">
-                    <Image
-                      path={project.images[0]}
-                      alt={project.title}
-                      w={600}
-                      h={340}
-                      className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
-                    />
-                  </div>
+                  {project.images.length > 1 ? (
+                    <div className="grid grid-cols-2 gap-1 w-full max-h-[330px] overflow-hidden bg-black">
+                      {project.images.slice(0, 2).map((img, idx) => (
+                        <div key={idx} className="h-[200px] sm:h-[240px] overflow-hidden bg-[#0A0A0A] flex items-center justify-center">
+                          <Image
+                            path={img}
+                            alt={`${project.title} - ${idx + 1}`}
+                            w={450}
+                            h={300}
+                            className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="w-full max-h-[330px] overflow-hidden bg-black flex items-center justify-center">
+                      <Image
+                        path={project.images[0]}
+                        alt={project.title}
+                        w={600}
+                        h={340}
+                        className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                      />
+                    </div>
+                  )}
                 </div>
                 {/* Link Preview Sub-bar */}
                 <div className="px-3.5 py-2.5 border-t border-[var(--border-subtle)] flex items-center justify-between bg-[#080808]">
