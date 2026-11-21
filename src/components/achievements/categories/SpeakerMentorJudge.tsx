@@ -18,13 +18,15 @@ export default function SpeakerMentorJudge() {
 
   return (
     <AchievementSection meta={meta}>
-      {/* A. Speaker Appearances */}
+      {/* A. Speaker Appearances & Stage Panels */}
       <div>
         <div className="ach-subsection-bar">
           <span className="frame-label !text-[#D8D8D8]">
             [ A // SPEAKER APPEARANCES &amp; STAGE PANELS ]
           </span>
-          <span className="frame-label">0{speakerItems.length} SESSIONS</span>
+          <span className="frame-label">
+            {speakerItems.length < 10 ? `0${speakerItems.length}` : speakerItems.length} SESSIONS
+          </span>
         </div>
         <div className="ach-grid-2">
           {speakerItems.map((item) => (
@@ -37,31 +39,17 @@ export default function SpeakerMentorJudge() {
         </div>
       </div>
 
-      {/* B. Mentorship & C. Evaluation Panels */}
-      <div className="ach-grid-2">
-        <div>
-          <div className="ach-subsection-bar">
-            <span className="frame-label !text-[#D8D8D8]">
-              [ B // MENTORSHIP ]
-            </span>
-            <span className="frame-label">COHORTS &amp; BUILDS</span>
-          </div>
-          {mentorItems.map((item) => (
-            <AchievementCard
-              key={item.id}
-              achievement={item}
-              ctaLabel="View Mentorship Details"
-            />
-          ))}
+      {/* B. Evaluation & Review Panels (Judging) */}
+      <div>
+        <div className="ach-subsection-bar">
+          <span className="frame-label !text-[#D8D8D8]">
+            [ B // EVALUATION &amp; REVIEW PANELS (JUDGING) ]
+          </span>
+          <span className="frame-label">
+            {judgeItems.length < 10 ? `0${judgeItems.length}` : judgeItems.length} PANELS
+          </span>
         </div>
-
-        <div>
-          <div className="ach-subsection-bar">
-            <span className="frame-label !text-[#D8D8D8]">
-              [ C // EVALUATION &amp; REVIEW PANELS ]
-            </span>
-            <span className="frame-label">COMMUNITY SHOWCASES</span>
-          </div>
+        <div className="ach-grid-2">
           {judgeItems.map((item) => (
             <AchievementCard
               key={item.id}
@@ -71,7 +59,25 @@ export default function SpeakerMentorJudge() {
           ))}
         </div>
       </div>
+
+      {/* C. Mentorship */}
+      <div>
+        <div className="ach-subsection-bar">
+          <span className="frame-label !text-[#D8D8D8]">
+            [ C // BUILDER MENTORSHIP ]
+          </span>
+          <span className="frame-label">COHORTS &amp; BUILDS</span>
+        </div>
+        <div className="ach-grid-2">
+          {mentorItems.map((item) => (
+            <AchievementCard
+              key={item.id}
+              achievement={item}
+              ctaLabel="View Mentorship Details"
+            />
+          ))}
+        </div>
+      </div>
     </AchievementSection>
   );
 }
-

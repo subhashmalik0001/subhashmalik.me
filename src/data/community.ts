@@ -4,7 +4,7 @@ import type { Achievement } from "@/types/achievement";
  * SECTION 05 — COMMUNITY ACHIEVEMENTS (HACKBRIVEN & ECOSYSTEM INITIATIVES)
  *
  * Highlights HackBriven (Founding Member) and the specific events organized:
- *  - Build for India AI Hackathon
+ *  - Paytm Build for India AI Hackathon (Bengaluru & Delhi)
  *  - The Builders Space
  *  - CTRL ALT HACK
  *  - ElevenLabs AI Meetup
@@ -31,39 +31,58 @@ export const COMMUNITY_ACHIEVEMENTS: Achievement[] = [
     category: "community",
     categoryLabel: "05 / Community Achievements",
     indexNumber: "01",
-    title: "Build for India AI Hackathon",
-    subtitle: "HackBriven Flagship AI & Product Engineering Hackathon",
-    organization: "HackBriven",
-    organizationLogo: "/logos/hackbriven.svg",
+    title: "Paytm Build for India AI Hackathon",
+    subtitle: "Bengaluru & Delhi Editions · 4,000+ Registrations, 100,000+ Impressions with Paytm",
+    organization: "Paytm × HackBriven",
+    organizationLogo: "/logos/paytm.svg",
     recognition: "Founding Member & Lead Organizer",
     recognitionType: "community",
-    date: "2025",
-    location: "India · Hybrid / In-Person",
+    date: "2025 — 2026",
+    location: "Bengaluru & Delhi (In-Person / Hybrid)",
     role: "Founding Member · Operations, Partnerships & Technical Tracks",
     description:
-      "Organized the Build for India AI Hackathon under HackBriven — bringing together student developers and early-stage builders to solve India-scale challenges using modern AI, voice models, and full-stack web architectures.",
+      "Co-organized the Paytm Build for India AI Hackathon across Bengaluru and Delhi in official partnership with Paytm (One97 Communications Limited). Scaled to 4,000+ registrations in a single city and over 100,000+ impressions across developer platforms, uniting builders, founders, and AI enthusiasts to solve real fintech challenges.",
     contribution:
-      "Led event operations, partner outreach, problem-statement curation, mentor coordination, and technical evaluation workflows.",
+      "Led hackathon architecture, partner outreach with Paytm leadership, problem-statement curation, mentor coordination, and technical evaluation workflows.",
     outcome:
-      "Executed a flagship community hackathon uniting student builders, mentors, and AI ecosystem partners.",
-    coverImage: "/achievements/build-for-india.svg",
+      "Executed one of India's largest corporate-backed student AI hackathons, receiving direct praise from Paytm leadership and community builders.",
+    coverImage: "/events/paytm-hackathon/paytm-ai-1.jpg",
     coverRatio: "16:9",
-    gallery: ["/achievements/build-for-india.svg", "/general/cover.jpg"],
+    gallery: [
+      "/events/paytm-hackathon/paytm-ai-1.jpg",
+      "/events/paytm-hackathon/paytm-ai-2.jpg",
+      "/events/paytm-hackathon/paytm-ai-3.jpg",
+      "/achievements/build-for-india.svg",
+    ],
     galleryItems: [
       {
-        src: "/achievements/build-for-india.svg",
-        alt: "Build for India AI Hackathon",
-        caption: "Build for India AI Hackathon — Organized by HackBriven",
+        src: "/events/paytm-hackathon/paytm-ai-1.jpg",
+        alt: "Paytm Build for India AI Hackathon main banner & stage",
+        caption: "Paytm Build for India AI Hackathon — Delhi & Bengaluru Editions",
         ratio: "16:9",
-        kind: "banner",
+        kind: "stage",
+      },
+      {
+        src: "/events/paytm-hackathon/paytm-ai-2.jpg",
+        alt: "Subhash Malik & team at Paytm AI Hackathon",
+        caption: "4,000+ registrations in a single city solving fintech & AI challenges",
+        ratio: "16:9",
+        kind: "photo",
+      },
+      {
+        src: "/events/paytm-hackathon/paytm-ai-3.jpg",
+        alt: "Organizing team and builders on ground",
+        caption: "Founding team on ground executing the flagship hackathon in partnership with Paytm",
+        ratio: "16:9",
+        kind: "photo",
       },
     ],
     partnerLogos: [
+      { name: "Paytm", logo: "/logos/paytm.svg" },
       { name: "HackBriven", logo: "/logos/hackbriven.svg" },
       { name: "Sarvam AI", logo: "/logos/sarvam.svg" },
-      { name: "n8n", logo: "/logos/n8n.svg" },
     ],
-    technologies: ["Hackathon Operations", "AI Problem Tracks", "Developer Partnerships", "Mentorship"],
+    technologies: ["Fintech AI", "Paytm Partnership", "Hackathon Operations", "4,000+ Builders", "Developer Community"],
     links: [],
     featured: true,
   },
@@ -74,7 +93,7 @@ export const COMMUNITY_ACHIEVEMENTS: Achievement[] = [
     categoryLabel: "05 / Community Achievements",
     indexNumber: "02",
     title: "The Builders Space",
-    subtitle: "Hands-On Builder Meetups, Product Demos & Peer Engineering",
+    subtitle: "Demolishing Slideware · Live Product Demos, Building in Public & Peer Engineering",
     organization: "HackBriven",
     organizationLogo: "/logos/hackbriven.svg",
     recognition: "Community Initiative",
@@ -82,25 +101,44 @@ export const COMMUNITY_ACHIEVEMENTS: Achievement[] = [
     date: "2024 — 2026",
     role: "Founding Member & Host",
     description:
-      "Created The Builders Space under HackBriven as an action-oriented gathering where developers ship real features, demo working prototypes without slideware, and exchange candid architectural feedback.",
+      "Created The Builders Space under HackBriven as an action-oriented gathering where developers ship real features, demo working prototypes without slideware, and exchange candid architectural feedback. Over multiple editions, brought together ambitious student founders, indie makers, and engineers building in public.",
     contribution:
-      "Designed the demo-first format, curated builder cohorts, and hosted live product critique sessions.",
+      "Designed the demo-first format, curated builder cohorts, hosted live product critique sessions, and facilitated technical collaboration across web and AI ecosystems.",
     outcome:
-      "Fostered a high-signal peer community focused on shipping working software.",
-    coverImage: "/achievements/builders-space.svg",
+      "Fostered a high-signal peer community focused on shipping working software rather than slide decks.",
+    coverImage: "/events/builders-space/bs-1.jpg",
     coverRatio: "16:9",
-    gallery: ["/achievements/builders-space.svg"],
+    gallery: [
+      "/events/builders-space/bs-1.jpg",
+      "/events/builders-space/bs-2.jpg",
+      "/events/builders-space/bs-3.jpg",
+      "/achievements/builders-space.svg",
+    ],
     galleryItems: [
       {
-        src: "/achievements/builders-space.svg",
-        alt: "The Builders Space",
-        caption: "The Builders Space — Live Demo & Builder Sessions",
+        src: "/events/builders-space/bs-1.jpg",
+        alt: "The Builders Space — Live builder meetups and real-time product demos",
+        caption: "The Builders Space — Live builder meetups and real-time product demos",
         ratio: "16:9",
-        kind: "banner",
+        kind: "photo",
+      },
+      {
+        src: "/events/builders-space/bs-2.jpg",
+        alt: "Founders and engineers breaking down full-stack architectures",
+        caption: "Founders and engineers breaking down full-stack architectures without slideware",
+        ratio: "16:9",
+        kind: "photo",
+      },
+      {
+        src: "/events/builders-space/bs-3.jpg",
+        alt: "High-conviction peer code review, live testing, and shipping culture",
+        caption: "High-conviction peer code review, live testing, and shipping culture",
+        ratio: "16:9",
+        kind: "photo",
       },
     ],
     partnerLogos: [{ name: "HackBriven", logo: "/logos/hackbriven.svg" }],
-    technologies: ["Live Product Demos", "Builder Community", "Peer Code Review", "Founder Network"],
+    technologies: ["Live Product Demos", "Builder Community", "Peer Code Review", "Founder Network", "Open Source"],
     links: [],
     featured: true,
   },
@@ -182,4 +220,3 @@ export const COMMUNITY_ACHIEVEMENTS: Achievement[] = [
     featured: true,
   },
 ];
-
