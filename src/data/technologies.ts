@@ -25,8 +25,9 @@ export const TECH_CATEGORIES: TechCategory[] = [
     items: [
       { name: "Java", icon: "/tech/java.svg" },
       { name: "Python", icon: "/tech/python.svg" },
-      { name: "C", icon: "/tech/c.svg" },
       { name: "C++", icon: "/tech/cplusplus.svg" },
+      { name: "C", icon: "/tech/c.svg" },
+      { name: "Rust", icon: "/tech/rust.svg" },
     ],
   },
   {
@@ -48,6 +49,7 @@ export const TECH_CATEGORIES: TechCategory[] = [
     items: [
       { name: "Node.js", icon: "/tech/nodejs.svg" },
       { name: "Express.js", icon: "/tech/express.svg" },
+      { name: "FastAPI", icon: "/tech/fastapi.svg" },
       { name: "Flask", icon: "/tech/flask.svg" },
       { name: "Firebase", icon: "/tech/firebase.svg" },
       { name: "Supabase", icon: "/tech/supabase.svg" },

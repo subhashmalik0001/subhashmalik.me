@@ -242,7 +242,7 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
     ],
     technologies: ["Flutter", "Dart", "Firebase", "Node.js", "Google Maps API", "Cloud Functions"],
     links: [
-      { label: "Download on Google Play Store", url: "https://play.google.com/store/apps/details?id=com.will.app" },
+      { label: "Download on Google Play Store", url: "https://play.google.com/store/apps/details?id=com.lavish3084.labour" },
       { label: "All Portfolio Projects", url: "/projects" },
     ],
     featured: true,
@@ -370,8 +370,9 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
       { name: "Next.js", logo: "/tech/nextjs.svg" },
       { name: "TypeScript", logo: "/tech/typescript.svg" },
     ],
-    technologies: ["Next.js 14", "TypeScript", "Web Serial API", "Supabase", "tRPC", "Drizzle ORM", "LLM Models", "Tailwind CSS"],
+    technologies: ["Python", "Web Serial API", "Machine Learning", "LLM", "Next.js 14", "TypeScript", "Supabase", "Tailwind CSS"],
     links: [
+      { label: "Live Netlify Deployment", url: "https://synora01.netlify.app/" },
       { label: "Synora Case Study", url: "/achievements/synora" },
       { label: "All Portfolio Projects", url: "/projects" },
     ],

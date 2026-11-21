@@ -53,16 +53,16 @@ const now = Date.now();
 
 export const CURRENT_MOCK_USER: MockUser = {
   id: "user_subhash",
-  email: "subhash@example.com",
+  email: "subhashmalik1000@gmail.com",
   username: "SubhashMalik01",
   displayName: "Subhash Malik",
   bio: "Building Products & Communities | 1st Prize @IBM Hack & NIT Hack5.0 | 1st Runner-Up @ Google and IQOO Hackathon | Ex-Intern @Paytm | 15x Hackathons",
-  location: "Chandigarh",
+  location: "Chandigarh, India",
   job: "Science & Technology",
   website: "subhashmalik.me",
-  img: "/general/noAvatar.png",
-  imageUrl: "/general/noAvatar.png",
-  cover: "/general/noCover.png",
+  img: "/general/about-me.jpg",
+  imageUrl: "/general/about-me.jpg",
+  cover: "/general/cover.jpg",
   createdAt: new Date("2022-12-01T10:00:00.000Z"),
   updatedAt: new Date("2022-12-01T10:00:00.000Z"),
   _count: {
@@ -617,7 +617,7 @@ export const MOCK_PROJECTS: ProjectItem[] = [
       "Engineered with Flutter, Dart, Firebase, and real-time location services"
     ],
     techStack: ["Flutter", "Dart", "Firebase", "Node.js", "Google Maps API", "Cloud Functions"],
-    liveUrl: "https://play.google.com/store/apps/details?id=com.will.app",
+    liveUrl: "https://play.google.com/store/apps/details?id=com.lavish3084.labour",
     githubUrl: "https://github.com/subhashmalik0001/will",
     images: ["/projects/will/will-1.jpg"],
     stats: {
@@ -643,8 +643,8 @@ export const MOCK_PROJECTS: ProjectItem[] = [
       "Predictive LLM health recommendations analyzing live vitals and medical documents",
       "100% offline-first clinical workflow with seamless cloud synchronization"
     ],
-    techStack: ["Next.js 14", "TypeScript", "Web Serial API", "Supabase", "tRPC", "Drizzle ORM", "LLM Models", "Tailwind CSS"],
-    liveUrl: "https://synora.subhashmalik.me",
+    techStack: ["Python", "Web Serial API", "Machine Learning", "LLM", "Next.js 14", "TypeScript", "Supabase", "Tailwind CSS"],
+    liveUrl: "https://synora01.netlify.app/",
     githubUrl: "https://github.com/subhashmalik0001/synora",
     images: ["/achievements/media/ibm-winner-1.jpg", "/achievements/media/ibm-winner-2.jpg"],
     stats: {
@@ -789,6 +789,32 @@ export const MOCK_PROJECTS: ProjectItem[] = [
     },
     featured: false,
     date: "Oct 2024",
+  },
+  {
+    id: "infinity-ai",
+    title: "Infinity AI — Offline Android AI Assistant",
+    tagline: "1st Runner-Up @ iQOO Monster Inside Hackathon. 100% offline on-device LLM inference using llama.cpp — zero internet, zero API dependency.",
+    handle: "infinityai",
+    logo: "/logos/iqoo.svg",
+    category: "🥈 1st Runner-Up @ iQOO Hackathon",
+    about: "Engineered a 100% offline on-device AI assistant for Android using llama.cpp with GGUF quantized models. Runs completely locally without internet connection or API dependencies, bringing privacy-preserving neural inference directly to mobile silicon.",
+    highlights: [
+      "1st Runner-Up at iQOO Monster Inside Hackathon",
+      "100% on-device local LLM execution via llama.cpp C++ runtime",
+      "GGUF quantized models for minimal RAM consumption & low latency",
+      "Native Android interface with Jetpack Compose, Kotlin & NLP"
+    ],
+    techStack: ["Kotlin", "Jetpack Compose", "llama.cpp", "GGUF Quantization", "NLP", "C++", "Android NDK"],
+    githubUrl: "https://github.com/subhashmalik0001/Infinity.ai",
+    images: ["/achievements/iqoo-monster-inside.svg"],
+    stats: {
+      likes: 388,
+      reposts: 95,
+      comments: 48,
+      views: "36.2K",
+    },
+    featured: true,
+    date: "2024",
   },
   {
     id: "subhashmalik-portfolio",

@@ -38,7 +38,7 @@ export default function Footer() {
             <ArrowUpRight size={14} />
           </FramedButton>
           <FramedButton
-            href="mailto:subhashmalik0001@gmail.com"
+            href="mailto:subhashmalik1000@gmail.com"
             external
             variant="outline"
             size="sm"

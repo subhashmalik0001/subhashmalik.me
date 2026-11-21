@@ -1,16 +1,14 @@
 /**
  * Professional experience timeline data.
  *
- * Everything here is configurable. Fields left `undefined` are simply not
- * rendered — nothing is invented to fill the gap.
- *
- *  - `start` / `end` use "YYYY-MM". Omit `end` and set `current: true` for a
- *    current position ("Present"). Duration is calculated automatically.
- *  - `approxDuration` is used only when exact start/end dates are not yet filled in.
- *  - `logo` is a path inside /public. Without it, a crisp initials tile renders.
- *  - `links` only render when a real URL exists.
- *
- * Configure exact dates and CU-TBI designation below whenever ready.
+ * Sourced directly from verified resume:
+ * - Paytm (One97 Communications Limited) — Summer Growth Intern (Jun 2026 – Sep 2026)
+ * - CU-TBI (Chandigarh University – Technology Business Incubator) — Full Stack Developer Intern (May 2025 – Jun 2026)
+ * - DevNovate Technologies — Engineering & Product Operations Intern (Dec 2024 – May 2025)
+ * - Kalp Studio (Kalp Digital Infra Pvt. Ltd.) — Blockchain Ecosystem Intern (Apr 2024 – Oct 2024)
+ * - HackWithIndia — Community Builder & India Lead (Remote)
+ * - HackBriven — Co-Founder
+ * - Alexa Developer Community (CU) — Social Media Lead
  */
 
 export interface ExperienceLink {
@@ -21,7 +19,7 @@ export interface ExperienceLink {
 export interface Experience {
   id: string;
   organization: string;
-  /** Optional secondary line when `designation` is omitted (avoids inventing a role title) */
+  /** Optional secondary line when `designation` is omitted */
   subtitle?: string;
   /** Short name used for the initials fallback when no logo is available */
   shortName?: string;
@@ -40,33 +38,122 @@ export interface Experience {
 export const EXPERIENCES: Experience[] = [
   {
     id: "paytm",
-    organization: "Paytm",
+    organization: "Paytm (One97 Communications Limited)",
+    subtitle: "Delhi, India (Hybrid)",
     shortName: "PT",
-    designation: "Intern",
+    designation: "Summer Growth Intern",
     logo: "/logos/paytm.svg",
-    // start: "YYYY-MM",
-    // end: "YYYY-MM",
-    tags: ["Product development", "Engineering workflows", "Cross-team collaboration", "Software development"],
-    headline: "Hands-on product engineering and real-world software workflows at Paytm",
+    start: "2026-06",
+    end: "2026-09",
+    tags: [
+      "Fintech Engineering",
+      "Distributed Systems",
+      "SDLC",
+      "High Availability",
+      "Digital Payments",
+    ],
+    headline: "Fintech Engineering on India’s leading digital payments platform",
     description:
-      "Worked as an intern at Paytm, gaining practical exposure to product development, engineering workflows, cross-functional collaboration, and real-world software development inside a large-scale technology organization.",
+      "Fintech Engineering: Contributed to production-scale engineering workflows on India’s leading digital payments platform, delivering features within a high-availability distributed system using SDLC best practices.",
     links: [{ label: "paytm.com", href: "https://paytm.com" }],
+  },
+  {
+    id: "cu-tbi",
+    organization: "CU-TBI (Chandigarh University – Technology Business Incubator)",
+    subtitle: "Mohali, India",
+    shortName: "TBI",
+    designation: "Full Stack Developer Intern",
+    logo: "/logos/cutbi-official.png",
+    start: "2025-05",
+    end: "2026-06",
+    tags: [
+      "Full Stack Development",
+      "Node.js",
+      "React.js",
+      "OOP Design",
+      "Startup Deployment",
+      "CU-TBI",
+    ],
+    headline: "Deployed 10+ full-stack web applications for incubator startups end-to-end",
+    description:
+      "Development & Growth: Deployed 10+ full-stack web apps for startups end-to-end; as measured by 100% successful end-to-end deployment, by applying object-oriented design principles across the Node.js/React stack and gathering requirements directly from founder stakeholders.",
+    links: [{ label: "CU-TBI Incubator", href: "https://www.cuchd.in" }],
+  },
+  {
+    id: "devnovate",
+    organization: "DevNovate Technologies",
+    subtitle: "Engineering & Product Operations",
+    shortName: "DN",
+    designation: "Engineering & Product Operations Intern",
+    logo: "/logos/devnovate-logo-2.png",
+    start: "2024-12",
+    end: "2025-05",
+    tags: [
+      "Next.js",
+      "Product Operations",
+      "Agile Roadmap",
+      "DSA Optimization",
+      "500k+ Users",
+      "High Scalability",
+    ],
+    headline: "Grew active users by 45% & architected event platform supporting 500,000+ users",
+    description:
+      "Scale & Strategy: Grew active user base by 45%, as measured by weekly active user metrics, by executing an Agile product roadmap and applying data structures and algorithms, testing / code quality to optimize core platform logic.\n\nArchitected a Next.js event platform supporting 500,000+ users across 100+ events, as measured by zero downtime at peak load, by designing for reliability and horizontal scalability using object-oriented backend patterns.",
+  },
+  {
+    id: "kalp-studio",
+    organization: "Kalp Studio (Kalp Digital Infra Pvt. Ltd.)",
+    subtitle: "Remote",
+    shortName: "KS",
+    designation: "Blockchain Ecosystem Intern",
+    logo: "/logos/kalp-studio-new.png",
+    start: "2024-04",
+    end: "2024-10",
+    tags: [
+      "Blockchain Ecosystem",
+      "Web3 Community",
+      "Developer Operations",
+      "Ecosystem Growth",
+      "Cross-Functional",
+    ],
+    headline: "Increased Web3 developer adoption and managed blockchain developer operations",
+    description:
+      "Web3 Community: Increased blockchain developer adoption, as measured by community event engagement, by managing developer operations and coordinating cross-functional stakeholders across Web3 community programs.",
+  },
+  {
+    id: "hackwithindia",
+    organization: "HackWithIndia",
+    subtitle: "Remote · Volunteer Leadership",
+    shortName: "HWI",
+    designation: "Community Builder & India Lead",
+    logo: "/logos/hackwithindia.png",
+    start: "2024-01",
+    current: true,
+    tags: [
+      "Community Operations",
+      "Developer Mentorship",
+      "Pan-India Outreach",
+      "100k+ Builders",
+    ],
+    headline: "Managed hackathon operations and developer mentorship for 100,000+ builders",
+    description:
+      "Operations: Managed end-to-end hackathon operations, developer mentorship, and community engagement for 100,000+ builders across India.",
   },
   {
     id: "hackbriven",
     organization: "HackBriven",
     shortName: "HB",
     designation: "Co-Founder",
-    // logo: "/logos/hackbriven.svg", // drop official HackBriven logo here
-    // start: "YYYY-MM",
-    // current: true,
+    logo: "/logos/hackbriven.svg",
+    start: "2024-06",
+    current: true,
     tags: [
-      "Community building",
+      "Community Building",
       "Hackathons",
       "Partnerships",
       "Sponsorships",
-      "Event operations",
-      "Developer engagement",
+      "Event Operations",
+      "Developer Engagement",
     ],
     headline: "Co-founded a developer community connecting student builders with industry leaders",
     description:
@@ -77,26 +164,15 @@ export const EXPERIENCES: Experience[] = [
     organization: "Alexa Developer Community, Chandigarh University",
     shortName: "ADC",
     designation: "Social Media Lead",
-    // logo: "/logos/adc.svg", // drop official ADC chapter logo here
-    // start: "YYYY-MM",
-    // end: "YYYY-MM",
-    tags: ["Community engagement", "Event promotion", "Digital communication", "Tech initiatives"],
+    tags: [
+      "Community Engagement",
+      "Event Promotion",
+      "Digital Communication",
+      "Tech Initiatives",
+    ],
     headline: "Led digital outreach, event promotion, and member engagement for the chapter",
     description:
       "Contributed to the Alexa Developer Community at Chandigarh University as Social Media Lead — driving digital communication, promoting technical workshops and events, and keeping student developers engaged across chapter initiatives.",
-  },
-  {
-    id: "cu-tbi",
-    organization: "Chandigarh University Technology Business Incubator",
-    subtitle: "Startup & Innovation Incubator · Chandigarh University",
-    shortName: "TBI",
-    designation: "Community & Collaboration Lead",
-    logo: "/logos/cutbi-official.png",
-    approxDuration: "~11 months",
-    tags: ["Community leadership", "Startup ecosystem", "Partnerships", "Innovation"],
-    headline: "Led community engagement, founder partnerships, and ecosystem collaborations at CU-TBI",
-    description:
-      "Served as Community & Collaboration Lead for nearly 11 months at the Chandigarh University Technology Business Incubator (CU-TBI). Spearheaded founder community initiatives, organized entrepreneurship workshops, fostered cross-startup collaborations, and connected early-stage student builders with university incubation resources.",
   },
 ];
 

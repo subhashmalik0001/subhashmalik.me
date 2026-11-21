@@ -165,7 +165,7 @@ export default function AboutBentoSection() {
 
             {/* 3. Email */}
             <a
-              href="mailto:subhashmalik0001@gmail.com"
+              href="mailto:subhashmalik1000@gmail.com"
               aria-label="Send email to Subhash Malik"
               className="about-bento-social-tile group"
             >

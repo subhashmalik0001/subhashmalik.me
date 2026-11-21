@@ -86,7 +86,7 @@ export const ACHIEVEMENT_SECTIONS: AchievementSectionMeta[] = [
 export const VERIFIED_HERO_METRICS = [
   { value: "15+", label: "Hackathons Competed" },
   { value: "04", label: "National Podium Wins" },
-  { value: "Top 15", label: "of 25,000+ (Innovate 2026)" },
+  { value: "Top 15", label: "of 30,000+ (Innovate 2026)" },
   { value: "Co-Founder", label: "HackBriven Community" },
 ];
 

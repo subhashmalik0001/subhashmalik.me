@@ -168,7 +168,7 @@ export default function PortfolioSections() {
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\n\n${message}`
     );
-    window.location.href = `mailto:subhashmalik0001@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:subhashmalik1000@gmail.com?subject=${subject}&body=${body}`;
     setSent(true);
   };
 

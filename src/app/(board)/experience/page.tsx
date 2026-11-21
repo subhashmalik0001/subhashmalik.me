@@ -6,7 +6,7 @@ import { EXPERIENCES } from "@/data/experiences";
 export const metadata = {
   title: "Experience — Subhash Malik",
   description:
-    "Tech stack, GitHub activity and professional experience of Subhash Malik — Paytm, HackBriven, Alexa Developer Community and CU-TBI.",
+    "Professional experience of Subhash Malik — Paytm, CU-TBI, DevNovate Technologies, Kalp Studio, HackWithIndia, and HackBriven.",
 };
 
 export default function ExperiencePage() {
