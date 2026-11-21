@@ -30,7 +30,7 @@ export default function ProjectsPage() {
           </div>
         </div>
         <span className="hidden xsm:inline frame-label">
-          [ 0{MOCK_PROJECTS.length} WORKS ]
+          [ {String(MOCK_PROJECTS.length).padStart(2, "0")} WORKS ]
         </span>
       </div>
 

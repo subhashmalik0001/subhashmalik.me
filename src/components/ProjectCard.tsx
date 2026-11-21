@@ -32,6 +32,16 @@ const GithubIcon = ({ size = 14 }: { size?: number }) => (
   </svg>
 );
 
+const getDomain = (urlStr?: string): string => {
+  if (!urlStr) return "github.com";
+  try {
+    const url = new URL(urlStr.startsWith("http") ? urlStr : `https://${urlStr}`);
+    return url.hostname.replace(/^www\./, "");
+  } catch {
+    return "external link";
+  }
+};
+
 export default function ProjectCard({
   project,
   index = 1,
@@ -226,9 +236,7 @@ export default function ProjectCard({
                 <div className="px-3.5 py-2.5 border-t border-[var(--border-subtle)] flex items-center justify-between bg-[#080808]">
                   <div className="min-w-0 flex-1">
                     <p className="font-mono text-[11px] uppercase tracking-wider text-textGray leading-4 truncate">
-                      {project.liveUrl
-                        ? new URL(project.liveUrl).hostname
-                        : "github.com"}
+                      {getDomain(project.liveUrl)}
                     </p>
                     <p className="text-[14px] font-bold text-textGrayLight leading-5 truncate mt-0.5">
                       {project.title}

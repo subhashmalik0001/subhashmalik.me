@@ -25,7 +25,7 @@ export const ACHIEVEMENT_SECTIONS: AchievementSectionMeta[] = [
     heading: "Hackathon Wins",
     description:
       "Ideas built under pressure, teams pushing boundaries, and moments that turned hard work into recognition.",
-    metaNote: "4 Podium Finishes · Top 15 National Finalist · GRID 8.0 R2",
+    metaNote: "IBM Grand Prize · Top 1% (30k Teams) · Google Top 2 · Tekathon 1st",
   },
   {
     index: "02",
@@ -34,7 +34,7 @@ export const ACHIEVEMENT_SECTIONS: AchievementSectionMeta[] = [
     heading: "Projects & Products",
     description:
       "Products, experiments and ideas transformed into real-world solutions.",
-    metaNote: "WILL · Synora · G-ONE · AI Browser Agent · Card Scanner",
+    metaNote: "Docyo · Nebula · Edvanta · Will · Fluxar · Synora",
   },
   {
     index: "03",

@@ -12,30 +12,30 @@ import { MOCK_PROJECTS } from "@/mockData";
 const ACHIEVEMENTS = [
   {
     index: "01",
-    badge: "1ST PRIZE WINNER",
-    event: "IBM Hack Challenge",
-    project: "AccessiAI",
+    badge: "GRAND PRIZE · ₹1.8 LAKH",
+    event: "IBM National Hackathon (Code Crafter 3.0)",
+    project: "Synora",
     summary:
-      "Built an AI multimodal accessibility engine in 48h converting dense developer docs into contextual speech & summaries.",
+      "Won 1st Prize Grand Prize out of 500+ teams (IITs, NITs) with a Web Serial EMG monitoring & predictive LLM healthcare platform.",
     href: "/achievements/ibm-hackathon",
   },
   {
     index: "02",
-    badge: "NATIONAL WINNER",
-    event: "NIT Hamirpur (NIT Hack 5.0)",
-    project: "CredTrust",
+    badge: "1ST RUNNER-UP · TOP 2",
+    event: "Google Hackathon (Google Office Gurgaon)",
+    project: "NeuroGaze",
     summary:
-      "Placed 1st out of 200+ teams with a zero-knowledge verifiable credential protocol on Ethereum.",
-    href: "/achievements/nit-hamirpur",
+      "Selected in Top 2 out of 8,000+ teams with an empathetic AI Brain-Computer Interface (BCI) for paralyzed patients.",
+    href: "/achievements/google-codeclash",
   },
   {
     index: "03",
-    badge: "RUNNER-UP · ₹40,000",
-    event: "Google CodeClash & iQOO Hackathon",
-    project: "CollabCanvas",
+    badge: "WINNER · TOP 1% OF 30K",
+    event: "India Innovates 2026 (Bharat Mandapam)",
+    project: "CityScope",
     summary:
-      "Engineered a sub-20ms multiplayer whiteboard with Gemini sketch-to-React JSX compilation.",
-    href: "/achievements/iqoo-monster-inside",
+      "Civic intelligence & IoT road anomaly detection; pitched on stage to Delhi Cabinet Ministers & MCD Commissioner.",
+    href: "/achievements/innovate-2026",
   },
 ];
 

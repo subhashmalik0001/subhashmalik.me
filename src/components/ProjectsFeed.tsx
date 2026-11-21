@@ -8,17 +8,37 @@ import { MOCK_PROJECTS, ProjectItem } from "@/mockData";
 export default function ProjectsFeed() {
   const [filter, setFilter] = useState<string>("All");
 
-  const categories = ["All", "Hackathons", "Full Stack", "Featured"];
+  const categories = ["All", "Featured", "Products", "Hackathons", "AI & Systems"];
 
   const filteredProjects = MOCK_PROJECTS.filter((project: ProjectItem) => {
     if (filter === "All") return true;
-    if (filter === "Hackathons") return project.category.includes("Hack");
-    if (filter === "Full Stack")
-      return (
-        project.category.includes("Full Stack") ||
-        project.techStack.includes("Next.js 15")
-      );
     if (filter === "Featured") return project.featured;
+    if (filter === "Products")
+      return (
+        project.category.includes("Product") ||
+        project.category.includes("SaaS") ||
+        project.category.includes("Play Store") ||
+        project.category.includes("Platform") ||
+        project.category.includes("FinTech") ||
+        project.id === "docyo" ||
+        project.id === "nebula" ||
+        project.id === "edvanta" ||
+        project.id === "will" ||
+        project.id === "fluxar"
+      );
+    if (filter === "Hackathons")
+      return (
+        project.category.includes("Hackathon") ||
+        project.category.includes("Winner") ||
+        project.category.includes("Runner-Up") ||
+        project.category.includes("Prize") ||
+        project.category.includes("Place") ||
+        project.category.includes("Hack")
+      );
+    if (filter === "AI & Systems")
+      return project.techStack.some((t) =>
+        /AI|ML|Rust|Python|Vision|EEG|Tauri|LLM|Serial|FastAPI/i.test(t)
+      );
     return true;
   });
 

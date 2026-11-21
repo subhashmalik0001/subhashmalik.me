@@ -9,36 +9,225 @@ import type { Achievement } from "@/types/achievement";
  */
 export const PROJECT_ACHIEVEMENTS: Achievement[] = [
   {
+    id: "docyo-product",
+    slug: "docyo",
+    category: "projects",
+    categoryLabel: "02 / Projects & Products",
+    indexNumber: "01",
+    title: "Docyo",
+    subtitle: "Local-First Swiss Army Knife for Files (176 Routes · 25 Tools)",
+    organization: "Independent Product Build · Subhash Malik",
+    recognition: "Flagship Open-Source Product",
+    recognitionType: "product",
+    role: "Creator & Lead Software Engineer",
+    projectName: "Docyo",
+    description:
+      "A privacy-first, local-only file conversion and media manipulation engine running 100% on the user's machine with zero uploads, no accounts, and no limits. Features a cursor-attached radial wheel (drag file + hold Shift) and 176 conversion routes across PDFs, images, video, and audio.",
+    problemStatement:
+      "Users routinely upload sensitive personal documents, contracts, and confidential financial invoices to centralized web converter services just to perform basic tasks like merging PDFs or resizing images.",
+    solution:
+      "Built a desktop application running embedded WebAssembly and native media libraries that converts, compresses, redacts, OCRs, and edits files entirely on the local machine with 0 KB uploaded.",
+    contribution:
+      "Architected the radial menu interaction system, Tauri/Rust local pipeline, file format matrix with 176 routes, and 25 media manipulation tools.",
+    outcome:
+      "Shipped open-source (GPL-3.0) for macOS (5.4 MB bundle), Windows, and Linux. Live at docyo.app.",
+    coverImage: "/achievements/docyo.svg",
+    coverRatio: "16:9",
+    gallery: ["/achievements/docyo.svg"],
+    galleryItems: [
+      {
+        src: "/achievements/docyo.svg",
+        alt: "Docyo — Local-First Swiss Army Knife for Files",
+        caption: "Docyo — System Architecture & Radial Interaction Model",
+        ratio: "16:9",
+        kind: "product",
+      },
+    ],
+    partnerLogos: [
+      { name: "Rust", logo: "/tech/rust.svg" },
+      { name: "TypeScript", logo: "/tech/typescript.svg" },
+      { name: "WebAssembly", logo: "/tech/wasm.svg" },
+    ],
+    technologies: ["Rust", "Tauri", "TypeScript", "WebAssembly", "FFmpeg", "GPL-3.0"],
+    links: [
+      { label: "Try Docyo Live", url: "https://www.docyo.app/" },
+      { label: "GitHub Source Code", url: "https://github.com/subhashmalik0001/docyo" },
+      { label: "All Portfolio Projects", url: "/projects" },
+    ],
+    featured: true,
+  },
+  {
+    id: "nebula-product",
+    slug: "nebula",
+    category: "projects",
+    categoryLabel: "02 / Projects & Products",
+    indexNumber: "02",
+    title: "Nebula",
+    subtitle: "AI Business Card Scanner & Cross-Platform Contact Hub",
+    organization: "Product Build · Subhash Malik",
+    recognition: "Shipped B2B AI SaaS",
+    recognitionType: "product",
+    role: "Creator & Full-Stack Architect",
+    projectName: "Nebula",
+    description:
+      "An intelligent vision utility for enterprise sales teams, recruiters, and founders that extracts structured contact data from physical business cards in under 2 seconds, syncing across devices and exporting directly into HubSpot, Salesforce, Outlook, and Gmail.",
+    problemStatement:
+      "Sales teams and founders attend conferences and leave with dozens of physical business cards that end up abandoned in drawers, losing high-value business leads to manual data entry friction.",
+    solution:
+      "Created an instant camera capture pipeline with sub-2-second OCR extraction and neural parsing that automatically formats names, companies, roles, and contacts with direct CRM integration and dynamic QR profile sharing.",
+    contribution:
+      "Engineered the camera OCR pipeline, full-text fuzzy contact indexing, dynamic QR generation, and CRM export integrations.",
+    outcome:
+      "Shipped and deployed at nebula.subhashmalik.me, helping professionals manage conference networking without manual entry.",
+    coverImage: "/achievements/nebula.svg",
+    coverRatio: "16:9",
+    gallery: ["/achievements/nebula.svg"],
+    galleryItems: [
+      {
+        src: "/achievements/nebula.svg",
+        alt: "Nebula — AI Business Card Scanner",
+        caption: "Nebula — Neural OCR Pipeline & CRM Sync",
+        ratio: "16:9",
+        kind: "product",
+      },
+    ],
+    partnerLogos: [
+      { name: "Next.js", logo: "/tech/nextjs.svg" },
+      { name: "React Native", logo: "/tech/react.svg" },
+      { name: "TypeScript", logo: "/tech/typescript.svg" },
+    ],
+    technologies: ["Next.js 15", "React Native", "TypeScript", "OCR Vision", "CRM APIs", "Supabase"],
+    links: [
+      { label: "Nebula Web Platform", url: "https://nebula.subhashmalik.me" },
+      { label: "All Portfolio Projects", url: "/projects" },
+    ],
+    featured: true,
+  },
+  {
+    id: "edvanta-product",
+    slug: "edvanta",
+    category: "projects",
+    categoryLabel: "02 / Projects & Products",
+    indexNumber: "03",
+    title: "Edvanta",
+    subtitle: "The Operating System for Schools (Fee Collection, LMS, Attendance & Analytics)",
+    organization: "Edvanta Technologies · Subhash Malik",
+    recognition: "Enterprise EdTech Platform",
+    recognitionType: "product",
+    role: "Co-Founder & Chief Technology Officer",
+    projectName: "Edvanta",
+    description:
+      "A comprehensive institutional operating system replacing fragmented paper registers and cash fees with automated digital fee reconciliation, live executive dashboards, complete LMS, biometric attendance, and a drag-and-drop school website builder.",
+    problemStatement:
+      "K-12 schools rely on cash fee payments, manual paper attendance books, and scattered WhatsApp circulars, creating massive administrative overhead and reconciliation errors.",
+    solution:
+      "Engineered a unified school management platform connecting parents, teachers, and administrators with automated UPI billing, live attendance tracking with parent alerts, and integrated virtual classrooms.",
+    contribution:
+      "Architected the backend payment ledger, real-time analytics aggregation pipelines, role-based access control, and intuitive parent portal.",
+    outcome:
+      "Processed over ₹5 Lakh in fee transactions, 1.2 Lakh+ automated attendance logs, and saved 5,000+ admin hours monthly across partner institutions.",
+    coverImage: "/achievements/edvanta.svg",
+    coverRatio: "16:9",
+    gallery: ["/achievements/edvanta.svg"],
+    galleryItems: [
+      {
+        src: "/achievements/edvanta.svg",
+        alt: "Edvanta — Operating System for Schools",
+        caption: "Edvanta — Institutional Architecture & Analytics Dashboard",
+        ratio: "16:9",
+        kind: "product",
+      },
+    ],
+    partnerLogos: [
+      { name: "Next.js", logo: "/tech/nextjs.svg" },
+      { name: "Node.js", logo: "/tech/nodejs.svg" },
+      { name: "PostgreSQL", logo: "/tech/postgresql.svg" },
+    ],
+    technologies: ["Next.js 15", "React", "Node.js", "PostgreSQL", "UPI Integration", "Tailwind CSS"],
+    links: [
+      { label: "Edvanta Platform", url: "https://edvanta.subhashmalik.me" },
+      { label: "All Portfolio Projects", url: "/projects" },
+    ],
+    featured: true,
+  },
+  {
     id: "will-product",
     slug: "will",
     category: "projects",
     categoryLabel: "02 / Projects & Products",
-    indexNumber: "01",
-    title: "WILL",
-    subtitle: "Autonomous Personal Execution & Intent Engine",
-    organization: "Product Build · Subhash Malik",
-    recognition: "Flagship AI Product",
+    indexNumber: "04",
+    title: "Will",
+    subtitle: "On-Demand Daily Wage Labor Market Platform (Live on Play Store)",
+    organization: "Will Startup · Subhash Malik & Team",
+    recognition: "Published Startup on Google Play Store",
     recognitionType: "product",
-    role: "Creator & Lead Full-Stack Engineer",
-    projectName: "WILL",
+    role: "Co-Founder & Full-Stack Mobile Lead",
+    projectName: "Will",
     description:
-      "An AI-native execution engine that translates natural-language developer and founder intents into structured tasks, automated workflows, and deterministic tool invocations.",
+      "A mobile marketplace that transitions daily-wage labor from physical chowk corners onto a verified digital platform. Connects workers directly with nearby employers with transparent wages, location-based dispatch, and instant verification.",
     problemStatement:
-      "Traditional task managers passively store to-do lists without helping users execute multi-step technical or operational actions.",
+      "Every morning, thousands of daily-wage workers stand at dusty chowks for hours hoping for work without guaranteed safety or fair pay, while individuals and contractors struggle to find trusted laborers.",
     solution:
-      "Engineered a modular agentic orchestration layer with real-time streaming state, contextual memory, and keyboard-first command execution.",
+      "Designed and published a Flutter-powered mobile application allowing workers to receive job alerts without waiting at street corners, and enabling employers to hire verified laborers instantly.",
     contribution:
-      "Designed the product architecture, full-stack TypeScript/Next.js interface, and LLM tool-calling execution pipeline from scratch.",
+      "Co-developed the Flutter client application, Firebase real-time geolocation matching, user verification flows, and multilingual UI.",
     outcome:
-      "Built as a flagship personal execution system showcasing clean architectural design and low-latency AI orchestration.",
+      "Launched on the Google Play Store after 2 years of continuous engineering and community validation.",
     coverImage: "/achievements/will.svg",
     coverRatio: "16:9",
     gallery: ["/achievements/will.svg", "/general/cover.jpg"],
     galleryItems: [
       {
         src: "/achievements/will.svg",
-        alt: "WILL — Autonomous Execution Engine",
-        caption: "WILL — System Architecture & Interface",
+        alt: "WILL — On-Demand Labor Market Platform",
+        caption: "WILL — Mobile Marketplace Architecture",
+        ratio: "16:9",
+        kind: "product",
+      },
+    ],
+    partnerLogos: [
+      { name: "Flutter", logo: "/tech/flutter.svg" },
+      { name: "Dart", logo: "/tech/dart.svg" },
+      { name: "Firebase", logo: "/tech/firebase.svg" },
+    ],
+    technologies: ["Flutter", "Dart", "Firebase", "Node.js", "Google Maps API", "Cloud Functions"],
+    links: [
+      { label: "Download on Google Play Store", url: "https://play.google.com/store/apps/details?id=com.will.app" },
+      { label: "All Portfolio Projects", url: "/projects" },
+    ],
+    featured: true,
+  },
+  {
+    id: "fluxar-product",
+    slug: "fluxar",
+    category: "projects",
+    categoryLabel: "02 / Projects & Products",
+    indexNumber: "05",
+    title: "Fluxar",
+    subtitle: "Automated Community Paywall for Telegram & WhatsApp",
+    organization: "Fluxar AI · Subhash Malik",
+    recognition: "FinTech & Community Platform",
+    recognitionType: "product",
+    role: "Creator & Full-Stack Systems Engineer",
+    projectName: "Fluxar",
+    description:
+      "An automated monetization gateway and membership bot for Telegram and WhatsApp creators in India. Automatically verifies UPI payments, provisions invite links, monitors expiration dates, and removes churned members without human intervention.",
+    problemStatement:
+      "Community managers manually verify hundreds of UPI screenshots in spreadsheets and manually add or remove members, creating massive operational bottlenecks and leaked access.",
+    solution:
+      "Built an end-to-end automation infrastructure with automated UPI webhooks, Telegram Bot API membership reconciliation, a real-time transaction ledger, and automated tax invoice dispatch.",
+    contribution:
+      "Engineered the webhook reconciliation pipeline, Telegram Bot lifecycle daemon, and real-time MRR analytics dashboard.",
+    outcome:
+      "Live at fluxar.live, managing paid member access and subscription lifecycles for Indian creators.",
+    coverImage: "/achievements/fluxar.svg",
+    coverRatio: "16:9",
+    gallery: ["/achievements/fluxar.svg"],
+    galleryItems: [
+      {
+        src: "/achievements/fluxar.svg",
+        alt: "Fluxar — Automated Community Paywall",
+        caption: "Fluxar — Automated Subscription Lifecycle & Ledger",
         ratio: "16:9",
         kind: "product",
       },
@@ -46,10 +235,13 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
     partnerLogos: [
       { name: "Next.js", logo: "/tech/nextjs.svg" },
       { name: "TypeScript", logo: "/tech/typescript.svg" },
-      { name: "Node.js", logo: "/tech/nodejs.svg" },
+      { name: "Prisma", logo: "/tech/prisma.svg" },
     ],
-    technologies: ["Next.js", "TypeScript", "React", "Node.js", "LLM Orchestration", "Tailwind CSS"],
-    links: [{ label: "All Portfolio Projects", url: "/projects" }],
+    technologies: ["Next.js 15", "TypeScript", "Telegram Bot API", "UPI Gateway", "Prisma", "Tailwind CSS"],
+    links: [
+      { label: "Fluxar Live Platform", url: "https://www.fluxar.live/" },
+      { label: "All Portfolio Projects", url: "/projects" },
+    ],
     featured: true,
   },
   {
@@ -57,32 +249,126 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
     slug: "synora",
     category: "projects",
     categoryLabel: "02 / Projects & Products",
-    indexNumber: "02",
+    indexNumber: "06",
     title: "Synora",
-    subtitle: "Multimodal Knowledge & Document Intelligence Workspace",
-    organization: "Product Build · Subhash Malik",
-    recognition: "Product Showcase",
+    subtitle: "AI Clinical Management & Real-Time EMG Monitoring Platform",
+    organization: "Product Build · Subhash Malik & Team",
+    recognition: "Grand Prize Winner @ IBM National Hackathon",
     recognitionType: "product",
-    role: "Creator & Systems Architect",
+    role: "Full-Stack Architect & Hardware-Web Integrator",
     projectName: "Synora",
     description:
-      "A unified knowledge workspace that ingests technical documents, notes, and structured schemas to deliver instant semantic retrieval, plain-language synthesis, and voice-guided exploration.",
+      "An enterprise-grade healthcare platform connecting clinical Electromyography (EMG) sensors directly to modern web browsers via the Web Serial API for real-time muscle signal visualization, fatigue tracking, and strain detection, coupled with predictive LLM health insights.",
     problemStatement:
-      "Engineers and researchers spend hours cross-referencing dense PDFs, markdown repositories, and API specifications across disconnected tools.",
+      "Physical therapy clinics and sports medicine facilities rely on proprietary closed-source EMG machines that don't interface cleanly with modern cloud health records or work reliably offline.",
     solution:
-      "Built a context-aware document indexing and synthesis interface with citation-backed answers and interactive visual summaries.",
+      "Created a zero-install browser-based EMG stream visualizer with local signal digital filtering, predictive LLM diagnostic summaries, and 100% offline-first clinical synchronization.",
     contribution:
-      "Architected the document ingestion pipeline, frontend workspace UI, and real-time query engine.",
+      "Engineered the Web Serial API pipeline, full-stack Next.js 14 architecture, Supabase offline cache, and live sensor telemetry charts.",
     outcome:
-      "Featured across national product showcases and hackathon demonstrations.",
+      "Awarded 1st Prize Grand Prize at IBM's Code Crafter 3.0 competing against 500+ teams from IITs and NITs.",
     coverImage: "/achievements/synora.svg",
     coverRatio: "16:9",
     gallery: ["/achievements/synora.svg"],
     galleryItems: [
       {
         src: "/achievements/synora.svg",
-        alt: "Synora — Multimodal Knowledge Workspace",
-        caption: "Synora — Document Intelligence & Synthesis Workspace",
+        alt: "Synora — Clinical Management & EMG Monitoring",
+        caption: "Synora — Real-Time EMG Web Serial Stream & Clinical Dashboard",
+        ratio: "16:9",
+        kind: "product",
+      },
+    ],
+    partnerLogos: [
+      { name: "IBM", logo: "/logos/ibm.svg" },
+      { name: "Next.js", logo: "/tech/nextjs.svg" },
+      { name: "TypeScript", logo: "/tech/typescript.svg" },
+    ],
+    technologies: ["Next.js 14", "TypeScript", "Web Serial API", "Supabase", "tRPC", "Drizzle ORM", "LLM Models", "Tailwind CSS"],
+    links: [
+      { label: "Synora Case Study", url: "/achievements/synora" },
+      { label: "All Portfolio Projects", url: "/projects" },
+    ],
+    featured: true,
+  },
+  {
+    id: "cityscope-product",
+    slug: "cityscope",
+    category: "projects",
+    categoryLabel: "02 / Projects & Products",
+    indexNumber: "07",
+    title: "CityScope",
+    subtitle: "Civic Intelligence Platform & IoT Smart Road Anomaly Detection",
+    organization: "Team CityScope · Subhash Malik",
+    recognition: "Winner @ India Innovates 2026 (Top 1% of 30k Teams)",
+    recognitionType: "product",
+    role: "Full-Stack Developer & Systems Lead",
+    projectName: "CityScope",
+    description:
+      "A civic intelligence system transforming municipal grievance handling. Citizens report road and sanitation defects using voice, image, and GPS; AI automatically classifies and routes issues, while vehicle IoT sensors continuously detect road potholes and anomalies.",
+    problemStatement:
+      "Municipal grievance helplines are plagued by backlogs, incorrect department routing, and lack of verified spatial tracking, while road damage goes undetected until catastrophic failures occur.",
+    solution:
+      "Combined multimodal citizen reporting with computer vision pothole detection from mobile dashcams, live municipal dispatch maps, and transparent resolution tracking.",
+    contribution:
+      "Built the full-stack web dashboard, complaint triage automation pipeline, and IoT spatial anomaly mapping.",
+    outcome:
+      "Won Digital Democracy Domain and selected for Finale out of 30,000+ teams at Bharat Mandapam, New Delhi; pitched directly to Delhi Cabinet Ministers.",
+    coverImage: "/achievements/cityscope.svg",
+    coverRatio: "16:9",
+    gallery: ["/achievements/cityscope.svg"],
+    galleryItems: [
+      {
+        src: "/achievements/cityscope.svg",
+        alt: "CityScope — Civic Intelligence Platform",
+        caption: "CityScope — Municipal Command Dashboard & IoT Road Telemetry",
+        ratio: "16:9",
+        kind: "product",
+      },
+    ],
+    partnerLogos: [
+      { name: "Next.js", logo: "/tech/nextjs.svg" },
+      { name: "Python", logo: "/tech/python.svg" },
+      { name: "FastAPI", logo: "/tech/fastapi.svg" },
+    ],
+    technologies: ["Next.js 15", "Python", "FastAPI", "Computer Vision", "IoT Sensors", "PostgreSQL", "Tailwind CSS"],
+    links: [
+      { label: "India Innovates Showcase", url: "/achievements/innovate-2026" },
+      { label: "All Portfolio Projects", url: "/projects" },
+    ],
+    featured: true,
+  },
+  {
+    id: "athletix-product",
+    slug: "athletix",
+    category: "projects",
+    categoryLabel: "02 / Projects & Products",
+    indexNumber: "08",
+    title: "AthletiX",
+    subtitle: "AI Sports Analytics & Biomechanical Injury Prevention",
+    organization: "Team AthletiX · Subhash Malik",
+    recognition: "1st Prize Winner @ Tekathon 4.0 (SIH Gateway)",
+    recognitionType: "product",
+    role: "Full-Stack Developer & Pose Analytics Lead",
+    projectName: "AthletiX",
+    description:
+      "An AI-driven fitness and biomechanics platform that evaluates athletic tests using standard smartphone video with zero expensive equipment, delivering real-time muscle fatigue tracking and injury prevention telemetry.",
+    problemStatement:
+      "High-performance sports biomechanics and kinematic motion analysis require multi-thousand dollar lab setups, putting elite training out of reach for grassroots athletes.",
+    solution:
+      "Built a mobile-friendly computer vision pipeline that tracks skeletal joints in real time, evaluates athletic performance metrics, and detects biomechanical asymmetry indicating fatigue or injury risk.",
+    contribution:
+      "Integrated MediaPipe pose estimation with custom motion heuristics, and developed the athlete telemetry dashboard.",
+    outcome:
+      "Won 1st Place at Tekathon 4.0 (Chandigarh University's 36-hour hackathon & SIH official gateway) out of 950+ teams and 5,700+ students.",
+    coverImage: "/achievements/athletix.svg",
+    coverRatio: "16:9",
+    gallery: ["/achievements/athletix.svg"],
+    galleryItems: [
+      {
+        src: "/achievements/athletix.svg",
+        alt: "AthletiX — AI Sports Analytics",
+        caption: "AthletiX — Real-time Biomechanical Pose Tracking & Fatigue Telemetry",
         ratio: "16:9",
         kind: "product",
       },
@@ -90,10 +376,58 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
     partnerLogos: [
       { name: "React", logo: "/tech/react.svg" },
       { name: "Python", logo: "/tech/python.svg" },
-      { name: "TypeScript", logo: "/tech/typescript.svg" },
+      { name: "TensorFlow", logo: "/tech/tensorflow.svg" },
     ],
-    technologies: ["Next.js", "React", "TypeScript", "Python", "Vector Search", "Tailwind CSS"],
-    links: [{ label: "All Portfolio Projects", url: "/projects" }],
+    technologies: ["React", "MediaPipe", "TensorFlow.js", "Python", "FastAPI", "Tailwind CSS"],
+    links: [
+      { label: "All Portfolio Projects", url: "/projects" },
+    ],
+    featured: true,
+  },
+  {
+    id: "neurogaze-product",
+    slug: "neurogaze",
+    category: "projects",
+    categoryLabel: "02 / Projects & Products",
+    indexNumber: "09",
+    title: "NeuroGaze",
+    subtitle: "AI Brain-Computer Interface (BCI) for Paralysis Communication",
+    organization: "Team VEDA · Subhash Malik",
+    recognition: "1st Runner-Up @ Google Hackathon (Top 2 of 8,000+)",
+    recognitionType: "product",
+    role: "Full-Stack Developer & EEG Logic Integration",
+    projectName: "NeuroGaze",
+    description:
+      "An empathetic Brain-Computer Interface (BCI) system that empowers paralyzed and locked-in patients to communicate without touch or voice — using mental intent alone. Built using Neuro Playground Lite from Upside Down Labs with custom ML EEG signal classification.",
+    problemStatement:
+      "Patients suffering from motor neuron disease, ALS, or severe paralysis cannot speak or use tactile interfaces to communicate their immediate medical needs or emotional states.",
+    solution:
+      "Connected EEG hardware to a real-time signal classification pipeline that identifies deliberate brainwave frequency modulations and maps them to clear communication cards and emergency alert prompts.",
+    contribution:
+      "Engineered the serial data streaming bridge, machine learning signal preprocessing, and responsive web accessibility client.",
+    outcome:
+      "Selected as 1st Runner-Up nationally from 8,000+ teams; showcased in the Google Office Gurgaon demo room.",
+    coverImage: "/achievements/neurogaze.svg",
+    coverRatio: "16:9",
+    gallery: ["/achievements/neurogaze.svg"],
+    galleryItems: [
+      {
+        src: "/achievements/neurogaze.svg",
+        alt: "NeuroGaze — AI Brain-Computer Interface",
+        caption: "NeuroGaze — Live EEG Telemetry & Intent Communication Interface",
+        ratio: "16:9",
+        kind: "product",
+      },
+    ],
+    partnerLogos: [
+      { name: "Google", logo: "/logos/google.svg" },
+      { name: "React", logo: "/tech/react.svg" },
+      { name: "Python", logo: "/tech/python.svg" },
+    ],
+    technologies: ["React", "Python", "EEG Hardware / Upside Down Labs", "Scikit-Learn", "WebSockets", "Tailwind CSS"],
+    links: [
+      { label: "All Portfolio Projects", url: "/projects" },
+    ],
     featured: true,
   },
   {
@@ -101,7 +435,7 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
     slug: "g-one",
     category: "projects",
     categoryLabel: "02 / Projects & Products",
-    indexNumber: "03",
+    indexNumber: "10",
     title: "G-ONE",
     subtitle: "Unified Developer Operations & System Assistant",
     organization: "Product Build · Subhash Malik",
@@ -138,14 +472,14 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
     ],
     technologies: ["TypeScript", "Node.js", "React", "WebSockets", "Docker", "Tailwind CSS"],
     links: [{ label: "All Portfolio Projects", url: "/projects" }],
-    featured: true,
+    featured: false,
   },
   {
     id: "ai-browser-agent",
     slug: "ai-browser-agent",
     category: "projects",
     categoryLabel: "02 / Projects & Products",
-    indexNumber: "04",
+    indexNumber: "11",
     title: "AI Browser Agent",
     subtitle: "DOM-Aware Autonomous Web Navigation & Action Agent",
     organization: "Applied AI Engineering",
@@ -189,9 +523,9 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
     slug: "business-card-scanner",
     category: "projects",
     categoryLabel: "02 / Projects & Products",
-    indexNumber: "05",
+    indexNumber: "12",
     title: "Business Card Scanning Application",
-    subtitle: "Instant OCR Extraction, Entity Parsing & Contact Sync",
+    subtitle: "Instant OCR Extraction, Entity Parsing & Contact Sync (Nebula Precursor)",
     organization: "Product Utility Build",
     recognition: "Shipped Utility App",
     recognitionType: "product",
@@ -229,4 +563,3 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
     featured: false,
   },
 ];
-
