@@ -8,6 +8,15 @@ export const metadata: Metadata = {
   title: "Subhash Malik — Portfolio",
   description:
     "Full-Stack Engineer, Hackathon Winner & Community Builder — Portfolio of Subhash Malik.",
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "256x256", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 export default function AppLayout({
