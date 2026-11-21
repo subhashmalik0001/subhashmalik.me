@@ -74,7 +74,7 @@ export const SPEAKING_ACHIEVEMENTS: Achievement[] = [
     recognitionType: "speaking",
     date: "2024 — 2026",
     location: "Chandigarh / Campus Auditoriums",
-    role: "Co-Founder & Keynote Speaker",
+    role: "Founding Member & Keynote Speaker",
     description:
       "Delivered keynote addresses and technical workshops at AI Fest and builder briefings across HackBriven initiatives, breaking down how to scope 24–48 hour hackathon builds, structure modern Next.js + AI architectures, and deliver high-conviction live product demos to 300+ student developers.",
     contribution:

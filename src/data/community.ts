@@ -3,7 +3,7 @@ import type { Achievement } from "@/types/achievement";
 /**
  * SECTION 05 — COMMUNITY ACHIEVEMENTS (HACKBRIVEN & ECOSYSTEM INITIATIVES)
  *
- * Highlights HackBriven (Co-Founder) and the specific events organized:
+ * Highlights HackBriven (Founding Member) and the specific events organized:
  *  - Build for India AI Hackathon
  *  - The Builders Space
  *  - CTRL ALT HACK
@@ -12,10 +12,10 @@ import type { Achievement } from "@/types/achievement";
  */
 export const COMMUNITY_OVERVIEW = {
   organization: "HackBriven",
-  role: "Co-Founder",
-  logo: "/logos/hackbriven.svg",
+  role: "Founding Member",
+  logo: "/logos/hackbriven-logo.png",
   tagline:
-    "Co-founded HackBriven to connect ambitious student builders with real-world hackathons, AI ecosystem meetups, industry mentors, and hands-on product residencies.",
+    "Founding Member of HackBriven to connect ambitious student builders with real-world hackathons, AI ecosystem meetups, industry mentors, and hands-on product residencies.",
   pillars: [
     "End-to-end hackathon architecture & event operations",
     "Ecosystem collaborations with AI & developer-tooling leaders",
@@ -35,11 +35,11 @@ export const COMMUNITY_ACHIEVEMENTS: Achievement[] = [
     subtitle: "HackBriven Flagship AI & Product Engineering Hackathon",
     organization: "HackBriven",
     organizationLogo: "/logos/hackbriven.svg",
-    recognition: "Co-Founder & Lead Organizer",
+    recognition: "Founding Member & Lead Organizer",
     recognitionType: "community",
     date: "2025",
     location: "India · Hybrid / In-Person",
-    role: "Co-Founder · Operations, Partnerships & Technical Tracks",
+    role: "Founding Member · Operations, Partnerships & Technical Tracks",
     description:
       "Organized the Build for India AI Hackathon under HackBriven — bringing together student developers and early-stage builders to solve India-scale challenges using modern AI, voice models, and full-stack web architectures.",
     contribution:
@@ -80,7 +80,7 @@ export const COMMUNITY_ACHIEVEMENTS: Achievement[] = [
     recognition: "Community Initiative",
     recognitionType: "community",
     date: "2024 — 2026",
-    role: "Co-Founder & Host",
+    role: "Founding Member & Host",
     description:
       "Created The Builders Space under HackBriven as an action-oriented gathering where developers ship real features, demo working prototypes without slideware, and exchange candid architectural feedback.",
     contribution:
@@ -114,10 +114,10 @@ export const COMMUNITY_ACHIEVEMENTS: Achievement[] = [
     subtitle: "High-Intensity Coding & Rapid Prototyping Hackathon",
     organization: "HackBriven",
     organizationLogo: "/logos/hackbriven.svg",
-    recognition: "Co-Founder & Organizer",
+    recognition: "Founding Member & Organizer",
     recognitionType: "community",
     date: "2025",
-    role: "Co-Founder · Event Execution & Sponsorships",
+    role: "Founding Member · Event Execution & Sponsorships",
     description:
       "Conceptualized and executed CTRL ALT HACK under HackBriven — a fast-paced hackathon challenging student teams to build and deploy functional full-stack prototypes under strict time constraints.",
     contribution:

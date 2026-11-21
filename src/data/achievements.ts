@@ -61,7 +61,7 @@ export const ACHIEVEMENT_SECTIONS: AchievementSectionMeta[] = [
     heading: "Building Communities & Opportunities",
     description:
       "Creating spaces where developers connect, collaborate, learn and build together.",
-    metaNote: "HackBriven Co-Founder · 4+ Flagship Events",
+    metaNote: "HackBriven Founding Member · 4+ Flagship Events",
   },
   {
     index: "06",
@@ -87,7 +87,7 @@ export const VERIFIED_HERO_METRICS = [
   { value: "15+", label: "Hackathons Competed" },
   { value: "04", label: "National Podium Wins" },
   { value: "Top 15", label: "of 30,000+ (Innovate 2026)" },
-  { value: "Co-Founder", label: "HackBriven Community" },
+  { value: "Founding", label: "Member · HackBriven" },
 ];
 
 export const ALL_ACHIEVEMENTS: Achievement[] = [

@@ -43,7 +43,7 @@ const COMMUNITIES = [
   {
     index: "01",
     org: "HackBriven",
-    role: "Co-Founder",
+    role: "Founding Member",
     period: "2024 — Present",
     detail:
       "Leading developer hackathons, technical workshops, mentorship cohorts, and student builder initiatives.",

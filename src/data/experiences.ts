@@ -7,7 +7,7 @@
  * - DevNovate Technologies — Engineering & Product Operations Intern (Dec 2024 – May 2025)
  * - Kalp Studio (Kalp Digital Infra Pvt. Ltd.) — Blockchain Ecosystem Intern (Apr 2024 – Oct 2024)
  * - HackWithIndia — Community Builder & India Lead (Remote)
- * - HackBriven — Co-Founder
+ * - HackBriven — Founding Member
  * - Alexa Developer Community (CU) — Social Media Lead
  */
 
@@ -143,8 +143,8 @@ export const EXPERIENCES: Experience[] = [
     id: "hackbriven",
     organization: "HackBriven",
     shortName: "HB",
-    designation: "Co-Founder",
-    logo: "/logos/hackbriven.svg",
+    designation: "Founding Member",
+    logo: "/logos/hackbriven-logo.png",
     start: "2024-06",
     current: true,
     tags: [
@@ -155,9 +155,9 @@ export const EXPERIENCES: Experience[] = [
       "Event Operations",
       "Developer Engagement",
     ],
-    headline: "Co-founded a developer community connecting student builders with industry leaders",
+    headline: "Founding Member of a developer community connecting student builders with industry leaders",
     description:
-      "Co-founded HackBriven to build active technology communities, organize hackathons end-to-end, run event operations, secure technology partnerships and sponsorships, and create meaningful opportunities for students and builders.",
+      "Founding Member of HackBriven — building active technology communities, organizing hackathons end-to-end, running event operations, securing technology partnerships and sponsorships, and creating meaningful opportunities for students and builders.",
   },
   {
     id: "adc-cu",

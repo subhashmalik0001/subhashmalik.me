@@ -104,7 +104,7 @@ export const INDUSTRY_ACHIEVEMENTS: Achievement[] = [
     organizationLogo: "/logos/microsoft.svg",
     recognition: "Ecosystem Collaboration & Community Engagement",
     recognitionType: "collaboration",
-    role: "Community Co-Founder (HackBriven) & Developer Participant",
+    role: "Community Founding Member (HackBriven) & Developer Participant",
     description:
       "Engaged with developer programs, community events, and technical tooling across Microsoft, Google for Developers, Sarvam AI, and n8n — spanning community hackathons, workflow automation sessions, Indic AI exploration, and builder initiatives.",
     contribution:
