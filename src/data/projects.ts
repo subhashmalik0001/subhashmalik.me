@@ -659,4 +659,84 @@ export const PROJECT_ACHIEVEMENTS: Achievement[] = [
     links: [{ label: "All Portfolio Projects", url: "/projects" }],
     featured: false,
   },
+  {
+    id: "thrift-store-product",
+    slug: "thrift-store",
+    category: "projects",
+    categoryLabel: "02 / Projects & Products",
+    indexNumber: "13",
+    title: "Thrift Store",
+    subtitle: "Sustainable Student Circular Economy & Campus Peer-to-Peer Marketplace",
+    organization: "NIT Hamirpur Hack 5.0 Grand Prize Winner (Startup Launch)",
+    recognition: "Startup Launch & Grand Prize Winner",
+    recognitionType: "product",
+    role: "Team Lead & Full Stack / Blockchain Developer",
+    projectName: "Thrift Store",
+    description:
+      "A student-first circular economy marketplace and college-specific ecosystem for university students to buy, sell, exchange, or rent essentials — textbooks, cycles, laptops, and hostel items — safely, affordably, and sustainably. Born as the Grand Prize winning prototype at NIT Hamirpur's Hack 5.0 (Obsidian Saga) out of 100+ teams.",
+    problemStatement:
+      "College students waste thousands of rupees each semester buying new textbooks, cycles, and hostel essentials while seniors discard usable goods, with no trusted, campus-verified platform for peer-to-peer exchange.",
+    solution:
+      "Engineered a trusted campus marketplace with college-wise segregation, verified student identities, an AI-powered smart pricing engine, in-app real-time negotiation, and scheduled on-campus meetups, plus a barter and rental system.",
+    contribution:
+      "Led Team Dezlopers as Team Lead & Full Stack Developer; architected the responsive Next.js frontend, AI smart pricing algorithms, and peer transaction flows.",
+    outcome:
+      "Won the ₹40,000 Grand Prize at NIT Hamirpur Hack 5.0, validated student demand across 100+ competing teams, and launched the initial campus cohort.",
+    coverImage: "/achievements/media/nit-hamirpur-1.jpg",
+    coverRatio: "16:9",
+    gallery: [
+      "/achievements/media/nit-hamirpur-1.jpg",
+      "/achievements/media/nit-hamirpur-2.jpg",
+      "/achievements/media/nit-hamirpur-3.jpg",
+      "/achievements/media/nit-hamirpur-4.jpg",
+    ],
+    galleryItems: [
+      {
+        src: "/achievements/media/nit-hamirpur-1.jpg",
+        alt: "Thrift Store — Grand Prize Winners at NIT Hamirpur Hack 5.0",
+        caption: "Thrift Store — Clinched Grand Prize of ₹40,000 at NIT Hamirpur Hack 5.0",
+        ratio: "16:9",
+        kind: "stage",
+      },
+      {
+        src: "/achievements/media/nit-hamirpur-2.jpg",
+        alt: "Team Dezlopers on Stage at NIT Hamirpur",
+        caption: "Team Dezlopers (Subhash Malik, Janvi Janvi, Himanshu Gupta, Lakshay Sharma) on stage",
+        ratio: "16:9",
+        kind: "stage",
+      },
+      {
+        src: "/achievements/media/nit-hamirpur-3.jpg",
+        alt: "Thrift Store Pitch Presentation",
+        caption: "Pitching Thrift Store circular economy mechanics to judges from GitHub and Devfolio",
+        ratio: "16:9",
+        kind: "stage",
+      },
+      {
+        src: "/achievements/media/nit-hamirpur-4.jpg",
+        alt: "Thrift Store Startup Launch Celebration",
+        caption: "Officially launching Thrift Store startup following Grand Prize victory",
+        ratio: "16:9",
+        kind: "photo",
+      },
+    ],
+    partnerLogos: [
+      { name: "NIT Hamirpur", logo: "/logos/nit-hamirpur.svg" },
+      { name: "Chandigarh University", logo: "/logos/chandigarh-university.svg" },
+      { name: "GitHub", logo: "/logos/github.svg" },
+    ],
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Node.js",
+      "AI Smart Pricing",
+      "Peer-to-Peer Chat",
+      "Circular Economy",
+    ],
+    links: [
+      { label: "Live Project (Thrift Store)", url: "https://thrift-store.subhashmalik.me" },
+    ],
+    featured: true,
+  },
 ];
