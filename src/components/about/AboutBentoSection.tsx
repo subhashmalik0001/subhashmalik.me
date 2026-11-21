@@ -187,7 +187,7 @@ export default function AboutBentoSection() {
 
             {/* 4. LinkedIn */}
             <a
-              href="https://linkedin.com/in/subhash-malik"
+              href="https://www.linkedin.com/in/subhashmalik/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn profile of Subhash Malik"

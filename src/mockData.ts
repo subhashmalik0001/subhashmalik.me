@@ -472,22 +472,28 @@ export const MOCK_COMMENTS: MockPost[] = [
 
 export const MOCK_RECOMMENDATIONS = [
   {
-    id: "user_morthindia",
-    displayName: "MORTHINDIA",
-    username: "MORTHINDIA",
-    img: "/general/noAvatar.png",
+    id: "subhash_linkedin",
+    displayName: "Subhash Malik",
+    username: "subhashmalik",
+    platform: "LinkedIn",
+    url: "https://www.linkedin.com/in/subhashmalik/",
+    img: "/social/linkedin-photo.jpg",
   },
   {
-    id: "user_swatantra",
-    displayName: "Swatantra Mishra",
-    username: "SwatantraMishra",
-    img: "/general/noAvatar.png",
+    id: "subhash_instagram",
+    displayName: "Subhash Malik",
+    username: "subhashmalik.me",
+    platform: "Instagram",
+    url: "https://www.instagram.com/subhashmalik.me/",
+    img: "/social/event-photo.jpg",
   },
   {
-    id: "user_paramjeet",
-    displayName: "Paramjeet khangwal",
-    username: "Paramjeetkhangwal",
-    img: "/general/noAvatar.png",
+    id: "subhash_x",
+    displayName: "Subhash Malik",
+    username: "SubhashMalik01",
+    platform: "X",
+    url: "https://x.com/SubhashMalik01",
+    img: "/general/about-me.jpg",
   },
 ];
 
